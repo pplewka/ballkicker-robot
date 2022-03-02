@@ -1,0 +1,55 @@
+/* ----------------------------------------------------------------------
+ *    AbsInt -- Angewandte Informatik GmbH
+ *    http://www.AbsInt.de/
+ * ----------------------------------------------------------------------
+ *
+ * Example implementation of the ISO/IEC 9899:1999 (E) standard C
+ * library for static program analyses with Astree.
+ *
+ * Developed and distributed by AbsInt, under license from the CNRS/ENS.
+ * ---------------------------------------------------------------------- */
+
+#pragma once
+
+#include <stddef.h>
+#include <astree_restrict.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+void *memcpy(void * __ASTREE_restrict s1, const void * __ASTREE_restrict s2, size_t n);
+void *memmove(void *s1, const void *s2, size_t n);
+char *strcpy(char * __ASTREE_restrict s1, const char * __ASTREE_restrict s2);
+errno_t strcpy_s(char *__ASTREE_restrict dest, rsize_t destsz, const char *__ASTREE_restrict src); /* C11 */
+char *strncpy(char * __ASTREE_restrict s1, const char * __ASTREE_restrict s2, size_t n);
+char *strcat(char * __ASTREE_restrict s1, const char * __ASTREE_restrict s2);
+char *strncat(char * __ASTREE_restrict s1, const char * __ASTREE_restrict s2, size_t n);
+int memcmp(const void *s1, const void *s2, size_t n);
+int strcmp(const char *s1, const char *s2);
+int strcoll(const char *s1, const char *s2);
+int strncmp(const char *s1, const char *s2, size_t n);
+size_t strxfrm(char * __ASTREE_restrict s1, const char * __ASTREE_restrict s2, size_t n);
+void *memchr(const void *s, int c, size_t n);
+char *strchr(const char *s, int c);
+size_t strcspn(const char *s1, const char *s2);
+char *strpbrk(const char *s1, const char *s2);
+char *strrchr(const char *s, int c);
+size_t strspn(const char *s1, const char *s2);
+char *strstr(const char *s1, const char *s2);
+char *strtok(char * __ASTREE_restrict s1, const char * __ASTREE_restrict s2);
+void *memset(void *s, int c, size_t n);
+char *strerror(int errnum);
+size_t strlen(const char *s);
+
+#ifdef __ASTREE_POSIX__
+char *strdup(const char *s);
+char *strndup(const char *s, size_t n);
+#endif /* __ASTREE_POSIX__ */
+
+#ifdef __cplusplus
+}
+#endif
+
+/* RULECHECKER_suppress(rules-category) */
+__ASTREE_attributes((coverage_ignore, raise_at_caller, hide_directives));

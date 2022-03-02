@@ -1,0 +1,471 @@
+/* ----------------------------------------------------------------------
+ *    AbsInt -- Angewandte Informatik GmbH
+ *    http://www.AbsInt.de/
+ * ----------------------------------------------------------------------
+ *
+ * Example implementation of the ISO/IEC 9899:1999 (E) standard C
+ * library for static program analyses with Astree.
+ *
+ * Developed and distributed by AbsInt, under license from the CNRS/ENS.
+ * ---------------------------------------------------------------------- */
+
+#pragma once
+
+/* utility */
+
+#define __ASTREE_CONCAT_(X, Y) X ## Y
+#define __ASTREE_CONCAT(X, Y) __ASTREE_CONCAT_(X, Y)
+
+/* basic */
+
+#define __ASTREE_S8_MIN (-0x7F - 1)
+#define __ASTREE_S8_MAX 0x7F
+#define __ASTREE_U8_MAX 0xFF
+
+#define __ASTREE_S16_MIN (-0x7FFF - 1)
+#define __ASTREE_S16_MAX 0x7FFF
+#define __ASTREE_U16_MAX 0xFFFF
+
+#define __ASTREE_S32_MIN (-0x7FFFFFFF - 1)
+#define __ASTREE_S32_MAX 0x7FFFFFFF
+#define __ASTREE_U32_MAX 0xFFFFFFFF
+
+#define __ASTREE_S64_MIN (-0x7FFFFFFFFFFFFFFF - 1)
+#define __ASTREE_S64_MAX 0x7FFFFFFFFFFFFFFF
+#define __ASTREE_U64_MAX 0xFFFFFFFFFFFFFFFF
+
+#define __ASTREE_S128_MIN (-0x7FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF - 1)
+#define __ASTREE_S128_MAX 0x7FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+#define __ASTREE_U128_MAX 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+
+#define __ASTREE_F32_MANT_DIG      24
+#define __ASTREE_F32_DECIMAL_DIG    9
+#define __ASTREE_F32_DIG            6
+#define __ASTREE_F32_MIN_EXP    (-125)
+#define __ASTREE_F32_MAX_EXP      128
+#define __ASTREE_F32_MIN_10_EXP (-37)
+#define __ASTREE_F32_MAX_10_EXP    38
+#define __ASTREE_F32_MIN        0x1p-126F
+#define __ASTREE_F32_MAX        0x1.FFFFFEp+127F
+#define __ASTREE_F32_EPSILON    0x1p-23F
+
+#define __ASTREE_F64_MANT_DIG       53
+#define __ASTREE_F64_DECIMAL_DIG    17
+#define __ASTREE_F64_DIG            15
+#define __ASTREE_F64_MIN_EXP    (-1021)
+#define __ASTREE_F64_MAX_EXP      1024
+#define __ASTREE_F64_MIN_10_EXP (-307)
+#define __ASTREE_F64_MAX_10_EXP    308
+#define __ASTREE_F64_MIN        0x1p-1022
+#define __ASTREE_F64_MAX        0x1.FFFFFFFFFFFFFp+1023
+#define __ASTREE_F64_EPSILON    0x1p-52
+
+#define __ASTREE_F80_MANT_DIG        64
+#define __ASTREE_F80_DECIMAL_DIG     21
+#define __ASTREE_F80_DIG             18
+#define __ASTREE_F80_MIN_EXP     (-16381)
+#define __ASTREE_F80_MAX_EXP      16384
+#define __ASTREE_F80_MIN_10_EXP  (-4931)
+#define __ASTREE_F80_MAX_10_EXP    4932
+#define __ASTREE_F80_MIN         0x1p-16382L
+#define __ASTREE_F80_MAX         0x1.FFFFFFFFFFFFFFFEp+16383L
+#define __ASTREE_F80_EPSILON     0x1p-63L
+
+/* char */
+
+#if __ASTREE_BITS_OF_CHAR == 8
+#define __ASTREE_SCHAR_MIN __ASTREE_S8_MIN
+#define __ASTREE_SCHAR_MAX __ASTREE_S8_MAX
+#define __ASTREE_UCHAR_MAX __ASTREE_U8_MAX
+#ifndef __ASTREE_INT8_T
+#define __ASTREE_INT8_T signed char
+#define __ASTREE_INT8_SUFFIX
+#endif
+#ifndef __ASTREE_UINT8_T
+#define __ASTREE_UINT8_T unsigned char
+#define __ASTREE_UINT8_SUFFIX U
+#endif
+#elif __ASTREE_BITS_OF_CHAR == 16
+#define __ASTREE_SCHAR_MIN __ASTREE_S16_MIN
+#define __ASTREE_SCHAR_MAX __ASTREE_S16_MAX
+#define __ASTREE_UCHAR_MAX __ASTREE_U16_MAX
+#ifndef __ASTREE_INT16_T
+#define __ASTREE_INT16_T signed char
+#define __ASTREE_INT16_SUFFIX
+#endif
+#ifndef __ASTREE_UINT16_T
+#define __ASTREE_UINT16_T unsigned char
+#define __ASTREE_UINT16_SUFFIX U
+#endif
+#else
+#error "unsupported ABI: bits_of_char not in [8,16]"
+#endif
+
+#if defined(__ASTREE_CHAR_SIGN_SIGNED) && defined(__ASTREE_CHAR_SIGN_UNSIGNED)
+#error "char must either be signed or unsigned"
+#endif
+
+#ifdef __ASTREE_CHAR_SIGN_UNSIGNED
+#define __ASTREE_CHAR_MIN 0
+#define __ASTREE_CHAR_MAX __ASTREE_UCHAR_MAX
+#endif
+
+#ifdef __ASTREE_CHAR_SIGN_SIGNED
+#define __ASTREE_CHAR_MIN __ASTREE_SCHAR_MIN
+#define __ASTREE_CHAR_MAX __ASTREE_SCHAR_MAX
+#endif
+
+#ifndef __ASTREE_WCHAR_T
+#define __ASTREE_WCHAR_T char
+#endif
+
+#ifndef __ASTREE_WINT_T
+#define __ASTREE_WINT_T int
+#endif
+
+/* short */
+
+#define __ASTREE_BITS_OF_SHRT (__ASTREE_SIZEOF_SHORT * __ASTREE_BITS_OF_BYTE)
+
+#if (__ASTREE_BITS_OF_SHRT == 8)
+#define __ASTREE_SHRT_MIN __ASTREE_S8_MIN
+#define __ASTREE_SHRT_MAX __ASTREE_S8_MAX
+#define __ASTREE_USHRT_MAX __ASTREE_U8_MAX
+#ifndef __ASTREE_INT8_T
+#define __ASTREE_INT8_T signed short
+#define __ASTREE_INT8_SUFFIX
+#endif
+#ifndef __ASTREE_UINT8_T
+#define __ASTREE_UINT8_T unsigned short
+#define __ASTREE_UINT8_SUFFIX U
+#endif
+#elif (__ASTREE_BITS_OF_SHRT == 16)
+#define __ASTREE_SHRT_MIN __ASTREE_S16_MIN
+#define __ASTREE_SHRT_MAX __ASTREE_S16_MAX
+#define __ASTREE_USHRT_MAX __ASTREE_U16_MAX
+#ifndef __ASTREE_INT16_T
+#define __ASTREE_INT16_T signed short
+#define __ASTREE_INT16_SUFFIX
+#endif
+#ifndef __ASTREE_UINT16_T
+#define __ASTREE_UINT16_T unsigned short
+#define __ASTREE_UINT16_SUFFIX U
+#endif
+#else
+#error "unsupported ABI: (sizeof_short * bits_of_byte) not in [8,16]"
+#endif
+
+/* int */
+
+#define __ASTREE_BITS_OF_INT (__ASTREE_SIZEOF_INT * __ASTREE_BITS_OF_BYTE)
+#if (__ASTREE_BITS_OF_INT == 16)
+#define __ASTREE_INT_MIN __ASTREE_S16_MIN
+#define __ASTREE_INT_MAX __ASTREE_S16_MAX
+#define __ASTREE_UINT_MAX __ASTREE_U16_MAX
+#ifndef __ASTREE_INT16_T
+#define __ASTREE_INT16_T signed int
+#define __ASTREE_INT16_SUFFIX
+#endif
+#ifndef __ASTREE_UINT16_T
+#define __ASTREE_UINT16_T unsigned int
+#define __ASTREE_UINT16_SUFFIX U
+#endif
+#elif (__ASTREE_BITS_OF_INT == 32)
+#define __ASTREE_INT_MIN __ASTREE_S32_MIN
+#define __ASTREE_INT_MAX __ASTREE_S32_MAX
+#define __ASTREE_UINT_MAX __ASTREE_U32_MAX
+#ifndef __ASTREE_INT32_T
+#define __ASTREE_INT32_T signed int
+#define __ASTREE_INT32_SUFFIX
+#endif
+#ifndef __ASTREE_UINT32_T
+#define __ASTREE_UINT32_T unsigned int
+#define __ASTREE_UINT32_SUFFIX U
+#endif
+#else
+#error "unsupported ABI: (sizeof_int * bits_of_byte) not in [16,32]"
+#endif
+
+/* long */
+
+#define __ASTREE_BITS_OF_LONG (__ASTREE_SIZEOF_LONG * __ASTREE_BITS_OF_BYTE)
+#if (__ASTREE_BITS_OF_LONG == 32)
+#define __ASTREE_LONG_MIN __ASTREE_S32_MIN
+#define __ASTREE_LONG_MAX __ASTREE_S32_MAX
+#define __ASTREE_ULONG_MAX __ASTREE_U32_MAX
+#ifndef __ASTREE_INT32_T
+#define __ASTREE_INT32_T signed long int
+#define __ASTREE_INT32_SUFFIX L
+#endif
+#ifndef __ASTREE_UINT32_T
+#define __ASTREE_UINT32_T unsigned long int
+#define __ASTREE_UINT32_SUFFIX UL
+#endif
+#elif (__ASTREE_BITS_OF_LONG == 64)
+#define __ASTREE_LONG_MIN __ASTREE_S64_MIN
+#define __ASTREE_LONG_MAX __ASTREE_S64_MAX
+#define __ASTREE_ULONG_MAX __ASTREE_U64_MAX
+#ifndef __ASTREE_INT64_T
+#define __ASTREE_INT64_T signed long int
+#define __ASTREE_INT64_SUFFIX L
+#endif
+#ifndef __ASTREE_UINT64_T
+#define __ASTREE_UINT64_T unsigned long int
+#define __ASTREE_UINT64_SUFFIX UL
+#endif
+#else
+#error "unsupported ABI: (sizeof_long * bits_of_byte) not in [32,64]"
+#endif
+
+/* long long */
+
+#define __ASTREE_BITS_OF_LLONG (__ASTREE_SIZEOF_LONG_LONG * __ASTREE_BITS_OF_BYTE)
+#if (__ASTREE_BITS_OF_LLONG == 32)
+#define __ASTREE_LLONG_MIN __ASTREE_S32_MIN
+#define __ASTREE_LLONG_MAX __ASTREE_S32_MAX
+#define __ASTREE_ULLONG_MAX __ASTREE_U32_MAX
+#ifndef __ASTREE_INT32_T
+#define __ASTREE_INT32_T signed long long int
+#define __ASTREE_INT32_SUFFIX LL
+#endif
+#ifndef __ASTREE_UINT32_T
+#define __ASTREE_UINT32_T unsigned long long int
+#define __ASTREE_UINT32_SUFFIX ULL
+#endif
+#elif (__ASTREE_BITS_OF_LLONG == 64)
+#define __ASTREE_LLONG_MIN __ASTREE_S64_MIN
+#define __ASTREE_LLONG_MAX __ASTREE_S64_MAX
+#define __ASTREE_ULLONG_MAX __ASTREE_U64_MAX
+#ifndef __ASTREE_INT64_T
+#define __ASTREE_INT64_T signed long long int
+#define __ASTREE_INT64_SUFFIX LL
+#endif
+#ifndef __ASTREE_UINT64_T
+#define __ASTREE_UINT64_T unsigned long long int
+#define __ASTREE_UINT64_SUFFIX ULL
+#endif
+#elif (__ASTREE_BITS_OF_LLONG == 128)
+#define __ASTREE_LLONG_MIN __ASTREE_S128_MIN
+#define __ASTREE_LLONG_MAX __ASTREE_S128_MAX
+#define __ASTREE_ULLONG_MAX __ASTREE_U128_MAX
+#else
+#error "unsupported ABI: (sizeof_long_long * bits_of_byte) not in [64,128]"
+#endif
+
+#ifndef __ASTREE_INT64_SUFFIX
+#if(__ASTREE_INT64_T_MAX == __ASTREE_LLONG_MAX)
+#define __ASTREE_INT64_SUFFIX LL
+#elif(__ASTREE_INT64_T_MAX == __ASTREE_LONG_MAX)
+#define __ASTREE_INT64_SUFFIX L
+#elif(__ASTREE_INT64_T_MAX == __ASTREE_INT_MAX)
+#define __ASTREE_INT64_SUFFIX
+#endif
+#endif
+#ifndef __ASTREE_UINT64_SUFFIX
+#if(__ASTREE_INT64_T_MAX == __ASTREE_LLONG_MAX)
+#define __ASTREE_UINT64_SUFFIX ULL
+#elif(__ASTREE_INT64_T_MAX == __ASTREE_LONG_MAX)
+#define __ASTREE_UINT64_SUFFIX UL
+#elif(__ASTREE_INT64_T_MAX == __ASTREE_INT_MAX)
+#define __ASTREE_UINT64_SUFFIX U
+#endif
+#endif
+
+/* float */
+
+#define __ASTREE_BITS_OF_FLT (__ASTREE_SIZEOF_FLOAT * __ASTREE_BITS_OF_BYTE)
+#if (__ASTREE_BITS_OF_FLT == 32)
+#define __ASTREE_FLT_MANT_DIG    __ASTREE_F32_MANT_DIG
+#define __ASTREE_FLT_DECIMAL_DIG __ASTREE_F32_DECIMAL_DIG
+#define __ASTREE_FLT_DIG         __ASTREE_F32_DIG
+#define __ASTREE_FLT_MIN_EXP     __ASTREE_F32_MIN_EXP
+#define __ASTREE_FLT_MAX_EXP     __ASTREE_F32_MAX_EXP
+#define __ASTREE_FLT_MIN_10_EXP  __ASTREE_F32_MIN_10_EXP
+#define __ASTREE_FLT_MAX_10_EXP  __ASTREE_F32_MAX_10_EXP
+#define __ASTREE_FLT_MIN         __ASTREE_F32_MIN
+#define __ASTREE_FLT_MAX         __ASTREE_F32_MAX
+#define __ASTREE_FLT_EPSILON     __ASTREE_F32_EPSILON
+#elif (__ASTREE_BITS_OF_FLT == 64)
+#define __ASTREE_FLT_MANT_DIG    __ASTREE_F64_MANT_DIG
+#define __ASTREE_FLT_DECIMAL_DIG __ASTREE_F64_DECIMAL_DIG
+#define __ASTREE_FLT_DIG         __ASTREE_F64_DIG
+#define __ASTREE_FLT_MIN_EXP     __ASTREE_F64_MIN_EXP
+#define __ASTREE_FLT_MAX_EXP     __ASTREE_F64_MAX_EXP
+#define __ASTREE_FLT_MIN_10_EXP  __ASTREE_F64_MIN_10_EXP
+#define __ASTREE_FLT_MAX_10_EXP  __ASTREE_F64_MAX_10_EXP
+#define __ASTREE_FLT_MIN         __ASTREE_F64_MIN
+#define __ASTREE_FLT_MAX         __ASTREE_F64_MAX
+#define __ASTREE_FLT_EPSILON     __ASTREE_F64_EPSILON
+#else
+#error "unsupported ABI: (sizeof_float * bits_of_byte) not in [32,64]"
+#endif
+
+/* double */
+
+#define __ASTREE_BITS_OF_DBL (__ASTREE_SIZEOF_DOUBLE * __ASTREE_BITS_OF_BYTE)
+#if (__ASTREE_BITS_OF_DBL == 32)
+#define __ASTREE_DBL_MANT_DIG    __ASTREE_F32_MANT_DIG
+#define __ASTREE_DBL_DECIMAL_DIG __ASTREE_F32_DECIMAL_DIG
+#define __ASTREE_DBL_DIG         __ASTREE_F32_DIG
+#define __ASTREE_DBL_MIN_EXP     __ASTREE_F32_MIN_EXP
+#define __ASTREE_DBL_MAX_EXP     __ASTREE_F32_MAX_EXP
+#define __ASTREE_DBL_MIN_10_EXP  __ASTREE_F32_MIN_10_EXP
+#define __ASTREE_DBL_MAX_10_EXP  __ASTREE_F32_MAX_10_EXP
+#define __ASTREE_DBL_MIN         __ASTREE_F32_MIN
+#define __ASTREE_DBL_MAX         __ASTREE_F32_MAX
+#define __ASTREE_DBL_EPSILON     __ASTREE_F32_EPSILON
+#elif (__ASTREE_BITS_OF_DBL == 64)
+#define __ASTREE_DBL_MANT_DIG    __ASTREE_F64_MANT_DIG
+#define __ASTREE_DBL_DECIMAL_DIG __ASTREE_F64_DECIMAL_DIG
+#define __ASTREE_DBL_DIG         __ASTREE_F64_DIG
+#define __ASTREE_DBL_MIN_EXP     __ASTREE_F64_MIN_EXP
+#define __ASTREE_DBL_MAX_EXP     __ASTREE_F64_MAX_EXP
+#define __ASTREE_DBL_MIN_10_EXP  __ASTREE_F64_MIN_10_EXP
+#define __ASTREE_DBL_MAX_10_EXP  __ASTREE_F64_MAX_10_EXP
+#define __ASTREE_DBL_MIN         __ASTREE_F64_MIN
+#define __ASTREE_DBL_MAX         __ASTREE_F64_MAX
+#define __ASTREE_DBL_EPSILON     __ASTREE_F64_EPSILON
+#else
+#error "unsupported ABI: (sizeof_double * bits_of_byte) not in [32,64]"
+#endif
+
+/* long double */
+
+#define __ASTREE_BITS_OF_LDBL (__ASTREE_SIZEOF_LONG_DOUBLE * __ASTREE_BITS_OF_BYTE)
+#if (__ASTREE_BITS_OF_LDBL == 32)
+#define __ASTREE_LDBL_MANT_DIG    __ASTREE_F32_MANT_DIG
+#define __ASTREE_LDBL_DECIMAL_DIG __ASTREE_F32_DECIMAL_DIG
+#define __ASTREE_LDBL_DIG         __ASTREE_F32_DIG
+#define __ASTREE_LDBL_MIN_EXP     __ASTREE_F32_MIN_EXP
+#define __ASTREE_LDBL_MAX_EXP     __ASTREE_F32_MAX_EXP
+#define __ASTREE_LDBL_MIN_10_EXP  __ASTREE_F32_MIN_10_EXP
+#define __ASTREE_LDBL_MAX_10_EXP  __ASTREE_F32_MAX_10_EXP
+#define __ASTREE_LDBL_MIN         __ASTREE_F32_MIN
+#define __ASTREE_LDBL_MAX         __ASTREE_F32_MAX
+#define __ASTREE_LDBL_EPSILON     __ASTREE_F32_EPSILON
+#elif (__ASTREE_BITS_OF_LDBL == 64)
+#define __ASTREE_LDBL_MANT_DIG    __ASTREE_F64_MANT_DIG
+#define __ASTREE_LDBL_DECIMAL_DIG __ASTREE_F64_DECIMAL_DIG
+#define __ASTREE_LDBL_DIG         __ASTREE_F64_DIG
+#define __ASTREE_LDBL_MIN_EXP     __ASTREE_F64_MIN_EXP
+#define __ASTREE_LDBL_MAX_EXP     __ASTREE_F64_MAX_EXP
+#define __ASTREE_LDBL_MIN_10_EXP  __ASTREE_F64_MIN_10_EXP
+#define __ASTREE_LDBL_MAX_10_EXP  __ASTREE_F64_MAX_10_EXP
+#define __ASTREE_LDBL_MIN         __ASTREE_F64_MIN
+#define __ASTREE_LDBL_MAX         __ASTREE_F64_MAX
+#define __ASTREE_LDBL_EPSILON     __ASTREE_F64_EPSILON
+#elif (__ASTREE_BITS_OF_LDBL > 64)
+/* fall-back to 80 bit for backwards compatibility
+   - the analyzer will complain if long doubles > 64 bit are used */
+#define __ASTREE_LDBL_MANT_DIG    __ASTREE_F80_MANT_DIG
+#define __ASTREE_LDBL_DECIMAL_DIG __ASTREE_F80_DECIMAL_DIG
+#define __ASTREE_LDBL_DIG         __ASTREE_F80_DIG
+#define __ASTREE_LDBL_MIN_EXP     __ASTREE_F80_MIN_EXP
+#define __ASTREE_LDBL_MAX_EXP     __ASTREE_F80_MAX_EXP
+#define __ASTREE_LDBL_MIN_10_EXP  __ASTREE_F80_MIN_10_EXP
+#define __ASTREE_LDBL_MAX_10_EXP  __ASTREE_F80_MAX_10_EXP
+#define __ASTREE_LDBL_MIN         __ASTREE_F80_MIN
+#define __ASTREE_LDBL_MAX         __ASTREE_F80_MAX
+#define __ASTREE_LDBL_EPSILON     __ASTREE_F80_EPSILON
+#else
+#error "unsupported ABI: (sizeof_long_double * bits_of_byte) < 64"
+#endif
+
+/* rounding mode */
+
+#if defined(__ASTREE_ROUNDING_MODE_ALL) && defined(__ASTREE_ROUNDING_MODE_TO_NEAREST)
+#error "rounding mode must either be 'all' or 'to_nearest'"
+#endif
+
+#ifdef __ASTREE_ROUNDING_MODE_ALL
+#define __ASTREE_FLT_ROUNDS -1
+#endif
+
+#ifdef __ASTREE_ROUNDING_MODE_TO_NEAREST
+#define __ASTREE_FLT_ROUNDS 1
+#endif
+
+/* __ASTREE_SIZE_MAX */
+#if (__ASTREE_SIZEOF_POINTER <= __ASTREE_SIZEOF_SHORT)
+#define __ASTREE_SIZE_MAX __ASTREE_USHRT_MAX
+#elif (__ASTREE_SIZEOF_POINTER <= __ASTREE_SIZEOF_INT)
+#define __ASTREE_SIZE_MAX __ASTREE_UINT_MAX
+#elif (__ASTREE_SIZEOF_POINTER <= __ASTREE_SIZEOF_LONG)
+#define __ASTREE_SIZE_MAX __ASTREE_ULONG_MAX
+#else
+#define __ASTREE_SIZE_MAX __ASTREE_ULLONG_MAX
+#endif
+
+#ifndef __ASTREE_SIG_ATOMIC_T
+#define __ASTREE_SIG_ATOMIC_T unsigned
+#endif
+
+#ifndef __ASTREE_INTPTR_T
+#define __ASTREE_INTPTR_T int
+#endif
+
+#ifndef __ASTREE_UINTPTR_T
+#define __ASTREE_UINTPTR_T unsigned __ASTREE_INTPTR_T
+#endif
+
+#ifndef __ASTREE_INTMAX_T
+#define __ASTREE_INTMAX_T long long int
+#endif
+
+#ifndef __ASTREE_UINTMAX_T
+#define __ASTREE_UINTMAX_T unsigned __ASTREE_INTMAX_T
+#endif
+
+#if (__ASTREE_BITS_OF_CHAR == 8) && !defined(__ASTREE_INT8_T)
+#error "unsupported ABI: (no suitable type for int8_t found)"
+#endif
+#if  (__ASTREE_BITS_OF_CHAR == 8) && !defined(__ASTREE_UINT8_T)
+#error "unsupported ABI: (no suitable type for uint8_t found)"
+#endif
+
+#ifndef __ASTREE_INT16_T
+#error "unsupported ABI: (no suitable type for int16_t found)"
+#endif
+#ifndef __ASTREE_UINT16_T
+#error "unsupported ABI: (no suitable type for uint16_t found)"
+#endif
+#ifndef __ASTREE_INT32_T
+#error "unsupported ABI: (no suitable type for int32_t found)"
+#endif
+#ifndef __ASTREE_UINT32_T
+#error "unsupported ABI: (no suitable type for uint32_t found)"
+#endif
+#ifndef __ASTREE_INT64_T
+#warning "unsupported ABI: (no suitable type for int64_t found)"
+#endif
+#ifndef __ASTREE_UINT64_T
+#warning "unsupported ABI: (no suitable type for uint64_t found)"
+#endif
+
+#if (__ASTREE_BITS_OF_CHAR == 8) && !defined(__ASTREE_INT8_SUFFIX)
+#error "unsupported ABI: (no suffix for int8_t constants defined)"
+#endif
+#if (__ASTREE_BITS_OF_CHAR == 8) && !defined(__ASTREE_UINT8_SUFFIX)
+#error "unsupported ABI: (no suffix for uint8_t constants defined)"
+#endif
+#ifndef __ASTREE_INT16_SUFFIX
+#error "unsupported ABI: (no suffix for int16_t constants defined)"
+#endif
+#ifndef __ASTREE_UINT16_SUFFIX
+#error "unsupported ABI: (no suffix for uint16_t constants defined)"
+#endif
+#ifndef __ASTREE_INT32_SUFFIX
+#error "unsupported ABI: (no suffix for int32_t constants defined)"
+#endif
+#ifndef __ASTREE_UINT32_SUFFIX
+#error "unsupported ABI: (no suffix for uint32_t constants defined)"
+#endif
+#if !defined(__ASTREE_INT64_SUFFIX) && defined(__ASTREE_INT64_T)
+#error "unsupported ABI: (no suffix for int64_t constants defined)"
+#endif
+#if !defined(__ASTREE_UINT64_SUFFIX) && defined(__ASTREE_UINT64_T)
+#error "unsupported ABI: (no suffix for uint64_t constants defined)"
+#endif
+
+/* RULECHECKER_suppress(rules-category) */
+__ASTREE_attributes((coverage_ignore, raise_at_caller, hide_directives));

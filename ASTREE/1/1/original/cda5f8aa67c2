@@ -1,0 +1,22 @@
+/* ----------------------------------------------------------------------
+ *    AbsInt -- Angewandte Informatik GmbH
+ *    http://www.AbsInt.de/
+ * ----------------------------------------------------------------------
+ *
+ * Example implementation of the ISO/IEC 9899:2011 standard C
+ * library for static program analyses with Astree.
+ *
+ * Developed and distributed by AbsInt, under license from the CNRS/ENS.
+ * ---------------------------------------------------------------------- */
+
+#pragma once
+
+/* control use of restrict keyword: not defined for C++ and C90 */
+#if defined(__cplusplus) || (defined(__ASTREE_CLANG_COMPATIBLE) && !(defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L))
+#define __ASTREE_restrict
+#else
+#define __ASTREE_restrict restrict
+#endif
+
+/* RULECHECKER_suppress(rules-category) */
+__ASTREE_attributes((coverage_ignore, raise_at_caller, hide_directives));

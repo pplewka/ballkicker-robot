@@ -1,0 +1,1357 @@
+# 1 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.c"
+# 1 "<built-in>" 1
+# 1 "<built-in>" 3
+# 10 "<built-in>"
+
+
+
+
+# 1 "<command line>" 1
+# 1 "<built-in>" 2
+# 1 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.c" 2
+# 13 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.c"
+# 1 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdlib.h" 1
+# 14 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdlib.h"
+# 1 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\astree_config.h" 1
+# 471 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\astree_config.h"
+__ASTREE_attributes((coverage_ignore, raise_at_caller, hide_directives));
+# 15 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdlib.h" 2
+# 1 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stddef.h" 1
+# 20 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stddef.h"
+typedef long int ptrdiff_t;
+typedef long unsigned int size_t;
+
+
+typedef int wchar_t;
+# 46 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stddef.h"
+typedef int errno_t;
+
+
+typedef double long max_align_t;
+
+typedef size_t rsize_t;
+
+
+
+
+
+
+__ASTREE_attributes((coverage_ignore, raise_at_caller, hide_directives));
+# 16 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdlib.h" 2
+# 1 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\astree_restrict.h" 1
+# 22 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\astree_restrict.h"
+__ASTREE_attributes((coverage_ignore, raise_at_caller, hide_directives));
+# 17 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdlib.h" 2
+
+
+
+
+
+typedef struct {
+    int quot;
+    int rem;
+} div_t;
+
+typedef struct {
+    long int quot;
+    long int rem;
+} ldiv_t;
+
+typedef struct {
+    long long int quot;
+    long long int rem;
+} lldiv_t;
+# 55 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdlib.h"
+double atof(const char *nptr);
+int atoi(const char *nptr);
+long int atol(const char *nptr);
+long long int atoll(const char *nptr);
+double strtod(const char * restrict nptr, char ** restrict endptr);
+float strtof(const char * restrict nptr, char ** restrict endptr);
+long double strtold(const char * restrict nptr, char ** restrict endptr);
+long int strtol(const char * restrict nptr, char ** restrict endptr, int base);
+long long int strtoll(const char * restrict nptr, char ** restrict endptr, int base);
+unsigned long int strtoul(const char * restrict nptr, char ** restrict endptr, int base);
+unsigned long long int strtoull(const char * restrict nptr, char ** restrict endptr, int base);
+int rand(void);
+void srand(unsigned int seed);
+void *aligned_alloc(size_t alignment, size_t size);
+void *calloc(size_t nmemb, size_t size);
+void free(void *ptr);
+void *malloc(size_t size);
+void *realloc(void *ptr, size_t size);
+_Noreturn void abort(void);
+int atexit(void (*func)(void));
+int at_quick_exit(void (*func)(void));
+_Noreturn void exit(int status);
+_Noreturn void _Exit(int status);
+char *getenv(const char *name);
+_Noreturn void quick_exit(int status);
+int system(const char *string);
+void *bsearch(const void *key, const void *base, size_t nmemb, size_t size,
+int (*compar)(const void *, const void *));
+void qsort(void *base, size_t nmemb, size_t size, int (*compar)(const void *, const void *));
+int abs(int j);
+long int labs(long int j);
+long long int llabs(long long int j);
+div_t div(int numer, int denom);
+ldiv_t ldiv(long int numer, long int denom);
+lldiv_t lldiv(long long int numer, long long int denom);
+int mblen(const char *s, size_t n);
+int mbtowc(wchar_t * restrict pwc, const char * restrict s, size_t n);
+int wctomb(char *s, wchar_t wchar);
+size_t mbstowcs(wchar_t * restrict pwcs, const char * restrict s, size_t n);
+size_t wcstombs(char * restrict s, const wchar_t * restrict pwcs, size_t n);
+
+
+
+
+
+
+__ASTREE_attributes((coverage_ignore, raise_at_caller, hide_directives));
+# 14 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.c" 2
+# 1 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\string.h" 1
+# 21 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\string.h"
+void *memcpy(void * restrict s1, const void * restrict s2, size_t n);
+void *memmove(void *s1, const void *s2, size_t n);
+char *strcpy(char * restrict s1, const char * restrict s2);
+errno_t strcpy_s(char *restrict dest, rsize_t destsz, const char *restrict src);
+char *strncpy(char * restrict s1, const char * restrict s2, size_t n);
+char *strcat(char * restrict s1, const char * restrict s2);
+char *strncat(char * restrict s1, const char * restrict s2, size_t n);
+int memcmp(const void *s1, const void *s2, size_t n);
+int strcmp(const char *s1, const char *s2);
+int strcoll(const char *s1, const char *s2);
+int strncmp(const char *s1, const char *s2, size_t n);
+size_t strxfrm(char * restrict s1, const char * restrict s2, size_t n);
+void *memchr(const void *s, int c, size_t n);
+char *strchr(const char *s, int c);
+size_t strcspn(const char *s1, const char *s2);
+char *strpbrk(const char *s1, const char *s2);
+char *strrchr(const char *s, int c);
+size_t strspn(const char *s1, const char *s2);
+char *strstr(const char *s1, const char *s2);
+char *strtok(char * restrict s1, const char * restrict s2);
+void *memset(void *s, int c, size_t n);
+char *strerror(int errnum);
+size_t strlen(const char *s);
+# 55 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\string.h"
+__ASTREE_attributes((coverage_ignore, raise_at_caller, hide_directives));
+# 15 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.c" 2
+# 1 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdio.h" 1
+# 15 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdio.h"
+# 1 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdarg.h" 1
+# 46 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdarg.h"
+typedef union {
+  int i;
+  long l;
+  long long ll;
+  double d;
+  long double dd;
+  void *p;
+} ASTREE_va_arg_any;
+
+typedef ASTREE_va_arg_any *va_list;
+# 69 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdarg.h"
+__ASTREE_attributes((coverage_ignore, raise_at_caller, hide_directives));
+# 16 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdio.h" 2
+
+
+
+
+
+
+typedef struct { char dummy; } FILE;
+
+typedef int fpos_t;
+# 85 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdio.h"
+extern FILE* stderr;
+extern FILE* stdin;
+extern FILE* stdout;
+
+int remove(const char *filename);
+int rename(const char *oldname, const char *newname);
+FILE* tmpfile(void);
+char* tmpnam(char* s);
+int fclose(FILE* stream);
+int fflush(FILE* stream);
+FILE* fopen(const char* restrict filename, const char* restrict mode);
+FILE* freopen(const char* restrict filename, const char* restrict mode, FILE* stream);
+void setbuf(FILE* restrict stream, char* restrict buf);
+int setvbuf(FILE* restrict stream, char* restrict buf, int mode, size_t size);
+
+
+
+
+
+int fprintf(FILE* restrict stream, const char* restrict format, ...);
+int fscanf(FILE* restrict stream, const char* restrict format, ...);
+int printf(const char* restrict format, ...);
+int scanf(const char* restrict format, ...);
+int sprintf(char* restrict sm, const char* restrict format, ...);
+int sscanf(const char* restrict sm, const char* restrict format, ...);
+int snprintf(char* restrict s, size_t n, const char* restrict format, ...);
+
+int vfprintf(FILE* restrict stream, const char* restrict format, va_list arg);
+int vfscanf(FILE* restrict stream, const char* restrict format, va_list arg);
+int vprintf(const char* restrict format, va_list arg);
+int vscanf(const char* restrict format, va_list arg);
+int vsnprintf(char* restrict s, size_t n, const char* restrict format, va_list arg);
+int vsprintf(char* restrict s, const char* restrict format, va_list arg);
+int vsscanf(const char* restrict s, const char* restrict format, va_list arg);
+
+int fgetc(FILE* stream);
+char* fgets(char* restrict s, int n, FILE* restrict stream);
+int fputc(int c, FILE* stream);
+int fputs(const char* restrict s, FILE* restrict stream);
+int getc(FILE* stream);
+int getchar(void);
+
+char* gets(char* s);
+
+int putc(int c, FILE* stream);
+int putchar(int c);
+int puts(const char* s);
+int ungetc(int c, FILE* stream);
+size_t fread(void* restrict ptr, size_t size, size_t nmemb, FILE* restrict stream);
+size_t fwrite(const void* restrict ptr, size_t size, size_t nmemb, FILE* restrict stream);
+int fgetpos(FILE* restrict stream, fpos_t* restrict pos);
+int fseek(FILE* stream, long int offset, int whence);
+int fsetpos(FILE* stream, const fpos_t* pos);
+long int ftell(FILE* stream);
+void rewind(FILE* stream);
+void clearerr(FILE* stream);
+int feof(FILE* stream);
+int ferror(FILE* stream);
+void perror(const char* s);
+# 155 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdio.h"
+__ASTREE_attributes((coverage_ignore, raise_at_caller, hide_directives));
+# 16 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.c" 2
+# 1 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/crc32.h" 1
+# 16 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/crc32.h"
+# 1 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdint.h" 1
+# 16 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdint.h"
+typedef signed char int8_t;
+
+typedef signed short int16_t;
+typedef signed int int32_t;
+
+typedef signed long long int int64_t;
+
+
+typedef unsigned char uint8_t;
+
+typedef unsigned short uint16_t;
+typedef unsigned int uint32_t;
+
+typedef unsigned long long int uint64_t;
+
+
+typedef long int intptr_t;
+typedef long unsigned int uintptr_t;
+
+
+typedef int8_t int_least8_t;
+
+typedef int16_t int_least16_t;
+typedef int32_t int_least32_t;
+
+typedef int64_t int_least64_t;
+
+
+typedef uint8_t uint_least8_t;
+
+typedef uint16_t uint_least16_t;
+typedef uint32_t uint_least32_t;
+
+typedef uint64_t uint_least64_t;
+
+
+
+typedef int8_t int_fast8_t;
+
+typedef int16_t int_fast16_t;
+typedef int32_t int_fast32_t;
+
+typedef int64_t int_fast64_t;
+
+
+typedef uint8_t uint_fast8_t;
+
+typedef uint16_t uint_fast16_t;
+typedef uint32_t uint_fast32_t;
+
+typedef uint64_t uint_fast64_t;
+
+
+typedef long long int intmax_t;
+typedef long long unsigned int uintmax_t;
+# 243 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdint.h"
+__ASTREE_attributes((coverage_ignore, raise_at_caller, hide_directives));
+# 17 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/crc32.h" 2
+
+extern uint32_t crc32( uint32_t crc, const char *buf, uint32_t len );
+# 17 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.c" 2
+# 1 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/3d_party\\modp_numtoa.h" 1
+# 45 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/3d_party\\modp_numtoa.h"
+char* modp_itoa10(int32_t value, char* buf);
+
+
+
+
+
+
+
+char* modp_uitoa10(uint32_t value, char* buf);
+
+
+
+
+
+
+
+char* modp_litoa10(int64_t value, char* buf);
+
+
+
+
+
+
+
+char* modp_ulitoa10(uint64_t value, char* buf);
+# 86 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/3d_party\\modp_numtoa.h"
+char* modp_dtoa(double value, char* buf, int precision);
+# 104 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/3d_party\\modp_numtoa.h"
+char* modp_dtoa2(double value, char* buf, int precision);
+# 18 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.c" 2
+# 1 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3.h" 1
+# 40 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3.h"
+# 1 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdbool.h" 1
+# 27 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdbool.h"
+__ASTREE_attributes((coverage_ignore, raise_at_caller, hide_directives));
+# 41 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3.h" 2
+# 1 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_both.h" 1
+# 18 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_both.h"
+enum {
+ EV3_KEY__NONE_ = 0,
+
+ EV3_KEY_UP = 0x01L,
+ EV3_KEY_DOWN = 0x02L,
+ EV3_KEY_LEFT = 0x04L,
+ EV3_KEY_RIGHT = 0x08L,
+ EV3_KEY_CENTER = 0x10L,
+ EV3_KEY_BACK = 0x20L,
+};
+# 42 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3.h" 2
+# 62 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3.h"
+extern char *ev3_brick_addr;
+
+
+
+
+extern uint16_t ev3_brick_port;
+
+
+
+
+
+typedef uint8_t byte;
+typedef uint32_t dword;
+
+
+
+typedef uint8_t INX_T;
+typedef uint8_t FLAGS_T;
+# 90 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3.h"
+extern int ev3_init( void );
+
+
+
+
+extern void ev3_uninit( void );
+# 104 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3.h"
+extern size_t ev3_write_binary( const char *fn, char *data, size_t sz );
+
+
+
+
+
+
+
+extern size_t ev3_write( const char *fn, char *value );
+
+
+
+
+
+
+
+extern size_t ev3_write_bool( const char *fn, _Bool value );
+
+
+
+
+
+
+
+extern size_t ev3_write_int( const char *fn, int value );
+
+
+
+
+
+
+
+extern size_t ev3_write_dword( const char *fn, uint32_t value );
+
+
+
+
+
+
+
+extern size_t ev3_write_byte( const char *fn, uint8_t value );
+
+
+
+
+
+
+
+extern size_t ev3_write_float( const char *fn, float value );
+
+extern size_t ev3_write_char_array( const char *fn, char *value );
+extern size_t ev3_write_byte_array( const char *fn, uint8_t *value, size_t sz );
+# 166 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3.h"
+extern size_t ev3_multi_write_binary( uint8_t *sn, uint16_t pos, const char *fn, char *data, size_t sz );
+
+extern size_t ev3_multi_write( uint8_t *sn, uint16_t pos, const char *fn, char *value );
+extern size_t ev3_multi_write_bool( uint8_t *sn, uint16_t pos, const char *fn, _Bool value );
+extern size_t ev3_multi_write_int( uint8_t *sn, uint16_t pos, const char *fn, int value );
+extern size_t ev3_multi_write_dword( uint8_t *sn, uint16_t pos, const char *fn, uint32_t value );
+extern size_t ev3_multi_write_byte( uint8_t *sn, uint16_t pos, const char *fn, uint8_t value );
+extern size_t ev3_multi_write_float( uint8_t *sn, uint16_t pos, const char *fn, float value );
+extern size_t ev3_multi_write_char_array( uint8_t *sn, uint16_t pos, const char *fn, char *value );
+extern size_t ev3_multi_write_byte_array( uint8_t *sn, uint16_t pos, const char *fn, uint8_t *value, size_t sz );
+# 184 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3.h"
+extern size_t ev3_read_binary( const char *fn, char *buf, size_t sz );
+# 193 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3.h"
+extern size_t ev3_read( const char *fn, char *buf, size_t sz );
+
+
+
+
+
+
+
+extern size_t ev3_read_bool( const char *fn, _Bool *buf );
+
+
+
+
+
+
+
+extern size_t ev3_read_int( const char *fn, int *buf );
+
+
+
+
+
+
+
+extern size_t ev3_read_dword( const char *fn, uint32_t *buf );
+
+
+
+
+
+
+
+extern size_t ev3_read_byte( const char *fn, uint8_t *buf );
+
+
+
+
+
+
+
+extern size_t ev3_read_float( const char *fn, float *buf );
+
+extern size_t ev3_read_char_array( const char *fn, char *buf, size_t sz );
+extern size_t ev3_read_byte_array( const char *fn, uint8_t *buf, size_t sz );
+# 245 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3.h"
+extern size_t ev3_listdir( const char *fn, char *buf, size_t sz );
+
+
+
+
+
+
+extern size_t ev3_read_keys( uint8_t *buf );
+
+
+
+
+
+extern _Bool ev3_poweroff( void );
+# 268 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3.h"
+extern int ev3_string_suffix( const char *prefix, char **s, uint32_t *buf );
+# 19 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.c" 2
+# 1 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.h" 1
+# 59 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.h"
+typedef struct {
+ INX_T type_inx;
+ uint8_t port;
+ uint8_t extport;
+ uint8_t addr;
+
+} EV3_PORT;
+# 74 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.h"
+EV3_PORT ev3_port[ 64 ];
+
+
+
+
+enum {
+ PORT_TYPE__NONE_ = 0,
+
+ BRICKPI_OUT_PORT,
+ BRICKPI3_IN_PORT,
+ HT_NXT_SMUX_PORT,
+ EV3_OUTPUT_PORT,
+ WEDO_PORT,
+ EV3_INPUT_PORT,
+ PISTORMS_OUT_PORT,
+ BRICKPI3_OUT_PORT,
+ PISTORMS_IN_PORT,
+ BRICKPI_IN_PORT,
+ MS_EV3_SMUX_PORT,
+ MS_NXTMMX_OUT_PORT,
+
+ PORT_TYPE__COUNT_,
+ PORT_TYPE__UNKNOWN_ = PORT_TYPE__COUNT_
+};
+
+
+
+
+enum {
+ PORT_MODE__NONE_ = 0,
+
+ BRICKPI_OUT_PORT_TACHO_MOTOR, BRICKPI_OUT_TACHO_MOTOR = BRICKPI_OUT_PORT_TACHO_MOTOR,
+ BRICKPI_OUT_PORT_DC_MOTOR, BRICKPI_OUT_DC_MOTOR = BRICKPI_OUT_PORT_DC_MOTOR,
+ BRICKPI_OUT_PORT_LED, BRICKPI_OUT_LED = BRICKPI_OUT_PORT_LED,
+ BRICKPI3_IN_PORT_NONE, BRICKPI3_IN_NONE = BRICKPI3_IN_PORT_NONE,
+ BRICKPI3_IN_PORT_NXT_ANALOG, BRICKPI3_IN_NXT_ANALOG = BRICKPI3_IN_PORT_NXT_ANALOG,
+ BRICKPI3_IN_PORT_NXT_COLOR, BRICKPI3_IN_NXT_COLOR = BRICKPI3_IN_PORT_NXT_COLOR,
+ BRICKPI3_IN_PORT_NXT_I2C, BRICKPI3_IN_NXT_I2C = BRICKPI3_IN_PORT_NXT_I2C,
+ BRICKPI3_IN_PORT_EV3_ANALOG, BRICKPI3_IN_EV3_ANALOG = BRICKPI3_IN_PORT_EV3_ANALOG,
+ BRICKPI3_IN_PORT_EV3_UART, BRICKPI3_IN_EV3_UART = BRICKPI3_IN_PORT_EV3_UART,
+ HT_NXT_SMUX_PORT_ANALOG, HT_NXT_SMUX_ANALOG = HT_NXT_SMUX_PORT_ANALOG,
+ HT_NXT_SMUX_PORT_I2C, HT_NXT_SMUX_I2C = HT_NXT_SMUX_PORT_I2C,
+ EV3_OUTPUT_PORT_AUTO, EV3_OUTPUT_AUTO = EV3_OUTPUT_PORT_AUTO,
+ EV3_OUTPUT_PORT_TACHO_MOTOR, EV3_OUTPUT_TACHO_MOTOR = EV3_OUTPUT_PORT_TACHO_MOTOR,
+ EV3_OUTPUT_PORT_DC_MOTOR, EV3_OUTPUT_DC_MOTOR = EV3_OUTPUT_PORT_DC_MOTOR,
+ EV3_OUTPUT_PORT_LED, EV3_OUTPUT_LED = EV3_OUTPUT_PORT_LED,
+ EV3_OUTPUT_PORT_RAW, EV3_OUTPUT_RAW = EV3_OUTPUT_PORT_RAW,
+ WEDO_PORT_AUTO, WEDO_AUTO = WEDO_PORT_AUTO,
+ EV3_INPUT_PORT_AUTO, EV3_INPUT_AUTO = EV3_INPUT_PORT_AUTO,
+ EV3_INPUT_PORT_NXT_ANALOG, EV3_INPUT_NXT_ANALOG = EV3_INPUT_PORT_NXT_ANALOG,
+ EV3_INPUT_PORT_NXT_COLOR, EV3_INPUT_NXT_COLOR = EV3_INPUT_PORT_NXT_COLOR,
+ EV3_INPUT_PORT_NXT_I2C, EV3_INPUT_NXT_I2C = EV3_INPUT_PORT_NXT_I2C,
+ EV3_INPUT_PORT_OTHER_I2C, EV3_INPUT_OTHER_I2C = EV3_INPUT_PORT_OTHER_I2C,
+ EV3_INPUT_PORT_EV3_ANALOG, EV3_INPUT_EV3_ANALOG = EV3_INPUT_PORT_EV3_ANALOG,
+ EV3_INPUT_PORT_EV3_UART, EV3_INPUT_EV3_UART = EV3_INPUT_PORT_EV3_UART,
+ EV3_INPUT_PORT_OTHER_UART, EV3_INPUT_OTHER_UART = EV3_INPUT_PORT_OTHER_UART,
+ EV3_INPUT_PORT_RAW, EV3_INPUT_RAW = EV3_INPUT_PORT_RAW,
+ PISTORMS_OUT_PORT_TACHO_MOTOR, PISTORMS_OUT_TACHO_MOTOR = PISTORMS_OUT_PORT_TACHO_MOTOR,
+ BRICKPI3_OUT_PORT_TACHO_MOTOR, BRICKPI3_OUT_TACHO_MOTOR = BRICKPI3_OUT_PORT_TACHO_MOTOR,
+ BRICKPI3_OUT_PORT_DC_MOTOR, BRICKPI3_OUT_DC_MOTOR = BRICKPI3_OUT_PORT_DC_MOTOR,
+ BRICKPI3_OUT_PORT_LED, BRICKPI3_OUT_LED = BRICKPI3_OUT_PORT_LED,
+ PISTORMS_IN_PORT_NONE, PISTORMS_IN_NONE = PISTORMS_IN_PORT_NONE,
+ PISTORMS_IN_PORT_NXT_ANALOG, PISTORMS_IN_NXT_ANALOG = PISTORMS_IN_PORT_NXT_ANALOG,
+ PISTORMS_IN_PORT_NXT_COLOR, PISTORMS_IN_NXT_COLOR = PISTORMS_IN_PORT_NXT_COLOR,
+ PISTORMS_IN_PORT_I2C_THRU, PISTORMS_IN_I2C_THRU = PISTORMS_IN_PORT_I2C_THRU,
+ PISTORMS_IN_PORT_EV3_ANALOG, PISTORMS_IN_EV3_ANALOG = PISTORMS_IN_PORT_EV3_ANALOG,
+ PISTORMS_IN_PORT_EV3_UART, PISTORMS_IN_EV3_UART = PISTORMS_IN_PORT_EV3_UART,
+ BRICKPI_IN_PORT_NONE, BRICKPI_IN_NONE = BRICKPI_IN_PORT_NONE,
+ BRICKPI_IN_PORT_NXT_ANALOG, BRICKPI_IN_NXT_ANALOG = BRICKPI_IN_PORT_NXT_ANALOG,
+ BRICKPI_IN_PORT_NXT_COLOR, BRICKPI_IN_NXT_COLOR = BRICKPI_IN_PORT_NXT_COLOR,
+ BRICKPI_IN_PORT_NXT_I2C, BRICKPI_IN_NXT_I2C = BRICKPI_IN_PORT_NXT_I2C,
+ BRICKPI_IN_PORT_EV3_ANALOG, BRICKPI_IN_EV3_ANALOG = BRICKPI_IN_PORT_EV3_ANALOG,
+ BRICKPI_IN_PORT_EV3_UART, BRICKPI_IN_EV3_UART = BRICKPI_IN_PORT_EV3_UART,
+ MS_EV3_SMUX_PORT_UART, MS_EV3_SMUX_UART = MS_EV3_SMUX_PORT_UART,
+ MS_EV3_SMUX_PORT_ANALOG, MS_EV3_SMUX_ANALOG = MS_EV3_SMUX_PORT_ANALOG,
+ MS_NXTMMX_OUT_PORT_TACHO_MOTOR, MS_NXTMMX_OUT_TACHO_MOTOR = MS_NXTMMX_OUT_PORT_TACHO_MOTOR,
+ PORT_MODE__COUNT_,
+ PORT_MODE__UNKNOWN_ = PORT_MODE__COUNT_
+};
+# 161 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.h"
+extern size_t get_port_address( uint8_t sn, char *buf, size_t sz );
+# 170 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.h"
+extern size_t get_port_driver_name( uint8_t sn, char *buf, size_t sz );
+# 179 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.h"
+extern size_t get_port_mode( uint8_t sn, char *buf, size_t sz );
+# 188 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.h"
+extern size_t set_port_mode( uint8_t sn, char *value );
+# 197 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.h"
+extern size_t multi_set_port_mode( uint8_t *sn, char *value );
+# 206 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.h"
+extern size_t get_port_modes( uint8_t sn, char *buf, size_t sz );
+# 215 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.h"
+extern size_t set_port_set_device( uint8_t sn, char *value );
+# 224 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.h"
+extern size_t multi_set_port_set_device( uint8_t *sn, char *value );
+# 233 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.h"
+extern size_t get_port_status( uint8_t sn, char *buf, size_t sz );
+
+
+
+
+
+
+extern const char *ev3_port_type( INX_T type_inx );
+
+
+
+
+
+
+extern INX_T get_port_type_inx( uint8_t sn );
+
+
+
+
+
+
+
+extern size_t get_port_desc( uint8_t sn, EV3_PORT *desc );
+
+
+
+
+
+
+extern EV3_PORT *ev3_port_desc( uint8_t sn );
+
+
+
+
+
+
+extern INX_T ev3_port_desc_type_inx( uint8_t sn );
+
+
+
+
+
+
+extern uint8_t ev3_port_desc_port( uint8_t sn );
+
+
+
+
+
+
+extern uint8_t ev3_port_desc_extport( uint8_t sn );
+
+
+
+
+
+
+extern uint8_t ev3_port_desc_addr( uint8_t sn );
+
+
+
+
+
+
+
+extern char *ev3_port_port_name( uint8_t sn, char *buf );
+# 307 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.h"
+extern _Bool ev3_search_port_type( INX_T type_inx, uint8_t *sn, uint8_t from );
+# 317 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.h"
+extern _Bool ev3_search_port_plugged_in( uint8_t port, uint8_t extport, uint8_t *sn, uint8_t from );
+
+
+
+
+
+
+extern const char *ev3_port_mode( INX_T mode_inx );
+
+
+
+
+
+
+
+extern INX_T get_port_mode_inx_of_type( uint8_t sn, INX_T type_inx );
+# 341 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.h"
+extern INX_T get_port_mode_inx( uint8_t sn );
+
+
+
+
+
+
+
+extern size_t set_port_mode_inx( uint8_t sn, INX_T mode_inx );
+
+
+
+
+
+
+
+extern size_t multi_set_port_mode_inx( uint8_t *sn, INX_T mode_inx );
+
+
+
+
+
+extern int ev3_port_init( void );
+# 409 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.h"
+extern uint8_t ev3_search_port( uint8_t port, uint8_t extport );
+# 418 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.h"
+extern void ev3_parse_port_name( char *name, uint8_t *port, uint8_t *extport, uint8_t *addr );
+# 428 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.h"
+extern char *ev3_port_name( uint8_t port, uint8_t extport, uint8_t addr, char *buf );
+# 20 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.c" 2
+# 32 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.c"
+size_t get_port_address( uint8_t sn, char *buf, size_t sz )
+{
+ char s[] = "/sys/class/lego-port/port" "///" "address";
+ *modp_uitoa10( sn, s + 25 ) = '/';
+
+ return ev3_read_char_array( s, buf, sz );
+}
+
+size_t get_port_driver_name( uint8_t sn, char *buf, size_t sz )
+{
+ char s[] = "/sys/class/lego-port/port" "///" "driver_name";
+ *modp_uitoa10( sn, s + 25 ) = '/';
+
+ return ev3_read_char_array( s, buf, sz );
+}
+
+size_t get_port_mode( uint8_t sn, char *buf, size_t sz )
+{
+ char s[] = "/sys/class/lego-port/port" "///" "mode";
+ *modp_uitoa10( sn, s + 25 ) = '/';
+
+ return ev3_read_char_array( s, buf, sz );
+}
+
+size_t set_port_mode( uint8_t sn, char *value )
+{
+ char s[] = "/sys/class/lego-port/port" "///" "mode";
+ *modp_uitoa10( sn, s + 25 ) = '/';
+
+ return ev3_write_char_array( s, value );
+}
+
+size_t multi_set_port_mode( uint8_t *sn, char *value )
+{
+ char s[] = "/sys/class/lego-port/port" "///" "mode";
+
+ return ev3_multi_write_char_array( sn, 25, s, value );
+}
+
+size_t get_port_modes( uint8_t sn, char *buf, size_t sz )
+{
+ char s[] = "/sys/class/lego-port/port" "///" "modes";
+ *modp_uitoa10( sn, s + 25 ) = '/';
+
+ return ev3_read_char_array( s, buf, sz );
+}
+
+size_t set_port_set_device( uint8_t sn, char *value )
+{
+ char s[] = "/sys/class/lego-port/port" "///" "set_device";
+ *modp_uitoa10( sn, s + 25 ) = '/';
+
+ return ev3_write_char_array( s, value );
+}
+
+size_t multi_set_port_set_device( uint8_t *sn, char *value )
+{
+ char s[] = "/sys/class/lego-port/port" "///" "set_device";
+
+ return ev3_multi_write_char_array( sn, 25, s, value );
+}
+
+size_t get_port_status( uint8_t sn, char *buf, size_t sz )
+{
+ char s[] = "/sys/class/lego-port/port" "///" "status";
+ *modp_uitoa10( sn, s + 25 ) = '/';
+
+ return ev3_read_char_array( s, buf, sz );
+}
+
+const char *ev3_port_type( INX_T type_inx )
+{
+ switch ( type_inx ) {
+ case BRICKPI_OUT_PORT:
+  return "brickpi-out-port";
+ case BRICKPI3_IN_PORT:
+  return "brickpi3-in-port";
+ case HT_NXT_SMUX_PORT:
+  return "ht-nxt-smux-port";
+ case EV3_OUTPUT_PORT:
+  return "ev3-output-port";
+ case WEDO_PORT:
+  return "wedo-port";
+ case EV3_INPUT_PORT:
+  return "ev3-input-port";
+ case PISTORMS_OUT_PORT:
+  return "pistorms-out-port";
+ case BRICKPI3_OUT_PORT:
+  return "brickpi3-out-port";
+ case PISTORMS_IN_PORT:
+  return "pistorms-in-port";
+ case BRICKPI_IN_PORT:
+  return "brickpi-in-port";
+ case MS_EV3_SMUX_PORT:
+  return "ms-ev3-smux-port";
+ case MS_NXTMMX_OUT_PORT:
+  return "ms-nxtmmx-out-port";
+
+ }
+ return ( "<unknown>" );
+}
+
+INX_T get_port_type_inx( uint8_t sn )
+{
+ char buf[ 64 ];
+
+ if ( !get_port_driver_name( sn, buf, sizeof( buf ))) return ( PORT_TYPE__NONE_ );
+
+ switch ( crc32( 0, buf, strlen( buf ))) {
+ case 0xe830f5e7L:
+  return BRICKPI_OUT_PORT;
+ case 0xe5b97ed3L:
+  return BRICKPI3_IN_PORT;
+ case 0xf239351bL:
+  return HT_NXT_SMUX_PORT;
+ case 0x2fdeaddeL:
+  return EV3_OUTPUT_PORT;
+ case 0x371fa871L:
+  return WEDO_PORT;
+ case 0x8d0f20dcL:
+  return EV3_INPUT_PORT;
+ case 0xc55dcb65L:
+  return PISTORMS_OUT_PORT;
+ case 0x983f2322L:
+  return BRICKPI3_OUT_PORT;
+ case 0xef4a3b29L:
+  return PISTORMS_IN_PORT;
+ case 0x809b34d6L:
+  return BRICKPI_IN_PORT;
+ case 0xe2ea87c6L:
+  return MS_EV3_SMUX_PORT;
+ case 0x9127ffbaL:
+  return MS_NXTMMX_OUT_PORT;
+
+ }
+
+ return ( PORT_TYPE__UNKNOWN_ );
+}
+
+size_t get_port_desc( uint8_t sn, EV3_PORT *desc )
+{
+ uint8_t addr;
+ char buf[ 32 ];
+
+ desc->type_inx = get_port_type_inx( sn );
+ if ( desc->type_inx == PORT_TYPE__NONE_ ) return ( 0 );
+
+ if ( !get_port_address( sn, buf, sizeof( buf ))) return ( 0 );
+
+ ev3_parse_port_name( buf, &desc->port, &desc->extport, &addr );
+ desc->addr = addr;
+
+ return ( sizeof( EV3_PORT ));
+}
+
+EV3_PORT *ev3_port_desc( uint8_t sn )
+{
+ if ( sn >= 64) sn = 64 - 1;
+ return ( ev3_port + sn );
+}
+
+INX_T ev3_port_desc_type_inx( uint8_t sn )
+{
+ return ( ev3_port_desc( sn )->type_inx );
+}
+
+uint8_t ev3_port_desc_port( uint8_t sn )
+{
+ return ( ev3_port_desc( sn )->port );
+}
+
+uint8_t ev3_port_desc_extport( uint8_t sn )
+{
+ return ( ev3_port_desc( sn )->extport );
+}
+
+uint8_t ev3_port_desc_addr( uint8_t sn )
+{
+ return ( ev3_port_desc( sn )->addr );
+}
+
+char *ev3_port_port_name( uint8_t sn, char *buf )
+{
+ return ( ev3_port_name( ev3_port_desc( sn )->port, ev3_port_desc( sn )->extport, ev3_port_desc( sn )->addr, buf ));
+}
+
+_Bool ev3_search_port_type( INX_T type_inx, uint8_t *sn, uint8_t from )
+{
+ uint8_t _sn = from;
+
+ while ( _sn < 64) {
+  if ( ev3_port[ _sn ].type_inx == type_inx ) {
+   *sn = _sn;
+   return ( 1 );
+  }
+  ++_sn;
+ }
+ *sn = 64;
+ return ( 0 );
+}
+
+_Bool ev3_search_port_plugged_in( uint8_t port, uint8_t extport, uint8_t *sn, uint8_t from )
+{
+ uint8_t _sn = from;
+
+ while ( _sn < 64) {
+  if ( ev3_port[ _sn ].port == port ) {
+   if ( extport ) {
+    if ( ev3_port[ _sn ].extport == extport ) {
+     *sn = _sn;
+     return ( 1 );
+    }
+   } else {
+    *sn = _sn;
+    return ( 1 );
+   }
+  }
+  ++_sn;
+ }
+ *sn = 64;
+ return ( 0 );
+}
+
+const char *ev3_port_mode( INX_T mode_inx )
+{
+ switch ( mode_inx ) {
+ case BRICKPI_OUT_PORT_TACHO_MOTOR:
+  return "tacho-motor";
+ case BRICKPI_OUT_PORT_DC_MOTOR:
+  return "dc-motor";
+ case BRICKPI_OUT_PORT_LED:
+  return "led";
+
+ case BRICKPI3_IN_PORT_NONE:
+  return "none";
+ case BRICKPI3_IN_PORT_NXT_ANALOG:
+  return "nxt-analog";
+ case BRICKPI3_IN_PORT_NXT_COLOR:
+  return "nxt-color";
+ case BRICKPI3_IN_PORT_NXT_I2C:
+  return "nxt-i2c";
+ case BRICKPI3_IN_PORT_EV3_ANALOG:
+  return "ev3-analog";
+ case BRICKPI3_IN_PORT_EV3_UART:
+  return "ev3-uart";
+
+ case HT_NXT_SMUX_PORT_ANALOG:
+  return "analog";
+ case HT_NXT_SMUX_PORT_I2C:
+  return "i2c";
+
+ case EV3_OUTPUT_PORT_AUTO:
+  return "auto";
+ case EV3_OUTPUT_PORT_TACHO_MOTOR:
+  return "tacho-motor";
+ case EV3_OUTPUT_PORT_DC_MOTOR:
+  return "dc-motor";
+ case EV3_OUTPUT_PORT_LED:
+  return "led";
+ case EV3_OUTPUT_PORT_RAW:
+  return "raw";
+
+ case WEDO_PORT_AUTO:
+  return "auto";
+
+ case EV3_INPUT_PORT_AUTO:
+  return "auto";
+ case EV3_INPUT_PORT_NXT_ANALOG:
+  return "nxt-analog";
+ case EV3_INPUT_PORT_NXT_COLOR:
+  return "nxt-color";
+ case EV3_INPUT_PORT_NXT_I2C:
+  return "nxt-i2c";
+ case EV3_INPUT_PORT_OTHER_I2C:
+  return "other-i2c";
+ case EV3_INPUT_PORT_EV3_ANALOG:
+  return "ev3-analog";
+ case EV3_INPUT_PORT_EV3_UART:
+  return "ev3-uart";
+ case EV3_INPUT_PORT_OTHER_UART:
+  return "other-uart";
+ case EV3_INPUT_PORT_RAW:
+  return "raw";
+
+ case PISTORMS_OUT_PORT_TACHO_MOTOR:
+  return "tacho-motor";
+
+ case BRICKPI3_OUT_PORT_TACHO_MOTOR:
+  return "tacho-motor";
+ case BRICKPI3_OUT_PORT_DC_MOTOR:
+  return "dc-motor";
+ case BRICKPI3_OUT_PORT_LED:
+  return "led";
+
+ case PISTORMS_IN_PORT_NONE:
+  return "none";
+ case PISTORMS_IN_PORT_NXT_ANALOG:
+  return "nxt-analog";
+ case PISTORMS_IN_PORT_NXT_COLOR:
+  return "nxt-color";
+ case PISTORMS_IN_PORT_I2C_THRU:
+  return "i2c-thru";
+ case PISTORMS_IN_PORT_EV3_ANALOG:
+  return "ev3-analog";
+ case PISTORMS_IN_PORT_EV3_UART:
+  return "ev3-uart";
+
+ case BRICKPI_IN_PORT_NONE:
+  return "none";
+ case BRICKPI_IN_PORT_NXT_ANALOG:
+  return "nxt-analog";
+ case BRICKPI_IN_PORT_NXT_COLOR:
+  return "nxt-color";
+ case BRICKPI_IN_PORT_NXT_I2C:
+  return "nxt-i2c";
+ case BRICKPI_IN_PORT_EV3_ANALOG:
+  return "ev3-analog";
+ case BRICKPI_IN_PORT_EV3_UART:
+  return "ev3-uart";
+
+ case MS_EV3_SMUX_PORT_UART:
+  return "uart";
+ case MS_EV3_SMUX_PORT_ANALOG:
+  return "analog";
+
+ case MS_NXTMMX_OUT_PORT_TACHO_MOTOR:
+  return "tacho-motor";
+
+ }
+ return ( "<unknown>" );
+}
+
+INX_T get_port_mode_inx_of_type( uint8_t sn, INX_T type_inx )
+{
+ char buf[ 64 ];
+
+ if ( !get_port_mode( sn, buf, sizeof( buf ))) return ( PORT_MODE__NONE_ );
+
+ switch ( type_inx ) {
+
+ case BRICKPI_OUT_PORT:
+  if ( strcmp( buf, "tacho-motor" ) == 0 ) return BRICKPI_OUT_PORT_TACHO_MOTOR;
+  if ( strcmp( buf, "dc-motor" ) == 0 ) return BRICKPI_OUT_PORT_DC_MOTOR;
+  if ( strcmp( buf, "led" ) == 0 ) return BRICKPI_OUT_PORT_LED;
+
+  break;
+
+ case BRICKPI3_IN_PORT:
+  if ( strcmp( buf, "none" ) == 0 ) return BRICKPI3_IN_PORT_NONE;
+  if ( strcmp( buf, "nxt-analog" ) == 0 ) return BRICKPI3_IN_PORT_NXT_ANALOG;
+  if ( strcmp( buf, "nxt-color" ) == 0 ) return BRICKPI3_IN_PORT_NXT_COLOR;
+  if ( strcmp( buf, "nxt-i2c" ) == 0 ) return BRICKPI3_IN_PORT_NXT_I2C;
+  if ( strcmp( buf, "ev3-analog" ) == 0 ) return BRICKPI3_IN_PORT_EV3_ANALOG;
+  if ( strcmp( buf, "ev3-uart" ) == 0 ) return BRICKPI3_IN_PORT_EV3_UART;
+
+  break;
+
+ case HT_NXT_SMUX_PORT:
+  if ( strcmp( buf, "analog" ) == 0 ) return HT_NXT_SMUX_PORT_ANALOG;
+  if ( strcmp( buf, "i2c" ) == 0 ) return HT_NXT_SMUX_PORT_I2C;
+
+  break;
+
+ case EV3_OUTPUT_PORT:
+  if ( strcmp( buf, "auto" ) == 0 ) return EV3_OUTPUT_PORT_AUTO;
+  if ( strcmp( buf, "tacho-motor" ) == 0 ) return EV3_OUTPUT_PORT_TACHO_MOTOR;
+  if ( strcmp( buf, "dc-motor" ) == 0 ) return EV3_OUTPUT_PORT_DC_MOTOR;
+  if ( strcmp( buf, "led" ) == 0 ) return EV3_OUTPUT_PORT_LED;
+  if ( strcmp( buf, "raw" ) == 0 ) return EV3_OUTPUT_PORT_RAW;
+
+  break;
+
+ case WEDO_PORT:
+  if ( strcmp( buf, "auto" ) == 0 ) return WEDO_PORT_AUTO;
+
+  break;
+
+ case EV3_INPUT_PORT:
+  if ( strcmp( buf, "auto" ) == 0 ) return EV3_INPUT_PORT_AUTO;
+  if ( strcmp( buf, "nxt-analog" ) == 0 ) return EV3_INPUT_PORT_NXT_ANALOG;
+  if ( strcmp( buf, "nxt-color" ) == 0 ) return EV3_INPUT_PORT_NXT_COLOR;
+  if ( strcmp( buf, "nxt-i2c" ) == 0 ) return EV3_INPUT_PORT_NXT_I2C;
+  if ( strcmp( buf, "other-i2c" ) == 0 ) return EV3_INPUT_PORT_OTHER_I2C;
+  if ( strcmp( buf, "ev3-analog" ) == 0 ) return EV3_INPUT_PORT_EV3_ANALOG;
+  if ( strcmp( buf, "ev3-uart" ) == 0 ) return EV3_INPUT_PORT_EV3_UART;
+  if ( strcmp( buf, "other-uart" ) == 0 ) return EV3_INPUT_PORT_OTHER_UART;
+  if ( strcmp( buf, "raw" ) == 0 ) return EV3_INPUT_PORT_RAW;
+
+  break;
+
+ case PISTORMS_OUT_PORT:
+  if ( strcmp( buf, "tacho-motor" ) == 0 ) return PISTORMS_OUT_PORT_TACHO_MOTOR;
+
+  break;
+
+ case BRICKPI3_OUT_PORT:
+  if ( strcmp( buf, "tacho-motor" ) == 0 ) return BRICKPI3_OUT_PORT_TACHO_MOTOR;
+  if ( strcmp( buf, "dc-motor" ) == 0 ) return BRICKPI3_OUT_PORT_DC_MOTOR;
+  if ( strcmp( buf, "led" ) == 0 ) return BRICKPI3_OUT_PORT_LED;
+
+  break;
+
+ case PISTORMS_IN_PORT:
+  if ( strcmp( buf, "none" ) == 0 ) return PISTORMS_IN_PORT_NONE;
+  if ( strcmp( buf, "nxt-analog" ) == 0 ) return PISTORMS_IN_PORT_NXT_ANALOG;
+  if ( strcmp( buf, "nxt-color" ) == 0 ) return PISTORMS_IN_PORT_NXT_COLOR;
+  if ( strcmp( buf, "i2c-thru" ) == 0 ) return PISTORMS_IN_PORT_I2C_THRU;
+  if ( strcmp( buf, "ev3-analog" ) == 0 ) return PISTORMS_IN_PORT_EV3_ANALOG;
+  if ( strcmp( buf, "ev3-uart" ) == 0 ) return PISTORMS_IN_PORT_EV3_UART;
+
+  break;
+
+ case BRICKPI_IN_PORT:
+  if ( strcmp( buf, "none" ) == 0 ) return BRICKPI_IN_PORT_NONE;
+  if ( strcmp( buf, "nxt-analog" ) == 0 ) return BRICKPI_IN_PORT_NXT_ANALOG;
+  if ( strcmp( buf, "nxt-color" ) == 0 ) return BRICKPI_IN_PORT_NXT_COLOR;
+  if ( strcmp( buf, "nxt-i2c" ) == 0 ) return BRICKPI_IN_PORT_NXT_I2C;
+  if ( strcmp( buf, "ev3-analog" ) == 0 ) return BRICKPI_IN_PORT_EV3_ANALOG;
+  if ( strcmp( buf, "ev3-uart" ) == 0 ) return BRICKPI_IN_PORT_EV3_UART;
+
+  break;
+
+ case MS_EV3_SMUX_PORT:
+  if ( strcmp( buf, "uart" ) == 0 ) return MS_EV3_SMUX_PORT_UART;
+  if ( strcmp( buf, "analog" ) == 0 ) return MS_EV3_SMUX_PORT_ANALOG;
+
+  break;
+
+ case MS_NXTMMX_OUT_PORT:
+  if ( strcmp( buf, "tacho-motor" ) == 0 ) return MS_NXTMMX_OUT_PORT_TACHO_MOTOR;
+
+  break;
+
+ }
+ return ( PORT_MODE__UNKNOWN_ );
+}
+
+INX_T get_port_mode_inx( uint8_t sn )
+{
+ return get_port_mode_inx_of_type( sn, ev3_port_desc( sn )->type_inx );
+}
+
+size_t set_port_mode_inx( uint8_t sn, INX_T mode_inx )
+{
+ return set_port_mode( sn, ( char *) ev3_port_mode( mode_inx ));
+}
+
+size_t multi_set_port_mode_inx( uint8_t *sn, INX_T mode_inx )
+{
+ return multi_set_port_mode( sn, ( char *) ev3_port_mode( mode_inx ));
+}
+
+int ev3_port_init( void )
+{
+ char list[ 256 ];
+ char *p;
+ uint32_t sn;
+ int cnt = 0;
+
+ memset( ev3_port, 0, sizeof( ev3_port ));
+
+ if ( !ev3_listdir( "/sys/class/lego-port", list, sizeof( list ))) return ( -1 );
+
+ p = strtok( list, " " );
+ while ( p ) {
+  if (( ev3_string_suffix( "port", &p, &sn ) == 1 ) && ( sn < 64)) {
+   get_port_desc( sn, ev3_port + sn );
+   ++cnt;
+  }
+  p = strtok( ((void *)0), " " );
+ }
+ return ( cnt );
+}
+# 514 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.c"
+void ev3_parse_port_name( char *name, uint8_t *port, uint8_t *extport, uint8_t *addr )
+{
+ *port = 0;
+ *extport = 0;
+ *addr = 0;
+
+ char *platform_prefix = strchr( name, ':' );
+ if ( platform_prefix )
+  name = platform_prefix + 1;
+
+ if ( strncmp( name, "in", 2 ) == 0 ) {
+
+  name += 2;
+  *port = *name++;
+  if ( *name != ':' ) return;
+  ++name;
+
+  if ( strncmp( name, "i2c", 3 ) == 0 ) {
+
+   name += 3;
+   *addr = strtoul( name, &name, 0 );
+   if ( *name != ':' ) return;
+   ++name;
+
+   if ( strncmp( name, "mux", 3 ) == 0 ) {
+
+    name += 3;
+    *extport = *name++;
+    if ( *name != ':' ) return;
+    ++name;
+
+    return;
+   }
+   if ( strncmp( name, "sv", 2 ) == 0 ) {
+
+    name += 2;
+    *extport = *name++ + 16;
+    if ( *name != ':' ) return;
+    ++name;
+
+    return;
+   }
+   if ( strncmp( name, "M", 1 ) == 0 ) {
+
+    name += 1;
+    *extport = *name++ + 28;
+    if ( *name != ':' ) return;
+    ++name;
+
+    return;
+   }
+   return;
+  }
+  if ( strncmp( name, "wedo", 4 ) == 0 ) {
+
+   name += 4;
+   *extport = *name++ + 48;
+   if ( *name != ':' ) return;
+   ++name;
+
+   return;
+  }
+  return;
+ }
+ if ( strncmp( name, "out", 3 ) == 0 ) {
+
+  name += 3;
+  *port = *name++;
+  if ( *name != ':' ) return;
+  ++name;
+
+  return;
+ }
+ return;
+}
+
+char *ev3_port_name( uint8_t port, uint8_t extport, uint8_t addr, char *buf )
+{
+ char *p = buf;
+
+
+ char canonical_address[ 32 ] = "";
+ if ( !get_port_address( 0, canonical_address, sizeof( canonical_address )))
+  return ((void *)0);
+
+
+ char *platform_prefix = strchr( canonical_address, ':' );
+ if ( platform_prefix ) {
+  *platform_prefix = '\0';
+  p = strcpy( p, canonical_address );
+  p = strcpy( p, ":" );
+ }
+
+ if (( port >= 49 ) && ( port <= 52 )) {
+  memcpy( p, "in", 2 );
+  p += 2;
+  *p++ = port;
+
+  if (( addr >= 1 ) && ( addr <= 254 )) {
+   memcpy( p, ":""i2c", 3 + 1 );
+   p += 3 + 1;
+   p = modp_uitoa10( addr, p );
+
+   if (( extport >= 49 ) && ( extport <= 52 )) {
+    memcpy( p, ":""mux", 3 + 1 );
+    p += 3 + 1;
+    *p++ = extport;
+
+    *p = '\x00';
+    return ( buf );
+   }
+   if (( extport >= 65 ) && ( extport <= 72 )) {
+    memcpy( p, ":""sv", 2 + 1 );
+    p += 2 + 1;
+    *p++ = extport - 16;
+
+    *p = '\x00';
+    return ( buf );
+   }
+   if (( extport >= 77 ) && ( extport <= 78 )) {
+    memcpy( p, ":""M", 1 + 1 );
+    p += 1 + 1;
+    *p++ = extport - 28;
+
+    *p = '\x00';
+    return ( buf );
+   }
+   *p = '\x00';
+   return ( buf );
+  }
+  if (( extport >= 97 ) && ( extport <= 100 )) {
+   memcpy( p, ":""wedo", 4 + 1 );
+   p += 4 + 1;
+   *p++ = extport - 48;
+
+   *p = '\x00';
+   return ( buf );
+  }
+  *p = '\x00';
+  return ( buf );
+ }
+ if (( port >= 65 ) && ( port <= 68 )) {
+  memcpy( p, "out", 3 );
+  p += 3;
+  *p++ = port;
+
+  *p = '\x00';
+  return ( buf );
+ }
+ strcpy( buf, "<unknown>" );
+ return ( buf );
+}
+
+uint8_t ev3_search_port( uint8_t port, uint8_t extport )
+{
+ uint8_t sn;
+
+ ev3_search_port_plugged_in( port, extport, &sn, 0 );
+ return ( sn );
+}

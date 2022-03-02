@@ -1,0 +1,243 @@
+/* ----------------------------------------------------------------------
+ *    AbsInt -- Angewandte Informatik GmbH
+ *    http://www.AbsInt.de/
+ * ----------------------------------------------------------------------
+ *
+ * Example implementation of the ISO/IEC 9899:1999 (E) standard C
+ * library for static program analyses with Astree.
+ *
+ * ---------------------------------------------------------------------- */
+
+#pragma once
+
+#include <astree_config.h>
+
+#ifdef __ASTREE_INT8_T
+typedef __ASTREE_INT8_T int8_t;
+#endif
+typedef __ASTREE_INT16_T int16_t;
+typedef __ASTREE_INT32_T int32_t;
+#ifdef __ASTREE_INT64_T
+typedef __ASTREE_INT64_T int64_t;
+#endif
+#ifdef __ASTREE_UINT8_T
+typedef __ASTREE_UINT8_T uint8_t;
+#endif
+typedef __ASTREE_UINT16_T uint16_t;
+typedef __ASTREE_UINT32_T uint32_t;
+#ifdef __ASTREE_UINT64_T
+typedef __ASTREE_UINT64_T uint64_t;
+#endif
+
+typedef __ASTREE_INTPTR_T intptr_t;
+typedef __ASTREE_UINTPTR_T uintptr_t;
+
+#ifdef __ASTREE_INT8_T
+typedef int8_t int_least8_t;
+#endif
+typedef int16_t int_least16_t;
+typedef int32_t int_least32_t;
+#ifdef __ASTREE_INT64_T
+typedef int64_t int_least64_t;
+#endif
+#ifdef __ASTREE_UINT8_T
+typedef uint8_t uint_least8_t;
+#endif
+typedef uint16_t uint_least16_t;
+typedef uint32_t uint_least32_t;
+#ifdef __ASTREE_UINT64_T
+typedef uint64_t uint_least64_t;
+#endif
+
+#ifdef __ASTREE_INT8_T
+typedef int8_t int_fast8_t;
+#endif
+typedef int16_t int_fast16_t;
+typedef int32_t int_fast32_t;
+#ifdef __ASTREE_INT64_T
+typedef int64_t int_fast64_t;
+#endif
+#ifdef __ASTREE_UINT8_T
+typedef uint8_t uint_fast8_t;
+#endif
+typedef uint16_t uint_fast16_t;
+typedef uint32_t uint_fast32_t;
+#ifdef __ASTREE_UINT64_T
+typedef uint64_t uint_fast64_t;
+#endif
+
+typedef __ASTREE_INTMAX_T intmax_t;
+typedef __ASTREE_UINTMAX_T uintmax_t;
+
+#undef INT8_MIN
+#define INT8_MIN __ASTREE_S8_MIN
+#undef INT8_MAX
+#define INT8_MAX __ASTREE_S8_MAX
+#undef UINT8_MAX
+#define UINT8_MAX __ASTREE_U8_MAX
+
+#undef INT16_MIN
+#define INT16_MIN __ASTREE_S16_MIN
+#undef INT16_MAX
+#define INT16_MAX __ASTREE_S16_MAX
+#undef UINT16_MAX
+#define UINT16_MAX __ASTREE_U16_MAX
+
+#undef INT32_MIN
+#define INT32_MIN __ASTREE_S32_MIN
+#undef INT32_MAX
+#define INT32_MAX __ASTREE_S32_MAX
+#undef UINT32_MAX
+#define UINT32_MAX __ASTREE_U32_MAX
+
+#undef INT64_MIN
+#define INT64_MIN __ASTREE_S64_MIN
+#undef INT64_MAX
+#define INT64_MAX __ASTREE_S64_MAX
+#undef UINT64_MAX
+#define UINT64_MAX __ASTREE_U64_MAX
+
+#undef INT_LEAST8_MIN
+#define INT_LEAST8_MIN INT8_MIN
+#undef INT_LEAST8_MAX
+#define INT_LEAST8_MAX INT8_MAX
+#undef UINT_LEAST8_MAX
+#define UINT_LEAST8_MAX UINT8_MAX
+
+#undef INT_LEAST16_MIN
+#define INT_LEAST16_MIN INT16_MIN
+#undef INT_LEAST16_MAX
+#define INT_LEAST16_MAX INT16_MAX
+#undef UINT_LEAST16_MAX
+#define UINT_LEAST16_MAX UINT16_MAX
+
+#undef INT_LEAST32_MIN
+#define INT_LEAST32_MIN INT32_MIN
+#undef INT_LEAST32_MAX
+#define INT_LEAST32_MAX INT32_MAX
+#undef UINT_LEAST32_MAX
+#define UINT_LEAST32_MAX UINT32_MAX
+
+#undef INT_LEAST64_MIN
+#define INT_LEAST64_MIN INT64_MIN
+#undef INT_LEAST64_MAX
+#define INT_LEAST64_MAX INT64_MAX
+#undef UINT_LEAST64_MAX
+#define UINT_LEAST64_MAX UINT64_MAX
+
+#undef INT_FAST8_MIN
+#define INT_FAST8_MIN INT8_MIN
+#undef INT_FAST8_MAX
+#define INT_FAST8_MAX INT8_MAX
+#undef UINT_FAST8_MAX
+#define UINT_FAST8_MAX UINT8_MAX
+
+#undef INT_FAST16_MIN
+#define INT_FAST16_MIN INT16_MIN
+#undef INT_FAST16_MAX
+#define INT_FAST16_MAX INT16_MAX
+#undef UINT_FAST16_MAX
+#define UINT_FAST16_MAX UINT16_MAX
+
+#undef INT_FAST32_MIN
+#define INT_FAST32_MIN INT32_MIN
+#undef INT_FAST32_MAX
+#define INT_FAST32_MAX INT32_MAX
+#undef UINT_FAST32_MAX
+#define UINT_FAST32_MAX UINT32_MAX
+
+#undef INT_FAST64_MIN
+#define INT_FAST64_MIN INT64_MIN
+#undef INT_FAST64_MAX
+#define INT_FAST64_MAX INT64_MAX
+#undef UINT_FAST64_MAX
+#define UINT_FAST64_MAX UINT64_MAX
+
+#undef INTPTR_MIN
+#define INTPTR_MIN INT32_MIN
+#undef INTPTR_MAX
+#define INTPTR_MAX INT32_MAX
+#undef UINTPTR_MAX
+#define UINTPTR_MAX UINT32_MAX
+
+#undef PTRDIFF_MIN
+#define PTRDIFF_MIN __ASTREE_PTRDIFF_T_MIN
+#undef PTRDIFF_MAX
+#define PTRDIFF_MAX __ASTREE_PTRDIFF_T_MAX
+
+#undef SIG_ATOMIC_MIN
+#define SIG_ATOMIC_MIN __ASTREE_SIG_ATOMIC_T_MIN
+#undef SIG_ATOMIC_MAX
+#define SIG_ATOMIC_MAX __ASTREE_SIG_ATOMIC_T_MAX
+
+#undef INTMAX_MIN
+#define INTMAX_MIN INT64_MIN
+#undef INTMAX_MAX
+#define INTMAX_MAX INT64_MAX
+#undef UINTMAX_MAX
+#define UINTMAX_MAX UINT64_MAX
+
+#undef SIZE_MAX
+#define SIZE_MAX __ASTREE_SIZE_MAX
+
+#undef WCHAR_MIN
+#ifdef __ASTREE_WCHAR_MIN
+#define WCHAR_MIN __ASTREE_WCHAR_MIN
+#else
+#define WCHAR_MIN __ASTREE_CHAR_MIN
+#endif
+
+#undef WCHAR_MAX
+#ifdef __ASTREE_WCHAR_MAX
+#define WCHAR_MAX __ASTREE_WCHAR_MAX
+#else
+#define WCHAR_MAX __ASTREE_CHAR_MAX
+#endif
+
+#undef WINT_MIN
+#undef WINT_MAX
+#define WINT_MIN __ASTREE_INT_MIN
+#define WINT_MAX __ASTREE_INT_MAX
+
+#undef __CONCAT_C_SUFFIX
+#define __CONCAT_C_SUFFIX(c, suffix) (c##suffix)
+#undef __INT_C
+#define __INT_C(c, suffix) __CONCAT_C_SUFFIX(c, suffix)
+
+#undef INT8_C
+#define INT8_C(c) __INT_C(c, __ASTREE_INT8_SUFFIX)
+#undef INT16_C
+#define INT16_C(c) __INT_C(c, __ASTREE_INT16_SUFFIX)
+#undef INT32_C
+#define INT32_C(c) __INT_C(c, __ASTREE_INT32_SUFFIX)
+#ifdef __ASTREE_INT64_T
+#undef INT64_C
+#define INT64_C(c) __INT_C(c, __ASTREE_INT64_SUFFIX)
+#endif
+#undef UINT8_C
+#define UINT8_C(c) __INT_C(c, __ASTREE_UINT8_SUFFIX)
+#undef UINT16_C
+#define UINT16_C(c) __INT_C(c, __ASTREE_UINT16_SUFFIX)
+#undef UINT32_C
+#define UINT32_C(c) __INT_C(c, __ASTREE_UINT32_SUFFIX)
+#ifdef __ASTREE_UINT64_T
+#undef UINT64_C
+#define UINT64_C(c) __INT_C(c, __ASTREE_UINT64_SUFFIX)
+#endif
+#ifdef __ASTREE_INT64_T
+#undef INTMAX_C
+#define INTMAX_C(c) INT64_C(c)
+#else
+#undef INTMAX_C
+#define INTMAX_C(c) INT32_C(c)
+#endif
+#ifdef __ASTREE_INT64_T
+#undef UINTMAX_C
+#define UINTMAX_C(c) UINT64_C(c)
+#else
+#undef UINTMAX_C
+#define UINTMAX_C(c) UINT32_C(c)
+#endif
+
+/* RULECHECKER_suppress(rules-category) */
+__ASTREE_attributes((coverage_ignore, raise_at_caller, hide_directives));

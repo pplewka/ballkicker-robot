@@ -1,0 +1,32 @@
+/* ----------------------------------------------------------------------
+ *    AbsInt -- Angewandte Informatik GmbH
+ *    http://www.AbsInt.de/
+ * ----------------------------------------------------------------------
+ *
+ * Example implementation of the ISO/IEC 9899:1999 (E) standard C
+ * library for static program analyses with Astree.
+ *
+ * Developed and distributed by AbsInt, under license from the CNRS/ENS.
+ * ---------------------------------------------------------------------- */
+
+#pragma once
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+typedef int jmp_buf[1];
+
+#undef setjmp
+#define setjmp(env) setjmp(env)
+int setjmp(jmp_buf env);
+
+#undef longjmp
+_Noreturn void longjmp(jmp_buf env, int val);
+
+#ifdef __cplusplus
+}
+#endif
+
+/* RULECHECKER_suppress(rules-category) */
+__ASTREE_attributes((coverage_ignore, raise_at_caller, hide_directives));

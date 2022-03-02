@@ -1,0 +1,5 @@
+return_types=
+param_types=
+execution_model=synchronous
+use_max_clock=0
+max_clock=3600000

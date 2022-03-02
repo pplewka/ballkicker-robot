@@ -1,0 +1,59 @@
+/* ----------------------------------------------------------------------
+ *    AbsInt -- Angewandte Informatik GmbH
+ *    http://www.AbsInt.de/
+ * ----------------------------------------------------------------------
+ *
+ * Example implementation of the ISO/IEC 9899:1999 (E) standard C
+ * library for static program analyses with Astree.
+ *
+ * Developed and distributed by AbsInt, under license from the CNRS/ENS.
+ * ---------------------------------------------------------------------- */
+
+#pragma once
+
+#include <stddef.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+typedef int* wctrans_t;
+typedef long wctype_t;
+
+#ifndef _HAVE_TYPEDEF_WINT_T
+#define _HAVE_TYPEDEF_WINT_T
+typedef __ASTREE_WINT_T wint_t;
+#endif
+
+#undef WEOF
+#ifdef __ASTREE_WEOF
+#define WEOF (__ASTREE_WEOF)
+#else
+#define WEOF (-1)
+#endif
+
+int iswalnum(wint_t wc);
+int iswalpha(wint_t wc);
+int iswblank(wint_t wc);
+int iswcntrl(wint_t wc);
+int iswdigit(wint_t wc);
+int iswgraph(wint_t wc);
+int iswlower(wint_t wc);
+int iswprint(wint_t wc);
+int iswpunct(wint_t wc);
+int iswspace(wint_t wc);
+int iswupper(wint_t wc);
+int iswxdigit(wint_t wc);
+int iswctype(wint_t wc, wctype_t desc);
+wctype_t wctype(const char *property);
+wint_t towlower(wint_t wc);
+wint_t towupper(wint_t wc);
+wint_t towctrans(wint_t wc, wctrans_t desc);
+wctrans_t wctrans(const char *property);
+
+#ifdef __cplusplus
+}
+#endif
+
+/* RULECHECKER_suppress(rules-category) */
+__ASTREE_attributes((coverage_ignore, raise_at_caller, hide_directives));

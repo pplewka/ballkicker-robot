@@ -1,0 +1,30 @@
+/* ----------------------------------------------------------------------
+ *    AbsInt -- Angewandte Informatik GmbH
+ *    http://www.AbsInt.de/
+ * ----------------------------------------------------------------------
+ *
+ * Example implementation of the ISO/IEC 9899:1999 (E) standard C
+ * library for static program analyses with Astree.
+ *
+ * Developed and distributed by AbsInt, under license from the CNRS/ENS.
+ * ---------------------------------------------------------------------- */
+
+#include <astree_config.h>
+
+#undef assert
+
+#ifdef NDEBUG
+
+#define assert(expr) ((void) 0)
+
+#else /* not NDEBUG */
+
+#define assert(expr) __ASTREE_assert((!!(expr)))
+
+#endif /* NDEBUG */
+
+#undef static_assert
+#define static_assert _Static_assert
+
+/* RULECHECKER_suppress(rules-category) */
+__ASTREE_attributes((coverage_ignore, raise_at_caller, hide_directives));

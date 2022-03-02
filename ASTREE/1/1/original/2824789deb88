@@ -1,0 +1,58 @@
+/* ----------------------------------------------------------------------
+ *    AbsInt -- Angewandte Informatik GmbH
+ *    http://www.AbsInt.de/
+ * ----------------------------------------------------------------------
+ *
+ * Example implementation of the ISO/IEC 9899:1999 (E) standard C
+ * library for static program analyses with Astree.
+ *
+ * Developed and distributed by AbsInt, under license from the CNRS/ENS.
+ * ---------------------------------------------------------------------- */
+
+#pragma once
+
+#include <astree_config.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+typedef __ASTREE_PTRDIFF_T ptrdiff_t;
+typedef __ASTREE_SIZE_T size_t;
+
+#ifndef __cplusplus
+typedef __ASTREE_WCHAR_T wchar_t;
+#endif
+
+#ifdef NULL
+#undef NULL
+#endif
+#ifdef __cplusplus
+#define NULL 0
+#else
+#define NULL ((void *)0)
+#endif
+
+#ifdef __ASTREE_CLANG_COMPATIBLE
+#define offsetof __builtin_offsetof
+#else
+/**
+ * Map to offsetof of Astree's C frontend. Still requires a macro
+ * for compatibility with C11 §7.19p3.
+ */
+#define offsetof(X, Y) (offsetof(X, Y))
+#endif
+
+typedef int errno_t; /* C11 */
+
+#define __DEFINED_max_align_t
+typedef double long max_align_t; /* C11 */
+
+typedef size_t rsize_t; /* C11 */
+
+#ifdef __cplusplus
+}
+#endif
+
+/* RULECHECKER_suppress(rules-category) */
+__ASTREE_attributes((coverage_ignore, raise_at_caller, hide_directives));

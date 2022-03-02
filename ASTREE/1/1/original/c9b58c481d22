@@ -1,0 +1,78 @@
+/* ----------------------------------------------------------------------
+ *    AbsInt -- Angewandte Informatik GmbH
+ *    http://www.AbsInt.de/
+ * ----------------------------------------------------------------------
+ *
+ * Example implementation of the ISO/IEC 9899:1999 (E) standard C
+ * library for static program analyses with Astree.
+ *
+ * Developed and distributed by AbsInt, under license from the CNRS/ENS.
+ * ---------------------------------------------------------------------- */
+
+#pragma once
+
+#include <astree_config.h>
+
+/* char */
+
+#undef CHAR_BIT
+#undef CHAR_MIN
+#undef CHAR_MAX
+#undef SCHAR_MIN
+#undef SCHAR_MAX
+#undef UCHAR_MAX
+
+#define CHAR_BIT __ASTREE_BITS_OF_CHAR
+#define SCHAR_MIN __ASTREE_SCHAR_MIN
+#define SCHAR_MAX __ASTREE_SCHAR_MAX
+#define UCHAR_MAX __ASTREE_UCHAR_MAX
+#define CHAR_MIN __ASTREE_CHAR_MIN
+#define CHAR_MAX __ASTREE_CHAR_MAX
+
+/* short */
+
+#undef SHRT_MIN
+#undef SHRT_MAX
+#undef USHRT_MAX
+
+#define SHRT_MIN __ASTREE_SHRT_MIN
+#define SHRT_MAX __ASTREE_SHRT_MAX
+#define USHRT_MAX __ASTREE_USHRT_MAX
+
+/* int */
+
+#undef INT_MIN
+#undef INT_MAX
+#undef UINT_MAX
+
+#define INT_MIN __ASTREE_INT_MIN
+#define INT_MAX __ASTREE_INT_MAX
+#define UINT_MAX __ASTREE_CONCAT(__ASTREE_UINT_MAX, U)
+
+/* long */
+
+#undef LONG_MIN
+#undef LONG_MAX
+#undef ULONG_MAX
+                          
+#define LONG_MIN __ASTREE_LONG_MIN
+#define LONG_MAX __ASTREE_LONG_MAX
+#define ULONG_MAX __ASTREE_CONCAT(__ASTREE_ULONG_MAX, U)
+
+/* long long */
+
+#undef LLONG_MIN
+#undef LLONG_MAX
+#undef ULLONG_MAX
+
+#define LLONG_MIN __ASTREE_LLONG_MIN
+#define LLONG_MAX __ASTREE_LLONG_MAX
+#define ULLONG_MAX __ASTREE_CONCAT(__ASTREE_ULLONG_MAX, U)
+
+/* max number of bytes in a multibyte character */
+
+#undef MB_LEN_MAX
+#define MB_LEN_MAX 16
+
+/* RULECHECKER_suppress(rules-category) */
+__ASTREE_attributes((coverage_ignore, raise_at_caller, hide_directives));

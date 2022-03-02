@@ -1,0 +1,1561 @@
+# 1 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ballkicker/main.c"
+# 1 "<built-in>" 1
+# 1 "<built-in>" 3
+# 10 "<built-in>"
+
+
+
+
+# 1 "<command line>" 1
+# 1 "<built-in>" 2
+# 1 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ballkicker/main.c" 2
+# 1 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdio.h" 1
+# 14 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdio.h"
+# 1 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stddef.h" 1
+# 14 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stddef.h"
+# 1 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\astree_config.h" 1
+# 471 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\astree_config.h"
+__ASTREE_attributes((coverage_ignore, raise_at_caller, hide_directives));
+# 15 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stddef.h" 2
+
+
+
+
+
+typedef long int ptrdiff_t;
+typedef long unsigned int size_t;
+
+
+typedef int wchar_t;
+# 46 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stddef.h"
+typedef int errno_t;
+
+
+typedef double long max_align_t;
+
+typedef size_t rsize_t;
+
+
+
+
+
+
+__ASTREE_attributes((coverage_ignore, raise_at_caller, hide_directives));
+# 15 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdio.h" 2
+# 1 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdarg.h" 1
+# 46 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdarg.h"
+typedef union {
+  int i;
+  long l;
+  long long ll;
+  double d;
+  long double dd;
+  void *p;
+} ASTREE_va_arg_any;
+
+typedef ASTREE_va_arg_any *va_list;
+# 69 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdarg.h"
+__ASTREE_attributes((coverage_ignore, raise_at_caller, hide_directives));
+# 16 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdio.h" 2
+# 1 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\astree_restrict.h" 1
+# 22 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\astree_restrict.h"
+__ASTREE_attributes((coverage_ignore, raise_at_caller, hide_directives));
+# 17 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdio.h" 2
+
+
+
+
+
+typedef struct { char dummy; } FILE;
+
+typedef int fpos_t;
+# 85 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdio.h"
+extern FILE* stderr;
+extern FILE* stdin;
+extern FILE* stdout;
+
+int remove(const char *filename);
+int rename(const char *oldname, const char *newname);
+FILE* tmpfile(void);
+char* tmpnam(char* s);
+int fclose(FILE* stream);
+int fflush(FILE* stream);
+FILE* fopen(const char* restrict filename, const char* restrict mode);
+FILE* freopen(const char* restrict filename, const char* restrict mode, FILE* stream);
+void setbuf(FILE* restrict stream, char* restrict buf);
+int setvbuf(FILE* restrict stream, char* restrict buf, int mode, size_t size);
+
+
+
+
+
+int fprintf(FILE* restrict stream, const char* restrict format, ...);
+int fscanf(FILE* restrict stream, const char* restrict format, ...);
+int printf(const char* restrict format, ...);
+int scanf(const char* restrict format, ...);
+int sprintf(char* restrict sm, const char* restrict format, ...);
+int sscanf(const char* restrict sm, const char* restrict format, ...);
+int snprintf(char* restrict s, size_t n, const char* restrict format, ...);
+
+int vfprintf(FILE* restrict stream, const char* restrict format, va_list arg);
+int vfscanf(FILE* restrict stream, const char* restrict format, va_list arg);
+int vprintf(const char* restrict format, va_list arg);
+int vscanf(const char* restrict format, va_list arg);
+int vsnprintf(char* restrict s, size_t n, const char* restrict format, va_list arg);
+int vsprintf(char* restrict s, const char* restrict format, va_list arg);
+int vsscanf(const char* restrict s, const char* restrict format, va_list arg);
+
+int fgetc(FILE* stream);
+char* fgets(char* restrict s, int n, FILE* restrict stream);
+int fputc(int c, FILE* stream);
+int fputs(const char* restrict s, FILE* restrict stream);
+int getc(FILE* stream);
+int getchar(void);
+
+char* gets(char* s);
+
+int putc(int c, FILE* stream);
+int putchar(int c);
+int puts(const char* s);
+int ungetc(int c, FILE* stream);
+size_t fread(void* restrict ptr, size_t size, size_t nmemb, FILE* restrict stream);
+size_t fwrite(const void* restrict ptr, size_t size, size_t nmemb, FILE* restrict stream);
+int fgetpos(FILE* restrict stream, fpos_t* restrict pos);
+int fseek(FILE* stream, long int offset, int whence);
+int fsetpos(FILE* stream, const fpos_t* pos);
+long int ftell(FILE* stream);
+void rewind(FILE* stream);
+void clearerr(FILE* stream);
+int feof(FILE* stream);
+int ferror(FILE* stream);
+void perror(const char* s);
+# 155 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdio.h"
+__ASTREE_attributes((coverage_ignore, raise_at_caller, hide_directives));
+# 2 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ballkicker/main.c" 2
+# 1 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3.h" 1
+# 39 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3.h"
+# 1 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdint.h" 1
+# 16 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdint.h"
+typedef signed char int8_t;
+
+typedef signed short int16_t;
+typedef signed int int32_t;
+
+typedef signed long long int int64_t;
+
+
+typedef unsigned char uint8_t;
+
+typedef unsigned short uint16_t;
+typedef unsigned int uint32_t;
+
+typedef unsigned long long int uint64_t;
+
+
+typedef long int intptr_t;
+typedef long unsigned int uintptr_t;
+
+
+typedef int8_t int_least8_t;
+
+typedef int16_t int_least16_t;
+typedef int32_t int_least32_t;
+
+typedef int64_t int_least64_t;
+
+
+typedef uint8_t uint_least8_t;
+
+typedef uint16_t uint_least16_t;
+typedef uint32_t uint_least32_t;
+
+typedef uint64_t uint_least64_t;
+
+
+
+typedef int8_t int_fast8_t;
+
+typedef int16_t int_fast16_t;
+typedef int32_t int_fast32_t;
+
+typedef int64_t int_fast64_t;
+
+
+typedef uint8_t uint_fast8_t;
+
+typedef uint16_t uint_fast16_t;
+typedef uint32_t uint_fast32_t;
+
+typedef uint64_t uint_fast64_t;
+
+
+typedef long long int intmax_t;
+typedef long long unsigned int uintmax_t;
+# 243 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdint.h"
+__ASTREE_attributes((coverage_ignore, raise_at_caller, hide_directives));
+# 40 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3.h" 2
+# 1 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdbool.h" 1
+# 27 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdbool.h"
+__ASTREE_attributes((coverage_ignore, raise_at_caller, hide_directives));
+# 41 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3.h" 2
+# 1 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_both.h" 1
+# 18 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_both.h"
+enum {
+ EV3_KEY__NONE_ = 0,
+
+ EV3_KEY_UP = 0x01L,
+ EV3_KEY_DOWN = 0x02L,
+ EV3_KEY_LEFT = 0x04L,
+ EV3_KEY_RIGHT = 0x08L,
+ EV3_KEY_CENTER = 0x10L,
+ EV3_KEY_BACK = 0x20L,
+};
+# 42 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3.h" 2
+# 62 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3.h"
+extern char *ev3_brick_addr;
+
+
+
+
+extern uint16_t ev3_brick_port;
+
+
+
+
+
+typedef uint8_t byte;
+typedef uint32_t dword;
+
+
+
+typedef uint8_t INX_T;
+typedef uint8_t FLAGS_T;
+# 90 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3.h"
+extern int ev3_init( void );
+
+
+
+
+extern void ev3_uninit( void );
+# 104 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3.h"
+extern size_t ev3_write_binary( const char *fn, char *data, size_t sz );
+
+
+
+
+
+
+
+extern size_t ev3_write( const char *fn, char *value );
+
+
+
+
+
+
+
+extern size_t ev3_write_bool( const char *fn, _Bool value );
+
+
+
+
+
+
+
+extern size_t ev3_write_int( const char *fn, int value );
+
+
+
+
+
+
+
+extern size_t ev3_write_dword( const char *fn, uint32_t value );
+
+
+
+
+
+
+
+extern size_t ev3_write_byte( const char *fn, uint8_t value );
+
+
+
+
+
+
+
+extern size_t ev3_write_float( const char *fn, float value );
+
+extern size_t ev3_write_char_array( const char *fn, char *value );
+extern size_t ev3_write_byte_array( const char *fn, uint8_t *value, size_t sz );
+# 166 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3.h"
+extern size_t ev3_multi_write_binary( uint8_t *sn, uint16_t pos, const char *fn, char *data, size_t sz );
+
+extern size_t ev3_multi_write( uint8_t *sn, uint16_t pos, const char *fn, char *value );
+extern size_t ev3_multi_write_bool( uint8_t *sn, uint16_t pos, const char *fn, _Bool value );
+extern size_t ev3_multi_write_int( uint8_t *sn, uint16_t pos, const char *fn, int value );
+extern size_t ev3_multi_write_dword( uint8_t *sn, uint16_t pos, const char *fn, uint32_t value );
+extern size_t ev3_multi_write_byte( uint8_t *sn, uint16_t pos, const char *fn, uint8_t value );
+extern size_t ev3_multi_write_float( uint8_t *sn, uint16_t pos, const char *fn, float value );
+extern size_t ev3_multi_write_char_array( uint8_t *sn, uint16_t pos, const char *fn, char *value );
+extern size_t ev3_multi_write_byte_array( uint8_t *sn, uint16_t pos, const char *fn, uint8_t *value, size_t sz );
+# 184 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3.h"
+extern size_t ev3_read_binary( const char *fn, char *buf, size_t sz );
+# 193 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3.h"
+extern size_t ev3_read( const char *fn, char *buf, size_t sz );
+
+
+
+
+
+
+
+extern size_t ev3_read_bool( const char *fn, _Bool *buf );
+
+
+
+
+
+
+
+extern size_t ev3_read_int( const char *fn, int *buf );
+
+
+
+
+
+
+
+extern size_t ev3_read_dword( const char *fn, uint32_t *buf );
+
+
+
+
+
+
+
+extern size_t ev3_read_byte( const char *fn, uint8_t *buf );
+
+
+
+
+
+
+
+extern size_t ev3_read_float( const char *fn, float *buf );
+
+extern size_t ev3_read_char_array( const char *fn, char *buf, size_t sz );
+extern size_t ev3_read_byte_array( const char *fn, uint8_t *buf, size_t sz );
+# 245 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3.h"
+extern size_t ev3_listdir( const char *fn, char *buf, size_t sz );
+
+
+
+
+
+
+extern size_t ev3_read_keys( uint8_t *buf );
+
+
+
+
+
+extern _Bool ev3_poweroff( void );
+# 268 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3.h"
+extern int ev3_string_suffix( const char *prefix, char **s, uint32_t *buf );
+# 3 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ballkicker/main.c" 2
+# 1 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_port.h" 1
+# 59 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_port.h"
+typedef struct {
+ INX_T type_inx;
+ uint8_t port;
+ uint8_t extport;
+ uint8_t addr;
+
+} EV3_PORT;
+# 74 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_port.h"
+extern EV3_PORT ev3_port[ 64 ];
+
+
+
+
+enum {
+ PORT_TYPE__NONE_ = 0,
+
+ BRICKPI_OUT_PORT,
+ BRICKPI3_IN_PORT,
+ HT_NXT_SMUX_PORT,
+ EV3_OUTPUT_PORT,
+ WEDO_PORT,
+ EV3_INPUT_PORT,
+ PISTORMS_OUT_PORT,
+ BRICKPI3_OUT_PORT,
+ PISTORMS_IN_PORT,
+ BRICKPI_IN_PORT,
+ MS_EV3_SMUX_PORT,
+ MS_NXTMMX_OUT_PORT,
+
+ PORT_TYPE__COUNT_,
+ PORT_TYPE__UNKNOWN_ = PORT_TYPE__COUNT_
+};
+
+
+
+
+enum {
+ PORT_MODE__NONE_ = 0,
+
+ BRICKPI_OUT_PORT_TACHO_MOTOR, BRICKPI_OUT_TACHO_MOTOR = BRICKPI_OUT_PORT_TACHO_MOTOR,
+ BRICKPI_OUT_PORT_DC_MOTOR, BRICKPI_OUT_DC_MOTOR = BRICKPI_OUT_PORT_DC_MOTOR,
+ BRICKPI_OUT_PORT_LED, BRICKPI_OUT_LED = BRICKPI_OUT_PORT_LED,
+ BRICKPI3_IN_PORT_NONE, BRICKPI3_IN_NONE = BRICKPI3_IN_PORT_NONE,
+ BRICKPI3_IN_PORT_NXT_ANALOG, BRICKPI3_IN_NXT_ANALOG = BRICKPI3_IN_PORT_NXT_ANALOG,
+ BRICKPI3_IN_PORT_NXT_COLOR, BRICKPI3_IN_NXT_COLOR = BRICKPI3_IN_PORT_NXT_COLOR,
+ BRICKPI3_IN_PORT_NXT_I2C, BRICKPI3_IN_NXT_I2C = BRICKPI3_IN_PORT_NXT_I2C,
+ BRICKPI3_IN_PORT_EV3_ANALOG, BRICKPI3_IN_EV3_ANALOG = BRICKPI3_IN_PORT_EV3_ANALOG,
+ BRICKPI3_IN_PORT_EV3_UART, BRICKPI3_IN_EV3_UART = BRICKPI3_IN_PORT_EV3_UART,
+ HT_NXT_SMUX_PORT_ANALOG, HT_NXT_SMUX_ANALOG = HT_NXT_SMUX_PORT_ANALOG,
+ HT_NXT_SMUX_PORT_I2C, HT_NXT_SMUX_I2C = HT_NXT_SMUX_PORT_I2C,
+ EV3_OUTPUT_PORT_AUTO, EV3_OUTPUT_AUTO = EV3_OUTPUT_PORT_AUTO,
+ EV3_OUTPUT_PORT_TACHO_MOTOR, EV3_OUTPUT_TACHO_MOTOR = EV3_OUTPUT_PORT_TACHO_MOTOR,
+ EV3_OUTPUT_PORT_DC_MOTOR, EV3_OUTPUT_DC_MOTOR = EV3_OUTPUT_PORT_DC_MOTOR,
+ EV3_OUTPUT_PORT_LED, EV3_OUTPUT_LED = EV3_OUTPUT_PORT_LED,
+ EV3_OUTPUT_PORT_RAW, EV3_OUTPUT_RAW = EV3_OUTPUT_PORT_RAW,
+ WEDO_PORT_AUTO, WEDO_AUTO = WEDO_PORT_AUTO,
+ EV3_INPUT_PORT_AUTO, EV3_INPUT_AUTO = EV3_INPUT_PORT_AUTO,
+ EV3_INPUT_PORT_NXT_ANALOG, EV3_INPUT_NXT_ANALOG = EV3_INPUT_PORT_NXT_ANALOG,
+ EV3_INPUT_PORT_NXT_COLOR, EV3_INPUT_NXT_COLOR = EV3_INPUT_PORT_NXT_COLOR,
+ EV3_INPUT_PORT_NXT_I2C, EV3_INPUT_NXT_I2C = EV3_INPUT_PORT_NXT_I2C,
+ EV3_INPUT_PORT_OTHER_I2C, EV3_INPUT_OTHER_I2C = EV3_INPUT_PORT_OTHER_I2C,
+ EV3_INPUT_PORT_EV3_ANALOG, EV3_INPUT_EV3_ANALOG = EV3_INPUT_PORT_EV3_ANALOG,
+ EV3_INPUT_PORT_EV3_UART, EV3_INPUT_EV3_UART = EV3_INPUT_PORT_EV3_UART,
+ EV3_INPUT_PORT_OTHER_UART, EV3_INPUT_OTHER_UART = EV3_INPUT_PORT_OTHER_UART,
+ EV3_INPUT_PORT_RAW, EV3_INPUT_RAW = EV3_INPUT_PORT_RAW,
+ PISTORMS_OUT_PORT_TACHO_MOTOR, PISTORMS_OUT_TACHO_MOTOR = PISTORMS_OUT_PORT_TACHO_MOTOR,
+ BRICKPI3_OUT_PORT_TACHO_MOTOR, BRICKPI3_OUT_TACHO_MOTOR = BRICKPI3_OUT_PORT_TACHO_MOTOR,
+ BRICKPI3_OUT_PORT_DC_MOTOR, BRICKPI3_OUT_DC_MOTOR = BRICKPI3_OUT_PORT_DC_MOTOR,
+ BRICKPI3_OUT_PORT_LED, BRICKPI3_OUT_LED = BRICKPI3_OUT_PORT_LED,
+ PISTORMS_IN_PORT_NONE, PISTORMS_IN_NONE = PISTORMS_IN_PORT_NONE,
+ PISTORMS_IN_PORT_NXT_ANALOG, PISTORMS_IN_NXT_ANALOG = PISTORMS_IN_PORT_NXT_ANALOG,
+ PISTORMS_IN_PORT_NXT_COLOR, PISTORMS_IN_NXT_COLOR = PISTORMS_IN_PORT_NXT_COLOR,
+ PISTORMS_IN_PORT_I2C_THRU, PISTORMS_IN_I2C_THRU = PISTORMS_IN_PORT_I2C_THRU,
+ PISTORMS_IN_PORT_EV3_ANALOG, PISTORMS_IN_EV3_ANALOG = PISTORMS_IN_PORT_EV3_ANALOG,
+ PISTORMS_IN_PORT_EV3_UART, PISTORMS_IN_EV3_UART = PISTORMS_IN_PORT_EV3_UART,
+ BRICKPI_IN_PORT_NONE, BRICKPI_IN_NONE = BRICKPI_IN_PORT_NONE,
+ BRICKPI_IN_PORT_NXT_ANALOG, BRICKPI_IN_NXT_ANALOG = BRICKPI_IN_PORT_NXT_ANALOG,
+ BRICKPI_IN_PORT_NXT_COLOR, BRICKPI_IN_NXT_COLOR = BRICKPI_IN_PORT_NXT_COLOR,
+ BRICKPI_IN_PORT_NXT_I2C, BRICKPI_IN_NXT_I2C = BRICKPI_IN_PORT_NXT_I2C,
+ BRICKPI_IN_PORT_EV3_ANALOG, BRICKPI_IN_EV3_ANALOG = BRICKPI_IN_PORT_EV3_ANALOG,
+ BRICKPI_IN_PORT_EV3_UART, BRICKPI_IN_EV3_UART = BRICKPI_IN_PORT_EV3_UART,
+ MS_EV3_SMUX_PORT_UART, MS_EV3_SMUX_UART = MS_EV3_SMUX_PORT_UART,
+ MS_EV3_SMUX_PORT_ANALOG, MS_EV3_SMUX_ANALOG = MS_EV3_SMUX_PORT_ANALOG,
+ MS_NXTMMX_OUT_PORT_TACHO_MOTOR, MS_NXTMMX_OUT_TACHO_MOTOR = MS_NXTMMX_OUT_PORT_TACHO_MOTOR,
+ PORT_MODE__COUNT_,
+ PORT_MODE__UNKNOWN_ = PORT_MODE__COUNT_
+};
+# 161 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_port.h"
+extern size_t get_port_address( uint8_t sn, char *buf, size_t sz );
+# 170 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_port.h"
+extern size_t get_port_driver_name( uint8_t sn, char *buf, size_t sz );
+# 179 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_port.h"
+extern size_t get_port_mode( uint8_t sn, char *buf, size_t sz );
+# 188 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_port.h"
+extern size_t set_port_mode( uint8_t sn, char *value );
+# 197 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_port.h"
+extern size_t multi_set_port_mode( uint8_t *sn, char *value );
+# 206 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_port.h"
+extern size_t get_port_modes( uint8_t sn, char *buf, size_t sz );
+# 215 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_port.h"
+extern size_t set_port_set_device( uint8_t sn, char *value );
+# 224 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_port.h"
+extern size_t multi_set_port_set_device( uint8_t *sn, char *value );
+# 233 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_port.h"
+extern size_t get_port_status( uint8_t sn, char *buf, size_t sz );
+
+
+
+
+
+
+extern const char *ev3_port_type( INX_T type_inx );
+
+
+
+
+
+
+extern INX_T get_port_type_inx( uint8_t sn );
+
+
+
+
+
+
+
+extern size_t get_port_desc( uint8_t sn, EV3_PORT *desc );
+
+
+
+
+
+
+extern EV3_PORT *ev3_port_desc( uint8_t sn );
+
+
+
+
+
+
+extern INX_T ev3_port_desc_type_inx( uint8_t sn );
+
+
+
+
+
+
+extern uint8_t ev3_port_desc_port( uint8_t sn );
+
+
+
+
+
+
+extern uint8_t ev3_port_desc_extport( uint8_t sn );
+
+
+
+
+
+
+extern uint8_t ev3_port_desc_addr( uint8_t sn );
+
+
+
+
+
+
+
+extern char *ev3_port_port_name( uint8_t sn, char *buf );
+# 307 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_port.h"
+extern _Bool ev3_search_port_type( INX_T type_inx, uint8_t *sn, uint8_t from );
+# 317 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_port.h"
+extern _Bool ev3_search_port_plugged_in( uint8_t port, uint8_t extport, uint8_t *sn, uint8_t from );
+
+
+
+
+
+
+extern const char *ev3_port_mode( INX_T mode_inx );
+
+
+
+
+
+
+
+extern INX_T get_port_mode_inx_of_type( uint8_t sn, INX_T type_inx );
+# 341 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_port.h"
+extern INX_T get_port_mode_inx( uint8_t sn );
+
+
+
+
+
+
+
+extern size_t set_port_mode_inx( uint8_t sn, INX_T mode_inx );
+
+
+
+
+
+
+
+extern size_t multi_set_port_mode_inx( uint8_t *sn, INX_T mode_inx );
+
+
+
+
+
+extern int ev3_port_init( void );
+# 409 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_port.h"
+extern uint8_t ev3_search_port( uint8_t port, uint8_t extport );
+# 418 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_port.h"
+extern void ev3_parse_port_name( char *name, uint8_t *port, uint8_t *extport, uint8_t *addr );
+# 428 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_port.h"
+extern char *ev3_port_name( uint8_t port, uint8_t extport, uint8_t addr, char *buf );
+# 4 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ballkicker/main.c" 2
+# 1 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_sensor.h" 1
+# 59 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_sensor.h"
+typedef struct {
+ INX_T type_inx;
+ uint8_t port;
+ uint8_t extport;
+ uint8_t addr;
+
+} EV3_SENSOR;
+# 74 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_sensor.h"
+extern EV3_SENSOR ev3_sensor[ 64 ];
+
+
+
+
+enum {
+ SENSOR_TYPE__NONE_ = 0,
+
+ EV3_ANALOG_XX,
+ NXT_ANALOG,
+ PIXY_LEGO,
+ DI_DFLEX,
+ FCL_9DOF,
+ FCL_ADC,
+ FCL_ALTITUDE,
+ FCL_GESTURE,
+ FCL_HUMIDITY,
+ FCL_IR,
+ FCL_LIGHT,
+ HT_NXT_COLOR,
+ HT_NXT_ANGLE,
+ HT_NXT_ACCEL,
+ HT_NXT_BAROMETRIC,
+ HT_NXT_COLOR_V2,
+ HT_NXT_EOPD,
+ HT_NXT_FORCE,
+ HT_NXT_GYRO,
+ HT_NXT_IR_LINK,
+ HT_NXT_IR_RECEIVER,
+ HT_NXT_PIR,
+ HT_NXT_COMPASS,
+ HT_NXT_MAG,
+ HT_NXT_IR_SEEK_V2,
+ HT_NXT_SMUX,
+ HT_SUPER_PRO,
+ LEGO_EV3_US,
+ LEGO_EV3_GYRO,
+ LEGO_EV3_COLOR,
+ LEGO_EV3_TOUCH,
+ LEGO_EV3_IR,
+ WEDO_HUB,
+ WEDO_MOTION,
+ WEDO_TILT,
+ LEGO_POWER_STORAGE,
+ LEGO_NXT_TEMP,
+ LEGO_NXT_TOUCH,
+ LEGO_NXT_LIGHT,
+ LEGO_NXT_SOUND,
+ LEGO_NXT_US,
+ MI_XG1300L,
+ MS_ABSOLUTE_IMU,
+ MS_ANGLE,
+ MS_EV3_SMUX,
+ MS_LIGHT_ARRAY,
+ MS_LINE_LEADER,
+ MS_NXTCAM,
+ MS_NXTCAM5,
+ MS_NXTMMX,
+ MS_8CH_SERVO,
+ MS_PPS58_NX,
+ MS_PIXY_ADAPTER,
+ MS_NXT_TOUCH_MUX,
+
+ SENSOR_TYPE__COUNT_,
+ SENSOR_TYPE__UNKNOWN_ = SENSOR_TYPE__COUNT_
+};
+
+
+
+
+enum {
+ SENSOR_MODE__NONE_ = 0,
+
+ EV3_ANALOG_XX_ANALOG,
+ NXT_ANALOG_ANALOG_0,
+ NXT_ANALOG_ANALOG_1,
+ PIXY_LEGO_ALL,
+ PIXY_LEGO_SIG1,
+ PIXY_LEGO_SIG2,
+ PIXY_LEGO_SIG3,
+ PIXY_LEGO_SIG4,
+ PIXY_LEGO_SIG5,
+ PIXY_LEGO_SIG6,
+ PIXY_LEGO_SIG7,
+ DI_DFLEX_FLEX,
+ FCL_9DOF_GYRO,
+ FCL_9DOF_ACC,
+ FCL_9DOF_MAGNET,
+ FCL_ADC_CH1_VOLTAGE,
+ FCL_ADC_CH2_VOLTAGE,
+ FCL_ADC_VOLTAGE,
+ FCL_ALTITUDE_PRESSURE,
+ FCL_ALTITUDE_ALTITUDE,
+ FCL_GESTURE_GESTURE,
+ FCL_GESTURE_PROXIMITY,
+ FCL_GESTURE_RGB_RAW,
+ FCL_GESTURE_CLEAR,
+ FCL_HUMIDITY_CENTIGRADE,
+ FCL_HUMIDITY_FAHRENHEIT,
+ FCL_HUMIDITY_HUMIDITY,
+ FCL_IR_IR_DATA,
+ FCL_LIGHT_ILLUMINANCE,
+ HT_NXT_COLOR_COLOR,
+ HT_NXT_COLOR_RED,
+ HT_NXT_COLOR_GREEN,
+ HT_NXT_COLOR_BLUE,
+ HT_NXT_COLOR_RAW,
+ HT_NXT_COLOR_NORM,
+ HT_NXT_COLOR_ALL,
+ HT_NXT_ANGLE_ANGLE,
+ HT_NXT_ANGLE_ANGLE_ACC,
+ HT_NXT_ANGLE_SPEED,
+ HT_NXT_ACCEL_ACCEL,
+ HT_NXT_ACCEL_ALL,
+ HT_NXT_BAROMETRIC_PRESS,
+ HT_NXT_BAROMETRIC_TEMP,
+ HT_NXT_COLOR_V2_COLOR,
+ HT_NXT_COLOR_V2_RED,
+ HT_NXT_COLOR_V2_GREEN,
+ HT_NXT_COLOR_V2_BLUE,
+ HT_NXT_COLOR_V2_WHITE,
+ HT_NXT_COLOR_V2_NORM,
+ HT_NXT_COLOR_V2_ALL,
+ HT_NXT_COLOR_V2_PASSIVE,
+ HT_NXT_COLOR_V2_RAW,
+ HT_NXT_EOPD_LONG,
+ HT_NXT_EOPD_SHORT,
+ HT_NXT_FORCE_FORCE,
+ HT_NXT_GYRO_GYRO,
+ HT_NXT_IR_LINK_IRLINK,
+ HT_NXT_IR_RECEIVER_1_MOTOR,
+ HT_NXT_IR_RECEIVER_8_MOTOR,
+ HT_NXT_PIR_PROX,
+ HT_NXT_COMPASS_COMPASS,
+ HT_NXT_MAG_MAG,
+ HT_NXT_IR_SEEK_V2_DC,
+ HT_NXT_IR_SEEK_V2_AC,
+ HT_NXT_IR_SEEK_V2_DC_ALL,
+ HT_NXT_IR_SEEK_V2_AC_ALL,
+ HT_NXT_SMUX_MUX,
+ HT_SUPER_PRO_AIN,
+ HT_SUPER_PRO_DIN,
+ HT_SUPER_PRO_DOUT,
+ HT_SUPER_PRO_DCTRL,
+ HT_SUPER_PRO_STROBE,
+ HT_SUPER_PRO_LED,
+ HT_SUPER_PRO_AOUT_0,
+ HT_SUPER_PRO_AOUT_1,
+ LEGO_EV3_US_US_DIST_CM, US_US_DIST_CM = LEGO_EV3_US_US_DIST_CM,
+ LEGO_EV3_US_US_DIST_IN, US_US_DIST_IN = LEGO_EV3_US_US_DIST_IN,
+ LEGO_EV3_US_US_LISTEN, US_US_LISTEN = LEGO_EV3_US_US_LISTEN,
+ LEGO_EV3_US_US_SI_CM, US_US_SI_CM = LEGO_EV3_US_US_SI_CM,
+ LEGO_EV3_US_US_SI_IN, US_US_SI_IN = LEGO_EV3_US_US_SI_IN,
+ LEGO_EV3_US_US_DC_CM, US_US_DC_CM = LEGO_EV3_US_US_DC_CM,
+ LEGO_EV3_US_US_DC_IN, US_US_DC_IN = LEGO_EV3_US_US_DC_IN,
+ LEGO_EV3_GYRO_GYRO_ANG, GYRO_GYRO_ANG = LEGO_EV3_GYRO_GYRO_ANG,
+ LEGO_EV3_GYRO_GYRO_RATE, GYRO_GYRO_RATE = LEGO_EV3_GYRO_GYRO_RATE,
+ LEGO_EV3_GYRO_GYRO_FAS, GYRO_GYRO_FAS = LEGO_EV3_GYRO_GYRO_FAS,
+ LEGO_EV3_GYRO_GYRO_G_AND_A, GYRO_GYRO_G_AND_A = LEGO_EV3_GYRO_GYRO_G_AND_A,
+ LEGO_EV3_GYRO_GYRO_CAL, GYRO_GYRO_CAL = LEGO_EV3_GYRO_GYRO_CAL,
+ LEGO_EV3_COLOR_COL_REFLECT, COLOR_COL_REFLECT = LEGO_EV3_COLOR_COL_REFLECT,
+ LEGO_EV3_COLOR_COL_AMBIENT, COLOR_COL_AMBIENT = LEGO_EV3_COLOR_COL_AMBIENT,
+ LEGO_EV3_COLOR_COL_COLOR, COLOR_COL_COLOR = LEGO_EV3_COLOR_COL_COLOR,
+ LEGO_EV3_COLOR_REF_RAW, COLOR_REF_RAW = LEGO_EV3_COLOR_REF_RAW,
+ LEGO_EV3_COLOR_RGB_RAW, COLOR_RGB_RAW = LEGO_EV3_COLOR_RGB_RAW,
+ LEGO_EV3_COLOR_COL_CAL, COLOR_COL_CAL = LEGO_EV3_COLOR_COL_CAL,
+ LEGO_EV3_TOUCH_TOUCH, TOUCH_TOUCH = LEGO_EV3_TOUCH_TOUCH,
+ LEGO_EV3_IR_IR_PROX, IR_IR_PROX = LEGO_EV3_IR_IR_PROX,
+ LEGO_EV3_IR_IR_SEEK, IR_IR_SEEK = LEGO_EV3_IR_IR_SEEK,
+ LEGO_EV3_IR_IR_REMOTE, IR_IR_REMOTE = LEGO_EV3_IR_IR_REMOTE,
+ LEGO_EV3_IR_IR_REM_A, IR_IR_REM_A = LEGO_EV3_IR_IR_REM_A,
+ LEGO_EV3_IR_IR_S_ALT, IR_IR_S_ALT = LEGO_EV3_IR_IR_S_ALT,
+ LEGO_EV3_IR_IR_CAL, IR_IR_CAL = LEGO_EV3_IR_IR_CAL,
+ WEDO_HUB_HUB,
+ WEDO_MOTION_PROX,
+ WEDO_MOTION_RAW,
+ WEDO_TILT_TILT,
+ WEDO_TILT_TILT_AXIS,
+ WEDO_TILT_RAW,
+ LEGO_POWER_STORAGE_IN_VOLT,
+ LEGO_POWER_STORAGE_IN_AMP,
+ LEGO_POWER_STORAGE_OUT_VOLT,
+ LEGO_POWER_STORAGE_OUT_AMP,
+ LEGO_POWER_STORAGE_JOULE,
+ LEGO_POWER_STORAGE_IN_WATT,
+ LEGO_POWER_STORAGE_OUT_WATT,
+ LEGO_POWER_STORAGE_ALL,
+ LEGO_NXT_TEMP_NXT_TEMP_C,
+ LEGO_NXT_TEMP_NXT_TEMP_F,
+ LEGO_NXT_TOUCH_TOUCH,
+ LEGO_NXT_LIGHT_REFLECT,
+ LEGO_NXT_LIGHT_AMBIENT,
+ LEGO_NXT_SOUND_DB,
+ LEGO_NXT_SOUND_DBA,
+ LEGO_NXT_US_US_DIST_CM,
+ LEGO_NXT_US_US_DIST_IN,
+ LEGO_NXT_US_US_SI_CM,
+ LEGO_NXT_US_US_SI_IN,
+ LEGO_NXT_US_US_LISTEN,
+ MI_XG1300L_ANGLE,
+ MI_XG1300L_SPEED,
+ MI_XG1300L_ACCEL,
+ MI_XG1300L_ALL,
+ MS_ABSOLUTE_IMU_TILT,
+ MS_ABSOLUTE_IMU_ACCEL,
+ MS_ABSOLUTE_IMU_COMPASS,
+ MS_ABSOLUTE_IMU_MAG,
+ MS_ABSOLUTE_IMU_GYRO,
+ MS_ABSOLUTE_IMU_ALL,
+ MS_ANGLE_ANGLE,
+ MS_ANGLE_ANGLE2,
+ MS_ANGLE_SPEED,
+ MS_ANGLE_ALL,
+ MS_EV3_SMUX_MUX,
+ MS_LIGHT_ARRAY_CAL,
+ MS_LIGHT_ARRAY_RAW,
+ MS_LINE_LEADER_PID,
+ MS_LINE_LEADER_PID_ALL,
+ MS_LINE_LEADER_CAL,
+ MS_LINE_LEADER_RAW,
+ MS_NXTCAM_TRACK,
+ MS_NXTCAM5_TRACK,
+ MS_NXTMMX_STATUS,
+ MS_NXTMMX_STATUS_OLD,
+ MS_8CH_SERVO_V3,
+ MS_8CH_SERVO_OLD,
+ MS_PPS58_NX_RAW,
+ MS_PPS58_NX_ABS_PSI,
+ MS_PPS58_NX_ABS_MBAR,
+ MS_PPS58_NX_ABS_KPA,
+ MS_PPS58_NX_REL_PSI,
+ MS_PPS58_NX_REL_MBAR,
+ MS_PPS58_NX_REL_KPA,
+ MS_PIXY_ADAPTER_TRACK,
+ MS_NXT_TOUCH_MUX_TOUCH_MUX,
+ SENSOR_MODE__COUNT_,
+ SENSOR_MODE__UNKNOWN_ = SENSOR_MODE__COUNT_
+};
+
+
+
+
+enum {
+ SENSOR_COMMAND__NONE_ = 0,
+
+ HT_NXT_ANGLE_RESET,
+ HT_NXT_ANGLE_CAL,
+ HT_NXT_SMUX_HALT,
+ HT_NXT_SMUX_DETECT,
+ HT_NXT_SMUX_RUN,
+ WEDO_HUB_OUT_OFF,
+ WEDO_HUB_OUT_ON,
+ WEDO_HUB_CLEAR_ERR,
+ MI_XG1300L_RESET,
+ MI_XG1300L_ACCEL_2G,
+ MI_XG1300L_ACCEL_4G,
+ MI_XG1300L_ACCEL_8G,
+ MS_ABSOLUTE_IMU_BEGIN_COMP_CAL,
+ MS_ABSOLUTE_IMU_END_COMP_CAL,
+ MS_ABSOLUTE_IMU_ACCEL_2G,
+ MS_ABSOLUTE_IMU_ACCEL_4G,
+ MS_ABSOLUTE_IMU_ACCEL_8G,
+ MS_ABSOLUTE_IMU_ACCEL_16G,
+ MS_ANGLE_RESET,
+ MS_LIGHT_ARRAY_CAL_WHITE,
+ MS_LIGHT_ARRAY_CAL_BLACK,
+ MS_LIGHT_ARRAY_SLEEP,
+ MS_LIGHT_ARRAY_WAKE,
+ MS_LIGHT_ARRAY_60HZ,
+ MS_LIGHT_ARRAY_50HZ,
+ MS_LIGHT_ARRAY_UNIVERSAL,
+ MS_LINE_LEADER_CAL_WHITE,
+ MS_LINE_LEADER_CAL_BLACK,
+ MS_LINE_LEADER_SLEEP,
+ MS_LINE_LEADER_WAKE,
+ MS_LINE_LEADER_INV_COL,
+ MS_LINE_LEADER_RST_COL,
+ MS_LINE_LEADER_SNAP,
+ MS_LINE_LEADER_60HZ,
+ MS_LINE_LEADER_50HZ,
+ MS_LINE_LEADER_UNIVERSAL,
+ MS_NXTCAM_TRACK_ON,
+ MS_NXTCAM_TRACK_OFF,
+ MS_NXTCAM_TRACK_OBJ,
+ MS_NXTCAM_TRACK_LINE,
+ MS_NXTCAM_SORT_SIZE,
+ MS_NXTCAM_SORT_COL,
+ MS_NXTCAM5_TRACK_OBJ,
+ MS_NXTCAM5_TRACK_FACE,
+ MS_NXTCAM5_MULTI_MOVIE,
+ MS_NXTCAM5_MOVIE,
+ MS_NXTCAM5_PICTURE,
+ MS_NXTCAM5_TRACK_EYE,
+ MS_NXTCAM5_TRACK_QR,
+ MS_NXTCAM5_TRACK_LINE,
+ MS_PPS58_NX_ZERO,
+ MS_PIXY_ADAPTER_SORT_SIZE,
+ MS_PIXY_ADAPTER_SORT_COL,
+ SENSOR_COMMAND__COUNT_,
+ SENSOR_COMMAND__UNKNOWN_ = SENSOR_COMMAND__COUNT_
+};
+# 383 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_sensor.h"
+extern size_t get_sensor_address( uint8_t sn, char *buf, size_t sz );
+# 392 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_sensor.h"
+extern size_t get_sensor_bin_data( uint8_t sn, byte *buf, size_t sz );
+# 401 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_sensor.h"
+extern size_t set_sensor_bin_data( uint8_t sn, byte *value, size_t sz );
+# 410 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_sensor.h"
+extern size_t multi_set_sensor_bin_data( uint8_t *sn, byte *value, size_t sz );
+# 419 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_sensor.h"
+extern size_t get_sensor_bin_data_format( uint8_t sn, char *buf, size_t sz );
+# 428 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_sensor.h"
+extern size_t set_sensor_command( uint8_t sn, char *value );
+# 437 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_sensor.h"
+extern size_t multi_set_sensor_command( uint8_t *sn, char *value );
+# 446 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_sensor.h"
+extern size_t get_sensor_commands( uint8_t sn, char *buf, size_t sz );
+# 455 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_sensor.h"
+extern size_t get_sensor_direct( uint8_t sn, char *buf, size_t sz );
+# 464 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_sensor.h"
+extern size_t set_sensor_direct( uint8_t sn, char *value );
+# 473 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_sensor.h"
+extern size_t multi_set_sensor_direct( uint8_t *sn, char *value );
+# 482 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_sensor.h"
+extern size_t get_sensor_decimals( uint8_t sn, dword *buf );
+# 491 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_sensor.h"
+extern size_t get_sensor_driver_name( uint8_t sn, char *buf, size_t sz );
+# 500 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_sensor.h"
+extern size_t get_sensor_fw_version( uint8_t sn, char *buf, size_t sz );
+# 509 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_sensor.h"
+extern size_t get_sensor_mode( uint8_t sn, char *buf, size_t sz );
+# 518 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_sensor.h"
+extern size_t set_sensor_mode( uint8_t sn, char *value );
+# 527 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_sensor.h"
+extern size_t multi_set_sensor_mode( uint8_t *sn, char *value );
+# 536 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_sensor.h"
+extern size_t get_sensor_modes( uint8_t sn, char *buf, size_t sz );
+# 545 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_sensor.h"
+extern size_t get_sensor_num_values( uint8_t sn, dword *buf );
+# 554 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_sensor.h"
+extern size_t get_sensor_poll_ms( uint8_t sn, dword *buf );
+# 563 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_sensor.h"
+extern size_t set_sensor_poll_ms( uint8_t sn, dword value );
+# 572 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_sensor.h"
+extern size_t multi_set_sensor_poll_ms( uint8_t *sn, dword value );
+# 581 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_sensor.h"
+extern size_t get_sensor_units( uint8_t sn, char *buf, size_t sz );
+# 590 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_sensor.h"
+extern size_t get_sensor_value0( uint8_t sn, float *buf );
+# 599 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_sensor.h"
+extern size_t get_sensor_value1( uint8_t sn, float *buf );
+# 608 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_sensor.h"
+extern size_t get_sensor_value2( uint8_t sn, float *buf );
+# 617 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_sensor.h"
+extern size_t get_sensor_value3( uint8_t sn, float *buf );
+# 626 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_sensor.h"
+extern size_t get_sensor_value4( uint8_t sn, float *buf );
+# 635 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_sensor.h"
+extern size_t get_sensor_value5( uint8_t sn, float *buf );
+# 644 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_sensor.h"
+extern size_t get_sensor_value6( uint8_t sn, float *buf );
+# 653 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_sensor.h"
+extern size_t get_sensor_value7( uint8_t sn, float *buf );
+# 662 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_sensor.h"
+extern size_t get_sensor_text_value( uint8_t sn, char *buf, size_t sz );
+# 672 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_sensor.h"
+extern size_t get_sensor_value( uint8_t inx, uint8_t sn, int *buf );
+
+
+
+
+
+
+extern const char *ev3_sensor_type( INX_T type_inx );
+
+
+
+
+
+
+extern INX_T get_sensor_type_inx( uint8_t sn );
+
+
+
+
+
+
+
+extern size_t get_sensor_desc( uint8_t sn, EV3_SENSOR *desc );
+
+
+
+
+
+
+extern EV3_SENSOR *ev3_sensor_desc( uint8_t sn );
+
+
+
+
+
+
+extern INX_T ev3_sensor_desc_type_inx( uint8_t sn );
+
+
+
+
+
+
+extern uint8_t ev3_sensor_desc_port( uint8_t sn );
+
+
+
+
+
+
+extern uint8_t ev3_sensor_desc_extport( uint8_t sn );
+
+
+
+
+
+
+extern uint8_t ev3_sensor_desc_addr( uint8_t sn );
+
+
+
+
+
+
+
+extern char *ev3_sensor_port_name( uint8_t sn, char *buf );
+# 746 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_sensor.h"
+extern _Bool ev3_search_sensor( INX_T type_inx, uint8_t *sn, uint8_t from );
+# 756 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_sensor.h"
+extern _Bool ev3_search_sensor_plugged_in( uint8_t port, uint8_t extport, uint8_t *sn, uint8_t from );
+
+
+
+
+
+
+extern const char *ev3_sensor_mode( INX_T mode_inx );
+
+
+
+
+
+
+
+extern INX_T get_sensor_mode_inx_of_type( uint8_t sn, INX_T type_inx );
+# 780 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_sensor.h"
+extern INX_T get_sensor_mode_inx( uint8_t sn );
+
+
+
+
+
+
+
+extern size_t set_sensor_mode_inx( uint8_t sn, INX_T mode_inx );
+
+
+
+
+
+
+
+extern size_t multi_set_sensor_mode_inx( uint8_t *sn, INX_T mode_inx );
+
+
+
+
+
+
+extern const char *ev3_sensor_command( INX_T command_inx );
+
+
+
+
+
+
+
+extern size_t set_sensor_command_inx( uint8_t sn, INX_T command_inx );
+
+
+
+
+
+
+
+extern size_t multi_set_sensor_command_inx( uint8_t *sn, INX_T command_inx );
+
+
+
+
+
+extern int ev3_sensor_init( void );
+
+
+
+
+enum {
+ IR_REMOTE__NONE_ = 0,
+
+ RED_UP = 1,
+ RED_DOWN = 2,
+ BLUE_UP = 3,
+ BLUE_DOWN = 4,
+ RED_UP_BLUE_UP = 5,
+ RED_UP_BLUE_DOWN = 6,
+ RED_DOWN_BLUE_UP = 7,
+ RED_DOWN_BLUE_DOWN = 8,
+ BEACON_MODE_ON = 9,
+ RED_UP_RED_DOWN = 10,
+ BLUE_UP_BLUE_DOWN = 11,
+};
+# 5 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ballkicker/main.c" 2
+# 1 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h" 1
+# 59 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+typedef struct {
+ INX_T type_inx;
+ uint8_t port;
+ uint8_t extport;
+
+} EV3_TACHO;
+# 73 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern EV3_TACHO ev3_tacho[ 64 ];
+
+
+
+
+enum {
+ TACHO_TYPE__NONE_ = 0,
+
+ LEGO_EV3_L_MOTOR,
+ LEGO_EV3_M_MOTOR,
+ FI_L12_EV3,
+
+ TACHO_TYPE__COUNT_,
+ TACHO_TYPE__UNKNOWN_ = TACHO_TYPE__COUNT_
+};
+
+
+
+
+enum {
+ TACHO_COMMAND__NONE_ = 0,
+
+ TACHO_RUN_FOREVER,
+ TACHO_RUN_TO_ABS_POS,
+ TACHO_RUN_TO_REL_POS,
+ TACHO_RUN_TIMED,
+ TACHO_RUN_DIRECT,
+ TACHO_STOP,
+ TACHO_RESET,
+
+ TACHO_COMMAND__COUNT_,
+ TACHO_COMMAND__UNKNOWN_ = TACHO_COMMAND__COUNT_
+};
+
+
+
+
+enum {
+ TACHO_POLARITY__NONE_ = 0,
+
+ TACHO_NORMAL,
+ TACHO_INVERSED,
+
+ TACHO_POLARITY__COUNT_,
+ TACHO_POLARITY__UNKNOWN_ = TACHO_POLARITY__COUNT_
+};
+
+
+
+
+enum {
+ TACHO_STOP_ACTION__NONE_ = 0,
+
+ TACHO_COAST,
+ TACHO_BRAKE,
+ TACHO_HOLD,
+
+ TACHO_STOP_ACTION__COUNT_,
+ TACHO_STOP_ACTION__UNKNOWN_ = TACHO_STOP_ACTION__COUNT_
+};
+
+
+
+
+enum {
+ TACHO_STATE__NONE_ = 0,
+
+ TACHO_RUNNING = 0x1L,
+ TACHO_RAMPING = 0x2L,
+ TACHO_HOLDING = 0x4L,
+ TACHO_OVERLOADED = 0x8L,
+ TACHO_STALLED = 0x10L,
+
+};
+# 155 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t get_tacho_address( uint8_t sn, char *buf, size_t sz );
+# 164 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t set_tacho_command( uint8_t sn, char *value );
+# 173 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t multi_set_tacho_command( uint8_t *sn, char *value );
+# 182 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t get_tacho_commands( uint8_t sn, char *buf, size_t sz );
+# 191 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t get_tacho_count_per_rot( uint8_t sn, int *buf );
+# 200 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t get_tacho_count_per_m( uint8_t sn, int *buf );
+# 209 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t get_tacho_full_travel_count( uint8_t sn, int *buf );
+# 218 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t get_tacho_driver_name( uint8_t sn, char *buf, size_t sz );
+# 227 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t get_tacho_duty_cycle( uint8_t sn, int *buf );
+# 236 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t get_tacho_duty_cycle_sp( uint8_t sn, int *buf );
+# 245 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t set_tacho_duty_cycle_sp( uint8_t sn, int value );
+# 254 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t multi_set_tacho_duty_cycle_sp( uint8_t *sn, int value );
+# 263 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t get_tacho_hold_pid_Kd( uint8_t sn, int *buf );
+# 272 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t set_tacho_hold_pid_Kd( uint8_t sn, int value );
+# 281 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t multi_set_tacho_hold_pid_Kd( uint8_t *sn, int value );
+# 290 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t get_tacho_hold_pid_Ki( uint8_t sn, int *buf );
+# 299 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t set_tacho_hold_pid_Ki( uint8_t sn, int value );
+# 308 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t multi_set_tacho_hold_pid_Ki( uint8_t *sn, int value );
+# 317 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t get_tacho_hold_pid_Kp( uint8_t sn, int *buf );
+# 326 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t set_tacho_hold_pid_Kp( uint8_t sn, int value );
+# 335 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t multi_set_tacho_hold_pid_Kp( uint8_t *sn, int value );
+# 344 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t get_tacho_max_speed( uint8_t sn, int *buf );
+# 353 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t get_tacho_polarity( uint8_t sn, char *buf, size_t sz );
+# 362 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t set_tacho_polarity( uint8_t sn, char *value );
+# 371 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t multi_set_tacho_polarity( uint8_t *sn, char *value );
+# 380 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t get_tacho_position( uint8_t sn, int *buf );
+# 389 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t set_tacho_position( uint8_t sn, int value );
+# 398 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t multi_set_tacho_position( uint8_t *sn, int value );
+# 407 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t get_tacho_position_sp( uint8_t sn, int *buf );
+# 416 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t set_tacho_position_sp( uint8_t sn, int value );
+# 425 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t multi_set_tacho_position_sp( uint8_t *sn, int value );
+# 434 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t get_tacho_ramp_down_sp( uint8_t sn, int *buf );
+# 443 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t set_tacho_ramp_down_sp( uint8_t sn, int value );
+# 452 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t multi_set_tacho_ramp_down_sp( uint8_t *sn, int value );
+# 461 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t get_tacho_ramp_up_sp( uint8_t sn, int *buf );
+# 470 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t set_tacho_ramp_up_sp( uint8_t sn, int value );
+# 479 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t multi_set_tacho_ramp_up_sp( uint8_t *sn, int value );
+# 488 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t get_tacho_speed( uint8_t sn, int *buf );
+# 497 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t get_tacho_speed_pid_Kd( uint8_t sn, int *buf );
+# 506 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t set_tacho_speed_pid_Kd( uint8_t sn, int value );
+# 515 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t multi_set_tacho_speed_pid_Kd( uint8_t *sn, int value );
+# 524 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t get_tacho_speed_pid_Ki( uint8_t sn, int *buf );
+# 533 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t set_tacho_speed_pid_Ki( uint8_t sn, int value );
+# 542 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t multi_set_tacho_speed_pid_Ki( uint8_t *sn, int value );
+# 551 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t get_tacho_speed_pid_Kp( uint8_t sn, int *buf );
+# 560 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t set_tacho_speed_pid_Kp( uint8_t sn, int value );
+# 569 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t multi_set_tacho_speed_pid_Kp( uint8_t *sn, int value );
+# 578 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t get_tacho_speed_sp( uint8_t sn, int *buf );
+# 587 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t set_tacho_speed_sp( uint8_t sn, int value );
+# 596 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t multi_set_tacho_speed_sp( uint8_t *sn, int value );
+# 605 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t get_tacho_state( uint8_t sn, char *buf, size_t sz );
+# 614 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t get_tacho_stop_action( uint8_t sn, char *buf, size_t sz );
+# 623 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t set_tacho_stop_action( uint8_t sn, char *value );
+# 632 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t multi_set_tacho_stop_action( uint8_t *sn, char *value );
+# 641 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t get_tacho_stop_actions( uint8_t sn, char *buf, size_t sz );
+# 650 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t get_tacho_time_sp( uint8_t sn, int *buf );
+# 659 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t set_tacho_time_sp( uint8_t sn, int value );
+# 668 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern size_t multi_set_tacho_time_sp( uint8_t *sn, int value );
+
+
+
+
+
+
+extern const char *ev3_tacho_type( INX_T type_inx );
+
+
+
+
+
+
+extern INX_T get_tacho_type_inx( uint8_t sn );
+
+
+
+
+
+
+
+extern size_t get_tacho_desc( uint8_t sn, EV3_TACHO *desc );
+
+
+
+
+
+
+extern EV3_TACHO *ev3_tacho_desc( uint8_t sn );
+
+
+
+
+
+
+extern INX_T ev3_tacho_desc_type_inx( uint8_t sn );
+
+
+
+
+
+
+extern uint8_t ev3_tacho_desc_port( uint8_t sn );
+
+
+
+
+
+
+extern uint8_t ev3_tacho_desc_extport( uint8_t sn );
+
+
+
+
+
+
+
+extern char *ev3_tacho_port_name( uint8_t sn, char *buf );
+# 735 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern _Bool ev3_search_tacho( INX_T type_inx, uint8_t *sn, uint8_t from );
+# 745 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3\\ev3_tacho.h"
+extern _Bool ev3_search_tacho_plugged_in( uint8_t port, uint8_t extport, uint8_t *sn, uint8_t from );
+
+
+
+
+
+
+extern const char *ev3_tacho_command( INX_T command_inx );
+
+
+
+
+
+
+
+extern size_t set_tacho_command_inx( uint8_t sn, INX_T command_inx );
+
+
+
+
+
+
+
+extern size_t multi_set_tacho_command_inx( uint8_t *sn, INX_T command_inx );
+
+
+
+
+
+
+extern const char *ev3_tacho_polarity( INX_T polarity_inx );
+
+
+
+
+
+
+extern INX_T get_tacho_polarity_inx( uint8_t sn );
+
+
+
+
+
+
+
+extern size_t set_tacho_polarity_inx( uint8_t sn, INX_T polarity_inx );
+
+
+
+
+
+
+
+extern size_t multi_set_tacho_polarity_inx( uint8_t *sn, INX_T polarity_inx );
+
+
+
+
+
+
+extern const char *ev3_tacho_stop_action( INX_T stop_action_inx );
+
+
+
+
+
+
+extern INX_T get_tacho_stop_action_inx( uint8_t sn );
+
+
+
+
+
+
+
+extern size_t set_tacho_stop_action_inx( uint8_t sn, INX_T stop_action_inx );
+
+
+
+
+
+
+
+extern size_t multi_set_tacho_stop_action_inx( uint8_t *sn, INX_T stop_action_inx );
+
+
+
+
+
+
+
+extern size_t get_tacho_state_flags( uint8_t sn, FLAGS_T *flags );
+
+
+
+
+
+extern int ev3_tacho_init( void );
+# 6 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ballkicker/main.c" 2
+# 34 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ballkicker/main.c"
+int max_speed;
+enum { HIT_MOTOR, DRIVE_MOTOR, HIT_MOTOR_2 };
+uint8_t motor[ 3 ] = { 64, 64, 64 };
+
+
+int main( void )
+{
+    printf( "Hello, LEGO World!\n" );
+    printf("\a ");
+    usleep(( 1000 ) * 1000 );
+    if ( ev3_init() < 1 ) return ( 1 );
+
+    ev3_sensor_init();
+    printf( "Found sensors:\n" );
+    uint32_t n, i, ii, val;
+    char s[ 256 ];
+    for ( i = 0; i < 64; i++ ) {
+        if ( ev3_sensor[ i ].type_inx != SENSOR_TYPE__NONE_ ) {
+            printf( "  type = %s\n", ev3_sensor_type( ev3_sensor[ i ].type_inx ));
+            printf( "  port = %s\n", ev3_sensor_port_name( i, s ));
+            if ( get_sensor_mode( i, s, sizeof( s ))) {
+                printf( "  mode = %s\n", s );
+            }
+            if ( get_sensor_num_values( i, &n )) {
+                for ( ii = 0; ii < n; ii++ ) {
+                    if ( get_sensor_value( ii, i, &val )) {
+                        printf( "  value%d = %d\n", ii, val );
+                    }
+                }
+            }
+        }
+    }
+    ev3_tacho_init();
+    if ( ev3_search_tacho_plugged_in(68, 0, motor + HIT_MOTOR, 0 )) {
+        get_tacho_max_speed( motor[HIT_MOTOR], &max_speed );
+
+        set_tacho_command_inx( motor[HIT_MOTOR], TACHO_RESET );
+        printf("Found motor at port %c\n", 68);
+    } else {
+        printf( "LEFT motor (%s) is NOT found.\n", ev3_port_name(68, 0, 0, s ));
+
+        return ( 0 );
+    }
+    if ( ev3_search_tacho_plugged_in(66, 0, motor + DRIVE_MOTOR, 0 )) {
+
+        set_tacho_command_inx( motor[DRIVE_MOTOR], TACHO_RESET );
+        printf("Found motor at port %c\n", 66);
+    } else {
+        printf( "RIGHT motor (%s) is NOT found.\n", ev3_port_name(66, 0, 0, s ));
+
+        return ( 0 );
+    }
+    if ( ev3_search_tacho_plugged_in(68, 0, motor + HIT_MOTOR_2, 0 )) {
+
+        set_tacho_command_inx( motor[HIT_MOTOR_2], TACHO_RESET );
+        printf("Found motor at port %c\n", 68);
+    } else {
+        printf( "RIGHT motor (%s) is NOT found.\n", ev3_port_name(68, 0, 0, s ));
+
+        return ( 0 );
+    }
+    set_tacho_ramp_down_sp(motor[HIT_MOTOR], 800);
+    set_tacho_ramp_up_sp(motor[HIT_MOTOR], 300);
+    set_tacho_speed_sp( motor[DRIVE_MOTOR], -max_speed / 8 );
+    set_tacho_polarity_inx(motor[HIT_MOTOR], TACHO_INVERSED);
+    set_tacho_speed_sp(motor[HIT_MOTOR], max_speed);
+    set_tacho_command_inx( motor[DRIVE_MOTOR], TACHO_RUN_FOREVER);
+    set_tacho_position_sp(motor[HIT_MOTOR], (( 90 ) * 260 / 90 ));
+    set_tacho_command_inx(motor[HIT_MOTOR], TACHO_RUN_TO_REL_POS);
+    sleep(2);
+    set_tacho_speed_sp( motor[DRIVE_MOTOR], max_speed / 8 );
+
+    set_tacho_speed_sp(motor[HIT_MOTOR], max_speed / 4);
+    set_tacho_polarity_inx(motor[HIT_MOTOR], TACHO_NORMAL);
+    set_tacho_command_inx( motor[DRIVE_MOTOR], TACHO_RUN_FOREVER);
+    set_tacho_position_sp(motor[HIT_MOTOR], (( 90 ) * 260 / 90 ));
+    set_tacho_command_inx(motor[HIT_MOTOR], TACHO_RUN_TO_REL_POS);
+    sleep(2);
+    multi_set_tacho_command_inx( motor, TACHO_STOP );
+    ev3_uninit();
+
+    return 0;
+}

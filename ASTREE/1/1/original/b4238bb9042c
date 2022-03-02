@@ -1,0 +1,2769 @@
+/* ----------------------------------------------------------------------
+ *    AbsInt -- Angewandte Informatik GmbH
+ *    http://www.AbsInt.de/
+ * ----------------------------------------------------------------------
+ *
+ * Example implementation of the ISO/IEC 9899:1999 (E) standard C
+ * library for static program analyses with Astree.
+ *
+ * This file implements stubs for frequently used library functions
+ * using Astree directives. See missing.c for functions that have not
+ * been properly implemented.
+ *
+ * Developed and distributed by AbsInt, under license from the CNRS/ENS.
+ * ---------------------------------------------------------------------- */
+
+#include <assert.h>
+#include <errno.h>
+#include <ctype.h>
+#include <fenv.h>
+#include <inttypes.h>
+#include <limits.h>
+#include <locale.h>
+#include <math.h>
+#include <setjmp.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+#include <wchar.h>
+#include <wctype.h>
+
+/* helper value [0, 1] */
+static volatile int zero_or_one = 0;
+__ASTREE_volatile_input((zero_or_one; [0, 1]));
+
+/* helper value [1, oo] */
+static volatile int one_to_inf = 1;
+__ASTREE_volatile_input((one_to_inf; [1, INT_MAX]));
+
+/* helper value [-oo, -1] */
+static volatile int m_inf_to_m_one = INT_MIN;
+__ASTREE_volatile_input((m_inf_to_m_one; [INT_MIN, -1]));
+
+/* helper value [-1, 0] */
+static volatile int m_one_to_zero = -1;
+__ASTREE_volatile_input((m_one_to_zero; [-1, 0]));
+
+/* helper value [-oo, oo] */
+static volatile int m_inf_to_inf = INT_MIN;
+__ASTREE_volatile_input((m_inf_to_inf; [INT_MIN, INT_MAX]));
+
+/* helper value [0, oo] */
+static volatile unsigned char uchar_zero_to_inf = 0;
+__ASTREE_volatile_input((uchar_zero_to_inf; [0, UCHAR_MAX]));
+
+/* helper value [0, oo] */
+static volatile char char_zero_to_inf = 0;
+__ASTREE_volatile_input((char_zero_to_inf; [0, CHAR_MAX]));
+
+/* helper value [-1, oo] long */
+static volatile long long_m_one_to_inf = -1;
+__ASTREE_volatile_input((long_m_one_to_inf; [-1, LONG_MAX]));
+
+/*
+ * errno.h
+ */
+
+int errno = 0;
+
+/*
+ * ctype.h
+ */
+
+#ifndef __ASTREE_CHECK_CTYPE_LIMITS
+#define __ASTREE_CHECK_CTYPE_LIMITS(C) if ((C) != EOF && ((C) < 0 || (C) > UCHAR_MAX)) __ASTREE_alarm((raise_at_caller; check_ctype_limits))
+#endif
+
+#ifndef __ASTREE_CHECK_HANDLE_PTR
+#define __ASTREE_CHECK_HANDLE_PTR(handle) if (!(handle)) __ASTREE_alarm((raise_at_caller; invalid_pointer_dereference; "invalid dereference: argument pointer may be null or invalid"))
+#endif
+
+#ifndef __ASTREE_CHECK_HANDLE_STR
+#ifdef __ASTREE_EXTENDED_CLIB_STRING_CHECKS
+#define __ASTREE_CHECK_HANDLE_STR(handle) __ASTREE_unroll((1024)) for (int i = 0 ; (handle)[i] != '\0' ; i++)
+#else
+#define __ASTREE_CHECK_HANDLE_STR __ASTREE_CHECK_HANDLE_PTR
+#endif
+#endif
+
+#ifndef __ASTREE_WEAK
+#define __ASTREE_WEAK __attribute__((weak))
+#endif
+
+__ASTREE_WEAK int isalnum(int c)
+{
+    __ASTREE_CHECK_CTYPE_LIMITS(c);
+    int r = 0;
+    __ASTREE_modify((r; [INT_MIN, INT_MAX]));
+    return r;
+}
+
+__ASTREE_WEAK int isalpha(int c)
+{
+    __ASTREE_CHECK_CTYPE_LIMITS(c);
+    int r = 0;
+    __ASTREE_modify((r; [INT_MIN, INT_MAX]));
+    return r;
+}
+
+__ASTREE_WEAK int isblank(int c)
+{
+    __ASTREE_CHECK_CTYPE_LIMITS(c);
+    int r = 0;
+    __ASTREE_modify((r; [INT_MIN, INT_MAX]));
+    return r;
+}
+
+__ASTREE_WEAK int iscntrl(int c)
+{
+    __ASTREE_CHECK_CTYPE_LIMITS(c);
+    int r = 0;
+    __ASTREE_modify((r; [INT_MIN, INT_MAX]));
+    return r;
+}
+
+__ASTREE_WEAK int isdigit(int c)
+{
+    __ASTREE_CHECK_CTYPE_LIMITS(c);
+
+	if (('0' <= c) && (c <= '9')) {
+        return (!0);
+    }
+
+    return 0;
+}
+
+
+__ASTREE_WEAK int isgraph(int c)
+{
+    __ASTREE_CHECK_CTYPE_LIMITS(c);
+    int r = 0;
+    __ASTREE_modify((r; [INT_MIN, INT_MAX]));
+    return r;
+}
+
+
+__ASTREE_WEAK int islower(int c)
+{
+    __ASTREE_CHECK_CTYPE_LIMITS(c);
+    int r = 0;
+    __ASTREE_modify((r; [INT_MIN, INT_MAX]));
+    return r;
+}
+
+
+__ASTREE_WEAK int isprint(int c)
+{
+    __ASTREE_CHECK_CTYPE_LIMITS(c);
+    int r = 0;
+    __ASTREE_modify((r; [INT_MIN, INT_MAX]));
+    return r;
+}
+
+
+__ASTREE_WEAK int ispunct(int c)
+{
+    __ASTREE_CHECK_CTYPE_LIMITS(c);
+    int r = 0;
+    __ASTREE_modify((r; [INT_MIN, INT_MAX]));
+    return r;
+}
+
+
+__ASTREE_WEAK int isspace(int c)
+{
+    __ASTREE_CHECK_CTYPE_LIMITS(c);
+    int r = 0;
+    __ASTREE_modify((r; [INT_MIN, INT_MAX]));
+    return r;
+}
+
+
+__ASTREE_WEAK int isupper(int c)
+{
+    __ASTREE_CHECK_CTYPE_LIMITS(c);
+    int r = 0;
+    __ASTREE_modify((r; [INT_MIN, INT_MAX]));
+    return r;
+}
+
+
+__ASTREE_WEAK int isxdigit(int c)
+{
+    __ASTREE_CHECK_CTYPE_LIMITS(c);
+    int r = 0;
+    __ASTREE_modify((r; [INT_MIN, INT_MAX]));
+    return r;
+}
+
+
+__ASTREE_WEAK int tolower(int c)
+{
+    __ASTREE_CHECK_CTYPE_LIMITS(c);
+    int r = 0;
+    __ASTREE_modify((r; [INT_MIN, INT_MAX]));
+    return r;
+}
+
+
+__ASTREE_WEAK int toupper(int c)
+{
+    __ASTREE_CHECK_CTYPE_LIMITS(c);
+    int r = 0;
+    __ASTREE_modify((r; [INT_MIN, INT_MAX]));
+    return r;
+}
+
+#undef __ASTREE_CHECK_CTYPE_LIMITS
+
+/*
+ * fenv.h
+ */
+
+fenv_t __astree_default_fenv;
+__ASTREE_volatile_input((__astree_default_fenv.__fexcept; [0, USHRT_MAX]));
+
+__ASTREE_WEAK int feclearexcept(int excepts)
+{
+    if(excepts < 0 || excepts > FE_ALL_EXCEPT)
+        __ASTREE_alarm((raise_at_caller; check_stdlib_limits));
+    return zero_or_one;
+}
+
+__ASTREE_WEAK int fegetexceptflag(fexcept_t *flagp, int excepts)
+{
+    if(excepts < 0 || excepts > FE_ALL_EXCEPT)
+        __ASTREE_alarm((raise_at_caller; check_stdlib_limits));
+
+    if(zero_or_one){
+        *flagp = __astree_default_fenv.__fexcept & excepts;
+        return 0;
+    }
+    return 1;
+}
+
+__ASTREE_WEAK int feraiseexcept(int excepts)
+{
+    if(excepts < 0 || excepts > FE_ALL_EXCEPT)
+        __ASTREE_alarm((raise_at_caller; check_stdlib_limits));
+    return zero_or_one;
+}
+
+__ASTREE_WEAK int fesetexceptflag(const fexcept_t *flagp, int excepts)
+{
+    if(excepts < 0 || excepts > FE_ALL_EXCEPT)
+        __ASTREE_alarm((raise_at_caller; check_stdlib_limits));
+    if(zero_or_one){
+        __astree_default_fenv.__fexcept = *flagp & excepts;
+        return 0;
+    }
+    return 1;
+}
+
+__ASTREE_WEAK int fetestexcept(int excepts)
+{
+    if(excepts < 0 || excepts > FE_ALL_EXCEPT)
+        __ASTREE_alarm((raise_at_caller; check_stdlib_limits));
+    return __astree_default_fenv.__fexcept & excepts;
+}
+
+__ASTREE_WEAK int fegetround(void)
+{
+    return __astree_default_fenv.__roundMode;
+}
+
+__ASTREE_WEAK int fesetround(int round)
+{
+    __astree_default_fenv.__roundMode = round;
+}
+
+__ASTREE_WEAK int fegetenv(fenv_t *envp)
+{
+    if(zero_or_one){
+        envp = &__astree_default_fenv;
+        return 0;
+    }
+    return 1;
+}
+
+__ASTREE_WEAK int feholdexcept(fenv_t *envp)
+{
+    if(zero_or_one){
+        envp = &__astree_default_fenv;
+        return 0;
+    }
+    return 1;
+}
+
+__ASTREE_WEAK int fesetenv(const fenv_t *envp)
+{
+    if(zero_or_one){
+        __astree_default_fenv = *envp;
+        return 0;
+    }
+    return 1;
+}
+
+__ASTREE_WEAK int feupdateenv(const fenv_t *envp)
+{
+    if(zero_or_one){
+        __astree_default_fenv = *envp;
+        return 0;
+    }
+    return 1;
+}
+
+/*
+ * inttypes.h
+ */
+
+#define __ASTREE_ABS(j) return j < 0 ? -j : j
+
+__ASTREE_WEAK intmax_t imaxabs(intmax_t j)
+{
+    __ASTREE_ABS(j);
+}
+
+/*
+ * locale.h
+ */
+
+static struct lconv __locale;
+static _Bool __locale_initialized = false;
+
+__ASTREE_WEAK char* setlocale(int category, const char* locale)
+{
+#define __ASTREE_SETLOCALE_RESET(t, f)          \
+    t f;                                        \
+    __ASTREE_initialize((f));                \
+    __locale.f = f
+
+    __ASTREE_SETLOCALE_RESET(char*, decimal_point);
+    __ASTREE_SETLOCALE_RESET(char*, thousands_sep);
+    __ASTREE_SETLOCALE_RESET(char*, grouping);
+    __ASTREE_SETLOCALE_RESET(char*, mon_decimal_point);
+    __ASTREE_SETLOCALE_RESET(char*, mon_thousands_sep);
+    __ASTREE_SETLOCALE_RESET(char*, mon_grouping);
+    __ASTREE_SETLOCALE_RESET(char*, positive_sign);
+    __ASTREE_SETLOCALE_RESET(char*, negative_sign);
+    __ASTREE_SETLOCALE_RESET(char*, currency_symbol);
+    __ASTREE_SETLOCALE_RESET(char, frac_digits);
+    __ASTREE_SETLOCALE_RESET(char, p_cs_precedes);
+    __ASTREE_SETLOCALE_RESET(char, n_cs_precedes);
+    __ASTREE_SETLOCALE_RESET(char, p_sep_by_space);
+    __ASTREE_SETLOCALE_RESET(char, n_sep_by_space);
+    __ASTREE_SETLOCALE_RESET(char, p_sign_posn);
+    __ASTREE_SETLOCALE_RESET(char, n_sign_posn);
+    __ASTREE_SETLOCALE_RESET(char*, int_curr_symbol);
+    __ASTREE_SETLOCALE_RESET(char, int_frac_digits);
+    __ASTREE_SETLOCALE_RESET(char, int_p_cs_precedes);
+    __ASTREE_SETLOCALE_RESET(char, int_n_cs_precedes);
+    __ASTREE_SETLOCALE_RESET(char, int_p_sep_by_space);
+    __ASTREE_SETLOCALE_RESET(char, int_n_sep_by_space);
+    __ASTREE_SETLOCALE_RESET(char, int_p_sign_posn);
+    __ASTREE_SETLOCALE_RESET(char, int_n_sign_posn);
+
+#undef __ASTREE_SETLOCALE_RESET
+    
+    if (LC_ALL == category && NULL != locale && strlen(locale) == 1 && locale[0] == 'C') {
+        __locale.decimal_point = ".";
+        __locale.thousands_sep = ""; 
+        __locale.grouping = "";
+        __locale.mon_decimal_point = "";
+        __locale.mon_grouping = "";
+        __locale.positive_sign = "";
+        __locale.negative_sign = "";
+        __locale.currency_symbol = "";
+        __locale.frac_digits = CHAR_MAX;
+        __locale.p_cs_precedes = CHAR_MAX;
+        __locale.n_cs_precedes = CHAR_MAX;
+        __locale.p_sep_by_space = CHAR_MAX;
+        __locale.n_sep_by_space = CHAR_MAX;
+        __locale.p_sign_posn = CHAR_MAX;
+        __locale.n_sign_posn = CHAR_MAX;
+        __locale.int_curr_symbol = "";
+        __locale.int_frac_digits = CHAR_MAX;
+        __locale.int_p_cs_precedes = CHAR_MAX;
+        __locale.int_n_cs_precedes = CHAR_MAX;
+        __locale.int_p_sep_by_space = CHAR_MAX;
+        __locale.int_n_sep_by_space = CHAR_MAX;
+        __locale.int_p_sign_posn = CHAR_MAX;
+        __locale.int_n_sign_posn = CHAR_MAX;
+    }
+
+    char* r;
+    int twentythree = 0;
+    __ASTREE_modify((twentythree; [0, 23]));
+    switch (twentythree) {
+    case 0:
+      r = __locale.decimal_point;
+      break;
+    case 1:
+      r = __locale.thousands_sep;
+      break;
+    case 2:
+      r = __locale.grouping;
+      break;
+    case 3:
+      r = __locale.mon_decimal_point;
+      break;
+    case 4:
+      r = __locale.mon_grouping;
+      break;
+    case 5:
+      r = __locale.positive_sign;
+      break;
+    case 6:
+      r = __locale.negative_sign;
+      break;
+    case 7:
+      r = __locale.currency_symbol;
+      break;
+    case 8:
+      r = &__locale.frac_digits;
+      break;
+    case 9:
+      r = &__locale.p_cs_precedes;
+      break;
+    case 10:
+      r = &__locale.n_cs_precedes;
+      break;
+    case 11:
+      r = &__locale.p_sep_by_space;
+      break;
+    case 12:
+      r =& __locale.n_sep_by_space;
+      break;
+    case 13:
+      r = &__locale.p_sign_posn;
+      break;
+    case 14:
+      r = &__locale.n_sign_posn;
+      break;
+    case 15:
+      r = __locale.int_curr_symbol;
+      break;
+    case 16:
+      r = &__locale.int_frac_digits;
+      break;
+    case 17:
+      r = &__locale.int_p_cs_precedes;
+      break;
+    case 18:
+      r = &__locale.int_n_cs_precedes;
+      break;
+    case 19:
+      r = &__locale.int_p_sep_by_space;
+      break;
+    case 20:
+      r = &__locale.int_n_sep_by_space;
+      break;
+    case 21:
+      r = &__locale.int_p_sign_posn;
+      break;
+    case 22:
+      r = &__locale.int_n_sign_posn;
+      break;
+    default:
+      r = NULL;
+      break;
+    }
+
+    __locale_initialized = true;
+
+    return r;
+}
+
+__ASTREE_WEAK struct lconv* localeconv(void)
+{
+    if (! __locale_initialized) {
+        __locale.decimal_point = ".";
+        __locale.thousands_sep = "";
+        __locale.grouping = "";
+        __locale.mon_decimal_point = "";
+        __locale.mon_thousands_sep = "";
+        __locale.mon_grouping = "";
+        __locale.positive_sign = "";
+        __locale.negative_sign = "";
+        __locale.currency_symbol = "";
+        __locale.frac_digits = char_zero_to_inf;
+        __locale.p_cs_precedes = char_zero_to_inf;
+        __locale.n_cs_precedes = char_zero_to_inf;
+        __locale.p_sep_by_space = char_zero_to_inf;
+        __locale.n_sep_by_space = char_zero_to_inf;
+        __locale.p_sign_posn = char_zero_to_inf;
+        __locale.n_sign_posn = char_zero_to_inf;
+        __locale.int_curr_symbol = "";
+        __locale.int_frac_digits = char_zero_to_inf;
+        __locale.int_p_cs_precedes = char_zero_to_inf;
+        __locale.int_n_cs_precedes = char_zero_to_inf;
+        __locale.int_p_sep_by_space = char_zero_to_inf;
+        __locale.int_n_sep_by_space = char_zero_to_inf;
+        __locale.int_p_sign_posn = char_zero_to_inf;
+        __locale.int_n_sign_posn = char_zero_to_inf;
+
+        __locale_initialized = true;
+    }
+
+    return &__locale;
+}
+
+/*
+ * math.h
+ */
+
+/* useful constants */
+#define __ASTREE_ZERO(x) _Generic(x, double: 0., float: 0.F)
+#define __ASTREE_ONE(x) _Generic(x, double: 1., float: 1.F)
+#define __ASTREE_MIN(x) _Generic(x, double: __ASTREE_DBL_MIN, float: __ASTREE_FLT_MIN)
+#define __ASTREE_EPS(x) _Generic(x, double: __ASTREE_DBL_EPSILON, float: __ASTREE_FLT_EPSILON)
+#define __ASTREE_PI_2(x) (__ASTREE_PI(x) / 2)
+#define __ASTREE_PI(x) _Generic(x, double: 0x1.921fb54442d18p+1, float: 0x1.921fb6p+1)
+#define __ASTREE_MAX(x) _Generic(x, double: __ASTREE_DBL_MAX, float: __ASTREE_FLT_MAX)
+
+#define __ASTREE_MANT_DIG(x) _Generic(x, double: __ASTREE_DBL_MANT_DIG, float: __ASTREE_FLT_MANT_DIG)
+#define __ASTREE_MIN_EXP(x) _Generic(x, double: __ASTREE_DBL_MIN_EXP, float: __ASTREE_FLT_MIN_EXP)
+#define __ASTREE_MAX_EXP(x) _Generic(x, double: __ASTREE_DBL_MAX_EXP, float: __ASTREE_FLT_MAX_EXP)
+
+#define __ASTREE_FITS_IN_INT(x) ((__typeof__(x))INT_MIN < (x) && (x) < (__typeof__(x))INT_MAX)
+#define __ASTREE_IS_FINITE(x) (-__ASTREE_MAX(x) <= x && x <= __ASTREE_MAX(x))
+
+#define __ASTREE_ARC(x, min, max) \
+    __typeof__(x) r, lo, hi; \
+    if (-1 <= x && x <= 1) { \
+        lo = min(x); \
+        hi = max(x); \
+        __ASTREE_modify((r; [lo, hi])); \
+    } else { \
+        if (x == x) { \
+            __ASTREE_alarm((raise_at_caller; check_stdlib_limits)); \
+            errno = EDOM; \
+        } \
+        r = NAN; \
+    } \
+    return r
+
+__ASTREE_WEAK double acos(double x)
+{
+    __ASTREE_ARC(x, __ASTREE_ZERO, __ASTREE_PI);
+}
+
+__ASTREE_WEAK float acosf(float x)
+{
+    __ASTREE_ARC(x, __ASTREE_ZERO, __ASTREE_PI);
+}
+
+__ASTREE_WEAK double asin(double x)
+{
+    __ASTREE_ARC(x, -__ASTREE_PI_2, __ASTREE_PI_2);
+}
+
+__ASTREE_WEAK float asinf(float x)
+{
+    __ASTREE_ARC(x, -__ASTREE_PI_2, __ASTREE_PI_2);
+}
+
+#define __ASTREE_ATAN(x, bound) \
+    __typeof__(x) r, val; \
+    if (x == x) { \
+        val = bound(x); \
+        __ASTREE_modify((r; [-val, val])); \
+    } else { \
+        r = NAN; \
+    } \
+    return r
+
+__ASTREE_WEAK double atan(double x)
+{
+    __ASTREE_ATAN(x, __ASTREE_PI_2);
+}
+
+__ASTREE_WEAK float atanf(float x)
+{
+    __ASTREE_ATAN(x, __ASTREE_PI_2);
+}
+
+__ASTREE_WEAK double tanh(double x)
+{
+    __ASTREE_ATAN(x, __ASTREE_ONE);
+}
+
+__ASTREE_WEAK float tanhf(float x)
+{
+    __ASTREE_ATAN(x, __ASTREE_ONE);
+}
+
+#define __ASTREE_ATAN2(y, x) \
+    __typeof__(x) r, val; \
+    if (y == y && x == x) { \
+        if (y == 0 && x == 0) \
+            __ASTREE_alarm((raise_at_caller; check_stdlib_limits)); \
+        val = __ASTREE_PI(x); \
+        __ASTREE_modify((r; [-val, val])); \
+    } else { \
+        r = NAN; \
+    } \
+    return r
+
+__ASTREE_WEAK double atan2(double y, double x)
+{
+    __ASTREE_ATAN2(y, x);
+}
+
+__ASTREE_WEAK float atan2f(float y, float x)
+{
+    __ASTREE_ATAN2(y, x);
+}
+
+#define __ASTREE_SINCOS(x) \
+    __typeof__(x) r; \
+    if (__ASTREE_IS_FINITE(x)) { \
+        __ASTREE_modify((r; [-1, 1])); \
+    } else { \
+        if (x == x) \
+            errno = EDOM; \
+        r = NAN; \
+    } \
+    return r
+
+__ASTREE_WEAK double cos(double x)
+{
+    __ASTREE_SINCOS(x);
+}
+
+__ASTREE_WEAK float cosf(float x)
+{
+    __ASTREE_SINCOS(x);
+}
+
+__ASTREE_WEAK double sin(double x)
+{
+    __ASTREE_SINCOS(x);
+}
+
+__ASTREE_WEAK float sinf(float x)
+{
+    __ASTREE_SINCOS(x);
+}
+
+#define __ASTREE_ACOSH(x) \
+    __typeof__(x) r; \
+    if (x < 1) { \
+        __ASTREE_alarm((raise_at_caller; check_stdlib_limits)); \
+        errno = EDOM; \
+        r = NAN; \
+    } else if (x == x) { \
+        __ASTREE_modify((r; full_range)); \
+        __ASTREE_known_fact((r >= 0)); \
+    } else { \
+        r = NAN; \
+    } \
+    return r
+
+__ASTREE_WEAK double acosh(double x)
+{
+    __ASTREE_ACOSH(x);
+}
+
+__ASTREE_WEAK float acoshf(float x)
+{
+    __ASTREE_ACOSH(x);
+}
+
+#define __ASTREE_COSH(x) \
+    __typeof__(x) r, val; \
+    if (__ASTREE_IS_FINITE(x)) { \
+        if (zero_or_one) { \
+            errno = ERANGE; \
+            r = INFINITY; \
+        } else { \
+            val = __ASTREE_MAX(x); \
+            __ASTREE_modify((r; [1, val])); \
+        } \
+    } else if (x == x) { \
+        r = INFINITY; \
+    } else { \
+        r = NAN; \
+    } \
+    return r
+
+__ASTREE_WEAK double cosh(double x)
+{
+    __ASTREE_COSH(x);
+}
+
+__ASTREE_WEAK float coshf(float x)
+{
+    __ASTREE_COSH(x);
+}
+
+#define __ASTREE_TAN(x) \
+    __typeof__(x) r, val; \
+    if (__ASTREE_IS_FINITE(x)) { \
+        if (zero_or_one) { \
+            errno = ERANGE; \
+            r = zero_or_one ? -INFINITY : INFINITY; \
+        } else { \
+            val = __ASTREE_MAX(x); \
+            __ASTREE_modify((r; [-val, val])); \
+        } \
+    } else { \
+        if (x == x) \
+            errno = EDOM; \
+        r = NAN; \
+    } \
+    return r
+
+__ASTREE_WEAK double tan(double x)
+{
+    __ASTREE_TAN(x);
+}
+
+__ASTREE_WEAK float tanf(float x)
+{
+    __ASTREE_TAN(x);
+}
+
+#define __ASTREE_EXP(x, lo) \
+    __typeof__(x) r; \
+    if (x < 0) { \
+        if (zero_or_one) \
+            errno = ERANGE; \
+        __ASTREE_modify((r; [lo, lo + 1])); \
+    } else if (x == 0) { \
+        r = lo + 1; \
+    } else if (x <= __ASTREE_MAX(x)) { \
+        if (zero_or_one) \
+            errno = ERANGE; \
+        __ASTREE_modify((r; full_range)); \
+        __ASTREE_known_fact((r >= lo + 1)); \
+    } else if (x == x) { \
+        r = INFINITY; \
+    } else { \
+        r = NAN; \
+    } \
+    return r
+
+__ASTREE_WEAK double exp(double x)
+{
+    __ASTREE_EXP(x, 0);
+}
+
+__ASTREE_WEAK float expf(float x)
+{
+    __ASTREE_EXP(x, 0);
+}
+
+__ASTREE_WEAK double exp2(double x)
+{
+    __ASTREE_EXP(x, 0);
+}
+
+__ASTREE_WEAK float exp2f(float x)
+{
+    __ASTREE_EXP(x, 0);
+}
+
+__ASTREE_WEAK double expm1(double x)
+{
+    __ASTREE_EXP(x, -1);
+}
+
+__ASTREE_WEAK float expm1f(float x)
+{
+    __ASTREE_EXP(x, -1);
+}
+
+#define __ASTREE_FREXP(value, exp) \
+    __typeof__(value) r; \
+    if (!__ASTREE_IS_FINITE(value)) { \
+        __ASTREE_modify((*exp)); \
+        r = value; \
+    } else if (value == 0) { \
+        *exp = 0; \
+        r = value; \
+    } else { \
+        __ASTREE_modify((r; full_range)); \
+        __ASTREE_known_fact((0.5F <= r && r < 1.F)); \
+        if (value < 0) { \
+          value = -value; \
+          r     = -r; \
+        } \
+        if (value < __ASTREE_MIN(value)) { \
+            int min_exp  = __ASTREE_MIN_EXP(value); \
+            int mant_dig = __ASTREE_MANT_DIG(value); \
+            __ASTREE_modify((*exp; [min_exp - mant_dig + 1, min_exp - 1])); \
+        } else { \
+            *exp = __astree_double_extract_exponent(value) + 1; \
+        } \
+    } \
+    return r
+
+__ASTREE_WEAK double frexp(double value, int *exp)
+{
+    __ASTREE_FREXP(value, exp);
+}
+
+__ASTREE_WEAK float frexpf(float value, int *exp)
+{
+    __ASTREE_FREXP(value, exp);
+}
+
+#define __ASTREE_ILOGB(x, logb) \
+    int r; \
+    if (x == 0) { \
+        __ASTREE_alarm((raise_at_caller; check_stdlib_limits)); \
+        errno = EDOM; \
+        r = FP_ILOGB0; \
+    } else if (__ASTREE_IS_FINITE(x)) { \
+        return (int)logb(x); \
+    } else if (x == x) { \
+        r = INT_MAX; \
+    } else { \
+        r = FP_ILOGBNAN; \
+    } \
+    return r
+
+__ASTREE_WEAK int ilogb(double x)
+{
+    __ASTREE_ILOGB(x, logb);
+}
+
+__ASTREE_WEAK int ilogbf(float x)
+{
+    __ASTREE_ILOGB(x, logbf);
+}
+
+#define __ASTREE_LDEXP(x, exp) \
+    __typeof__(x) r; \
+    if (__ASTREE_IS_FINITE(x)) { \
+        if (zero_or_one) \
+            errno = ERANGE; \
+        if (__ASTREE_DBL_MIN_EXP <= exp && exp <= __ASTREE_DBL_MAX_EXP) { \
+            r = x * __astree_double_exp_2(exp); \
+        } else { \
+            __ASTREE_modify((r; full_range)); \
+        } \
+    } else { \
+        r = x; \
+    } \
+    return r
+
+__ASTREE_WEAK double ldexp(double x, int exp)
+{
+    __ASTREE_LDEXP(x, exp);
+}
+
+__ASTREE_WEAK float ldexpf(float x, int exp)
+{
+    __ASTREE_LDEXP(x, exp);
+}
+
+#define __ASTREE_LOG(x, lo) \
+    __typeof__(x) r; \
+    __ASTREE_modify((r; full_range)); \
+    if (zero_or_one) \
+        errno = ERANGE; \
+    if (x <= lo) { \
+        __ASTREE_alarm((raise_at_caller; check_stdlib_limits)); \
+        errno = EDOM; \
+        r = x < lo ? NAN : -INFINITY; \
+    } else if (x < lo + 1) { \
+        __ASTREE_known_fact((r <= 0)); \
+    } else if (x == lo + 1) { \
+        r = 0; \
+    } else if (x == x) { \
+        __ASTREE_known_fact((r >= 0)); \
+    } else { \
+        r = NAN; \
+    } \
+    return r
+
+__ASTREE_WEAK double log(double x)
+{
+    __ASTREE_LOG(x, 0);
+}
+
+__ASTREE_WEAK float logf(float x)
+{
+    __ASTREE_LOG(x, 0);
+}
+
+__ASTREE_WEAK double log10(double x)
+{
+    __ASTREE_LOG(x, 0);
+}
+
+__ASTREE_WEAK float log10f(float x)
+{
+    __ASTREE_LOG(x, 0);
+}
+
+__ASTREE_WEAK double log1p(double x)
+{
+    __ASTREE_LOG(x, -1);
+}
+
+__ASTREE_WEAK float log1pf(float x)
+{
+    __ASTREE_LOG(x, -1);
+}
+
+__ASTREE_WEAK double log2(double x)
+{
+    __ASTREE_LOG(x, 0);
+}
+
+__ASTREE_WEAK float log2f(float x)
+{
+    __ASTREE_LOG(x, 0);
+}
+
+#define __ASTREE_LOGB(x) \
+    __typeof__(x) r; \
+    if (x < 0) \
+        x = -x; \
+    if (x == 0) { \
+        r = -INFINITY; \
+    } else if (x < 1) { \
+        int val = __ASTREE_MIN_EXP(x) - __ASTREE_MANT_DIG(x); \
+        __ASTREE_modify((r; [val, 0])); \
+    } else if (x == 1) { \
+        r = 0; \
+    } else if (x <= __ASTREE_MAX(x)) { \
+        int val = __ASTREE_MAX_EXP(x); \
+        __ASTREE_modify((r; [0, val])); \
+    } else if (x == x) { \
+        r = INFINITY; \
+    } else { \
+        r = NAN; \
+    } \
+    return r
+
+__ASTREE_WEAK double logb(double x)
+{
+    __ASTREE_LOGB(x);
+}
+
+__ASTREE_WEAK float logbf(float x)
+{
+    __ASTREE_LOGB(x);
+}
+
+#define __ASTREE_MODF(value, iptr) \
+    __typeof__(value) i, r; \
+    __ASTREE_modify((i, r; full_range)); \
+    if (value < -__ASTREE_MAX(value)) { \
+        i = -INFINITY; \
+        r = 0; \
+    } else if (value < 0) { \
+        __ASTREE_known_fact((value <= i && i <= 0)); \
+        __ASTREE_known_fact((-1 < r && r <= 0)); \
+    } else if (value == 0) { \
+        i = 0; \
+        r = 0; \
+    } else if (value <= __ASTREE_MAX(value)) { \
+        __ASTREE_known_fact((0 <= i && i <= value)); \
+        __ASTREE_known_fact((0 <= r && r < 1)); \
+    } else if (value == value) { \
+        i = INFINITY; \
+        r = 0; \
+    } else { \
+        i = NAN; \
+        r = NAN; \
+    } \
+    *iptr = i; \
+    return r
+
+__ASTREE_WEAK double modf(double value, double *iptr)
+{
+    __ASTREE_MODF(value, iptr);
+}
+
+__ASTREE_WEAK float modff(float value, float *iptr)
+{
+    __ASTREE_MODF(value, iptr);
+}
+
+#define __ASTREE_CBRT(x) \
+    __typeof__(x) r; \
+    __ASTREE_modify((r; full_range)); \
+    if (x < -__ASTREE_MAX(x)) { \
+      r = x; \
+    } else if (x < -1) { \
+        __ASTREE_known_fact((x <= r && r <= -1)); \
+    } else if (x == -1) { \
+        r = x; \
+    } else if (x < 0) { \
+        __ASTREE_known_fact((-1 <= r && r <= x)); \
+    } else if (x == 0) { \
+        r = x; \
+    } else if (x < 1) { \
+        __ASTREE_known_fact((x <= r && r <= 1)); \
+    } else if (x == 1) { \
+        r = x; \
+    } else if (x <= __ASTREE_MAX(x)) { \
+        __ASTREE_known_fact((1 <= r && r <= x)); \
+    } else { \
+        r = x; \
+    } \
+    return r
+
+__ASTREE_WEAK double cbrt(double x)
+{
+    __ASTREE_CBRT(x);
+}
+
+__ASTREE_WEAK float cbrtf(float x)
+{
+    __ASTREE_CBRT(x);
+}
+
+#define __ASTREE_FABS(x) \
+    __typeof__(x) r; \
+    if (x < 0) { \
+        r = -x ; \
+    } else if (x == 0) { \
+        r = 0; \
+    } else if (x == x) { \
+        r = x; \
+    } else { \
+        r = NAN; \
+    } \
+    return r
+
+__ASTREE_WEAK double fabs(double x)
+{
+    __ASTREE_FABS(x);
+}
+
+__ASTREE_WEAK float fabsf(float x)
+{
+    __ASTREE_FABS(x);
+}
+
+#define __ASTREE_HYPOT(x, y) \
+    __typeof__(x) r; \
+    if (__ASTREE_IS_FINITE(x) && __ASTREE_IS_FINITE(y)) { \
+        /* With |x| >= |y| calculate |x| * sqrt(1 + (y / x)^^2) */ \
+        if (x < 0) \
+            x = -x; \
+        if (y < 0) \
+            y = -y; \
+        if (x < y) { \
+            __typeof__(x) t = x; \
+            x = y; \
+            y = t; \
+        } \
+        if (x == 0) { \
+            r = 0; \
+        } else { \
+            r = y / x; \
+            r = x * __astree_double_sqrt(1 + r * r); \
+            if (r < __ASTREE_MIN(x) || __ASTREE_MAX(x) < r) \
+                errno = ERANGE; \
+        } \
+    } else if (x == x || y == y) { \
+        r = INFINITY; \
+    } else { \
+        r = NAN; \
+    } \
+    return r
+
+__ASTREE_WEAK double hypot(double x, double y)
+{
+    __ASTREE_HYPOT(x, y);
+}
+
+__ASTREE_WEAK float hypotf(float x, float y)
+{
+    __ASTREE_HYPOT(x, y);
+}
+
+#define __ASTREE_POW(x, y) \
+    __typeof__(x) r; \
+    if (x == 1 || y == 0) { \
+        r = 1; \
+    } else if (__ASTREE_IS_FINITE(x) && __ASTREE_IS_FINITE(y)) { \
+        if (zero_or_one) \
+            errno = ERANGE; \
+        __ASTREE_modify((r; full_range)); \
+        if (x < 0) { \
+            if (__ASTREE_FITS_IN_INT(y)) { \
+                if ((int)y != y) { \
+                    errno = EDOM; \
+                    r = NAN; \
+                } else if ((int)y % 2 == 0) { \
+                    __ASTREE_known_fact((r >= 0)); \
+                } else { \
+                    __ASTREE_known_fact((r <= 0)); \
+                } \
+            } else if (zero_or_one) { \
+                errno = EDOM; \
+                r = NAN; \
+            } \
+        } else if (x == 0) { \
+            if (y < 0) { \
+                __ASTREE_alarm((raise_at_caller; check_stdlib_limits)); \
+                errno = ERANGE; \
+                r = zero_or_one ? -INFINITY : INFINITY; \
+            } else { \
+                r = zero_or_one ? x : 0; \
+            } \
+        } else if (x < 1) { \
+            if (y < 0) { \
+                __ASTREE_known_fact((1 <= r)); \
+            } else if (y <= 1) { \
+                __ASTREE_known_fact((x <= r && r <= 1)); \
+            } else { \
+                __ASTREE_known_fact((0 <= r && r <= x)); \
+            } \
+        } else if (x == 1) { \
+            r = 1; \
+        } else { \
+            if (y < 0) { \
+                __ASTREE_known_fact((0 <= r && r <= 1)); \
+            } else if (y <= 1) { \
+                __ASTREE_known_fact((1 <= r && r <= x)); \
+            } else { \
+                __ASTREE_known_fact((x <= r)); \
+            } \
+        } \
+    } else if (x == x && y == y) { \
+        if (x < -__ASTREE_MAX(x)) { \
+            r = y < 0 ? 0 : INFINITY; \
+            if (__ASTREE_FITS_IN_INT(y) ? (int)y == y && (int)y % 2 != 0 : zero_or_one) \
+                r = -r; \
+        } else if (x == -1) { \
+            r = 1.; \
+        } else if (-1 < x && x < 1) { \
+            r = y < 0 ? INFINITY : 0; \
+        } else { \
+            r = y < 0 ? 0 : INFINITY; \
+        } \
+    } else { \
+        r = NAN; \
+    } \
+    return r
+
+__ASTREE_WEAK double pow(double x, double y)
+{
+    __ASTREE_POW(x, y);
+}
+
+__ASTREE_WEAK float powf(float x, float y)
+{
+    __ASTREE_POW(x, y);
+}
+
+#define __ASTREE_SQRT(x) \
+    if (x < 0) { \
+        __ASTREE_alarm((raise_at_caller; check_stdlib_limits)); \
+        errno = EDOM; \
+    } \
+    return __astree_double_sqrt(x)
+
+__ASTREE_WEAK double sqrt(double x)
+{
+    __ASTREE_SQRT(x);
+}
+
+__ASTREE_WEAK float sqrtf(float x)
+{
+    __ASTREE_SQRT(x);
+}
+
+#define __ASTREE_ERF(x, complement) \
+    __typeof__(x) r; \
+    if (x < 0) { \
+        __ASTREE_modify((r; [-1, 0])); \
+    } else if (x == 0) { \
+        r = x; \
+    } else if (x == x) { \
+        __ASTREE_modify((r; [0, 1])); \
+    } else { \
+        r = NAN; \
+    } \
+    if (complement) \
+      r = 1 - r; \
+    return r
+
+__ASTREE_WEAK double erf(double x)
+{
+    __ASTREE_ERF(x, 0);
+}
+
+__ASTREE_WEAK float erff(float x)
+{
+    __ASTREE_ERF(x, 0);
+}
+
+__ASTREE_WEAK double erfc(double x)
+{
+    __ASTREE_ERF(x, 1);
+}
+
+__ASTREE_WEAK float erfcf(float x)
+{
+    __ASTREE_ERF(x, 1);
+}
+
+#define __ASTREE_ROUND(x, lo, hi) \
+    __typeof__(x) r, d; \
+    if (__ASTREE_IS_FINITE(x)) { \
+        __ASTREE_modify((d; [lo, hi])); \
+        r = x + d; \
+    } else { \
+        r = x; \
+    } \
+    return r
+
+__ASTREE_WEAK double ceil(double x)
+{
+    __ASTREE_ROUND(x, 0, 1);
+}
+
+__ASTREE_WEAK float ceilf(float x)
+{
+    __ASTREE_ROUND(x, 0, 1);
+}
+
+__ASTREE_WEAK double floor(double x)
+{
+    __ASTREE_ROUND(x, -1, 0);
+}
+
+__ASTREE_WEAK float floorf(float x)
+{
+    __ASTREE_ROUND(x, -1, 0);
+}
+
+__ASTREE_WEAK double rint(double x)
+{
+    __ASTREE_ROUND(x, -1, 1);
+}
+
+__ASTREE_WEAK float rintf(float x)
+{
+    __ASTREE_ROUND(x, -1, 1);
+}
+
+#define __ASTREE_FMOD(x, y) \
+    __typeof__(x) r; \
+    if (y == 0) { \
+        __ASTREE_alarm((raise_at_caller; check_stdlib_limits)); \
+        errno = EDOM; \
+        r = NAN; \
+    } else if (__ASTREE_IS_FINITE(x) && y == y) { \
+        if (x == 0) { \
+            r = x; \
+        } else { \
+            if (y < 0) \
+                y = -y; \
+            __ASTREE_modify((r; full_range)); \
+            __ASTREE_known_fact((0 <= r && r < y)); \
+            if (x < 0) \
+                r = -r; \
+        } \
+    } else { \
+        if (x == x) \
+            errno = EDOM; \
+        r = NAN; \
+    } \
+    return r
+
+__ASTREE_WEAK double fmod(double x, double y)
+{
+    __ASTREE_FMOD(x, y);
+}
+
+__ASTREE_WEAK float fmodf(float x, float y)
+{
+    __ASTREE_FMOD(x, y);
+}
+
+#define __ASTREE_REMAINDER(x, y) \
+    __typeof__(x) r; \
+    if (x != x || y != y) { \
+        r = NAN; \
+    } else if (__ASTREE_IS_FINITE(x) && y != 0) { \
+        if (y < 0) \
+            y = -y; \
+        __ASTREE_modify((r; [-(y / 2), y / 2])); \
+    } else { \
+        __ASTREE_alarm((raise_at_caller; check_stdlib_limits)); \
+        errno = EDOM; \
+        r = NAN; \
+    } \
+    return r
+
+__ASTREE_WEAK double remainder(double x, double y)
+{
+    __ASTREE_REMAINDER(x, y);
+}
+
+__ASTREE_WEAK float remainderf(float x, float y)
+{
+    __ASTREE_REMAINDER(x, y);
+}
+
+#define __ASTREE_NEXTAFTER(x, y) \
+    __typeof__(x) r, bound, eps, min, max; \
+    if (x == x && y == y) { \
+        __ASTREE_modify((r; full_range)); \
+        eps = __ASTREE_EPS(x); \
+        min = __ASTREE_MIN(x); \
+        max = __ASTREE_MAX(x); \
+        if (x < y) { \
+            bound = \
+                x < -max ? -max : \
+                x < -min ? x * (1 - eps) : \
+                x <  min ? x + min * eps : \
+                           x * (1 + eps); \
+            __ASTREE_known_fact((x < r && r <= bound)); \
+        } else if (x == y) { \
+            r = y; \
+        } else { \
+            bound = \
+                x >  max ? max : \
+                x >  min ? x * (1 - eps) : \
+                x > -min ? x - min * eps : \
+                           x * (1 + eps); \
+            __ASTREE_known_fact((bound <= r && r < x)); \
+        } \
+    } else { \
+        r = NAN; \
+    } \
+    return r
+
+__ASTREE_WEAK double nextafter(double x, double y)
+{
+    __ASTREE_NEXTAFTER(x, y);
+}
+
+__ASTREE_WEAK float nextafterf(float x, float y)
+{
+    __ASTREE_NEXTAFTER(x, y);
+}
+
+#define __ASTREE_FMAXMIN(cmp) return x cmp y || y != y ? x : y
+
+__ASTREE_WEAK double fmax(double x, double y)
+{
+    __ASTREE_FMAXMIN(>);
+}
+
+__ASTREE_WEAK float fmaxf(float x, float y)
+{
+    __ASTREE_FMAXMIN(>);
+}
+
+__ASTREE_WEAK long double fmaxl(long double x, long double y)
+{
+    __ASTREE_FMAXMIN(>);
+}
+
+__ASTREE_WEAK double fmin(double x, double y)
+{
+    __ASTREE_FMAXMIN(<);
+}
+
+__ASTREE_WEAK float fminf(float x, float y)
+{
+    __ASTREE_FMAXMIN(<);
+}
+
+__ASTREE_WEAK long double fminl(long double x, long double y)
+{
+    __ASTREE_FMAXMIN(<);
+}
+
+
+/*
+ * setjmp.h
+ */
+
+__ASTREE_WEAK int setjmp(jmp_buf env)
+{
+    __ASTREE_alarm((raise_at_caller; user_defined; "setjmp is not supported by Astree"));
+    return 0;
+}
+
+__ASTREE_WEAK void longjmp(jmp_buf env, int val)
+{
+    __ASTREE_alarm((raise_at_caller; user_defined; "longjmp is not supported by Astree"));
+    __ASTREE_assert((0));
+    __astree_exit(1);
+}
+
+#ifndef __ASTREE_CHECK_ERRNO_RESET
+#define __ASTREE_CHECK_ERRNO_RESET do { if (errno != 0) __ASTREE_alarm((raise_at_caller; check_errno_reset)); __ASTREE_modify((errno)); } while (0)
+#endif
+
+/*
+ * signal.h
+ */
+
+__ASTREE_WEAK void astree_sig_dfl(int sig)
+{
+    __ASTREE_alarm((raise_at_caller; user_defined; "clib: signal handler astree_sig_dfl called for signal %0", sig));
+}
+
+__ASTREE_WEAK void astree_sig_err(int sig)
+{
+    __ASTREE_alarm((raise_at_caller; user_defined; "clib: signal handler astree_sig_err called for signal %0", sig));
+}
+
+
+__ASTREE_WEAK void astree_sig_ign(int sig)
+{
+    __ASTREE_alarm((raise_at_caller; user_defined; "clib: signal handler astree_sig_ign called for signal %0", sig));
+}
+
+__ASTREE_WEAK void (*signal(int sig, void (*func)(int)))(int)
+{
+    __ASTREE_CHECK_ERRNO_RESET;
+    static void (*funcs)(int) = SIG_ERR;
+
+    __ASTREE_alarm((raise_at_caller; user_defined; "clib: signal called for signal %0", sig));
+
+    if (zero_or_one)
+      func(sig);
+
+    if (zero_or_one)
+      funcs = func;
+
+    return funcs;
+}
+
+__ASTREE_WEAK int raise(int sig)
+{
+    __ASTREE_alarm((raise_at_caller; user_defined; "clib: raise called for signal %0", sig));
+
+    return m_inf_to_inf;
+}
+
+/*
+ * stdlib.h
+ */
+
+/* malloc/calloc/realloc will return NULL if this limit is exceeded */
+#define ALLOCATION_LIMIT 0xffffffff
+
+__ASTREE_WEAK double atof(const char *nptr)
+{
+    double r;
+    __ASTREE_initialize((r));
+    __ASTREE_CHECK_HANDLE_STR(nptr);
+    return r;
+}
+
+__ASTREE_WEAK int atoi(const char *nptr)
+{
+    int r;
+    __ASTREE_initialize((r));
+    __ASTREE_CHECK_HANDLE_STR(nptr);
+    return r;
+}
+
+__ASTREE_WEAK long int atol(const char *nptr)
+{
+    long r;
+    __ASTREE_initialize((r));
+    __ASTREE_CHECK_HANDLE_STR(nptr);
+    return r;
+}
+
+__ASTREE_WEAK double strtod(const char * nptr, char ** endptr)
+{
+    __ASTREE_CHECK_ERRNO_RESET;
+    double r;
+    __ASTREE_initialize((r));
+    size_t s, sz;
+    __ASTREE_initialize((s));
+
+    sz = strlen(nptr);
+    __ASTREE_known_fact((s <= sz));
+
+    if (endptr)
+        *endptr = (char*)nptr + s;
+
+    if (zero_or_one) {
+        errno = ERANGE;
+        return __astree_huge_val();
+    }
+
+    return r; /* strtod can return a NaN */
+}
+
+__ASTREE_WEAK float strtof(const char * nptr, char ** endptr)
+{
+    __ASTREE_CHECK_ERRNO_RESET;
+    float r;
+    __ASTREE_initialize((r));
+    size_t s, sz;
+    __ASTREE_initialize((s));
+
+    sz = strlen(nptr);
+    __ASTREE_known_fact((s <= sz));
+
+    if (endptr)
+        *endptr = (char*)nptr + s;
+
+    if (zero_or_one)
+        errno = ERANGE;
+
+    return r; /* strtof can return a NaN */
+}
+
+__ASTREE_WEAK long int strtol(const char * nptr, char ** endptr, int base)
+{
+    __ASTREE_CHECK_ERRNO_RESET;
+    long r;
+    __ASTREE_initialize((r));
+    size_t s, sz;
+    __ASTREE_initialize((s));
+
+    __ASTREE_assert((base == 0 || (base >= 2 && base <= 36)));
+
+    sz = strlen(nptr);
+    __ASTREE_known_fact((s <= sz));
+
+    if (endptr)
+        *endptr = (char*)nptr + s;
+
+    if (zero_or_one)
+        errno = ERANGE;
+
+    return r;
+}
+
+__ASTREE_WEAK unsigned long int strtoul(const char * nptr, char ** endptr, int base)
+{
+    __ASTREE_CHECK_ERRNO_RESET;
+    unsigned long r;
+    __ASTREE_initialize((r));
+    size_t s, sz;
+    __ASTREE_initialize((s));
+
+    __ASTREE_assert((base == 0 || (base >= 2 && base <= 36)));
+
+    sz = strlen(nptr);
+    __ASTREE_known_fact((s <= sz));
+
+    if (endptr)
+        *endptr = (char*)(nptr+s);
+
+    if (zero_or_one)
+        errno = ERANGE;
+
+    return r;
+}
+
+__ASTREE_WEAK void* aligned_alloc(size_t alignment, size_t size)
+{
+    /* ignore alignment */
+    return malloc(size);
+}
+
+__ASTREE_WEAK void* calloc(size_t nmemb, size_t size)
+{
+    size_t s = nmemb * size;
+    if (size > ALLOCATION_LIMIT) return NULL;
+    void* ptr = __astree_malloc(NULL, s, "malloc");
+    __astree_bzero(ptr, s);
+#ifndef __ASTREE_MALLOC_ALWAYS_SUCCEEDS
+    if (zero_or_one) return NULL;
+#endif
+    return ptr;
+}
+
+__ASTREE_WEAK _Noreturn void abort(void)
+{
+    __astree_exit(EXIT_FAILURE);
+}
+
+__ASTREE_WEAK _Noreturn void exit(int status)
+{
+    __astree_exit(status);
+}
+    
+__ASTREE_WEAK _Noreturn void _Exit(int status)
+{
+    exit(status);
+}
+
+__ASTREE_WEAK char* getenv(const char *name)
+{
+    static char buf[256];
+
+    __ASTREE_CHECK_HANDLE_STR(name);
+    __ASTREE_modify((buf));
+    buf[256 - 1] = 0;
+
+    if (zero_or_one)
+        return NULL;
+    else
+        return buf;
+}
+
+__ASTREE_WEAK _Noreturn void quick_exit(int status)
+{
+    exit(status);
+}
+
+__ASTREE_WEAK int system(const char *string)
+{
+    int r;
+    __ASTREE_initialize((r));
+    __ASTREE_alarm((raise_here; stub_invocation; "clib: side-effects of system are ignored"));
+    return r;
+}
+
+__ASTREE_WEAK void* bsearch(const void *key, const void *base, size_t nmemb, size_t size, int (*compar)(const void *, const void *))
+{
+    while (zero_or_one)
+    {
+        size_t a;
+        __ASTREE_initialize((a));
+        __ASTREE_known_fact((a < nmemb));
+        
+        compar(key, (char*)base + a * size);
+
+        if (zero_or_one)
+            return (char*)base + a * size;
+    }
+
+    return NULL;
+ }
+
+__ASTREE_WEAK void qsort(void *base, size_t nmemb, size_t size, int (*compar)(const void *, const void *))
+{
+    while (zero_or_one)
+    {
+        size_t a, b;
+        __ASTREE_initialize((a));
+        __ASTREE_initialize((b));
+        __ASTREE_known_fact((a < nmemb));
+        __ASTREE_known_fact((b < nmemb));
+        
+        compar((char*)base + a * size, (char*)base + b * size);
+
+        if (zero_or_one)
+            memcpy((char*)base + a * size, (char*)base + b * size, size);
+
+        if (zero_or_one)
+            return;
+    }
+}
+
+__ASTREE_WEAK int abs(int j)
+{
+    __ASTREE_ABS(j);
+}
+
+__ASTREE_WEAK long int labs(long int j)
+{
+    __ASTREE_ABS(j);
+}
+
+__ASTREE_WEAK long long int llabs(long long int j)
+{
+    __ASTREE_ABS(j);
+}
+
+__ASTREE_WEAK div_t div(int numer, int denom)
+{
+    if (denom == 0) __ASTREE_alarm((raise_at_caller; check_stdlib_limits));
+    div_t r;
+    __ASTREE_initialize((r));
+    r.quot = numer / denom;
+    r.rem = numer % denom;
+    return r;
+}
+
+__ASTREE_WEAK ldiv_t ldiv(long int numer, long int denom)
+{
+    if (denom == 0) __ASTREE_alarm((raise_at_caller; check_stdlib_limits));
+    ldiv_t r;
+    __ASTREE_initialize((r));
+    r.quot = numer / denom;
+    r.rem = numer % denom;
+    return r;
+}
+
+__ASTREE_WEAK void* malloc(size_t size)
+{
+    if (size > ALLOCATION_LIMIT) return NULL;
+    void* ptr = __astree_malloc(NULL, size, "malloc");
+#ifndef __ASTREE_MALLOC_ALWAYS_SUCCEEDS
+    if (zero_or_one) return NULL;
+#endif
+    return ptr;
+}
+
+__ASTREE_WEAK void free(void* ptr)
+{
+    __astree_malloc(ptr, 0, "malloc");
+}
+
+__ASTREE_WEAK void* realloc(void* ptr, size_t size)
+{
+    if (size > ALLOCATION_LIMIT) return NULL;
+    ptr = __astree_malloc(ptr, size, "malloc");
+#ifndef __ASTREE_MALLOC_ALWAYS_SUCCEEDS
+    if (zero_or_one) return NULL;
+#endif
+    return ptr;
+}
+
+__ASTREE_WEAK int rand(void)
+{
+    int res;
+    __ASTREE_modify((res; [0, RAND_MAX]));
+    return res;
+}
+
+__ASTREE_WEAK void srand(unsigned int seed)
+{
+    (void)seed;
+}
+
+/*
+ * stdarg.h
+ */
+
+/*
+ * stdio.h
+ */
+
+static FILE __astree_stdin;
+static FILE __astree_stdout;
+static FILE __astree_stderr;
+
+FILE* stdin = &__astree_stdin;
+FILE* stdout = &__astree_stdout;
+FILE* stderr = &__astree_stderr;
+
+__ASTREE_WEAK int remove(const char *filename)
+{
+    __ASTREE_CHECK_HANDLE_STR(filename);
+    return m_one_to_zero;
+}
+
+__ASTREE_WEAK int rename(const char *oldname, const char *newname)
+{
+    __ASTREE_CHECK_HANDLE_STR(oldname);
+    __ASTREE_CHECK_HANDLE_STR(newname);
+    return m_one_to_zero;
+}
+
+static FILE __astree_tmpfile;
+
+__ASTREE_WEAK FILE* tmpfile(void)
+{
+    if (zero_or_one)
+        return (FILE*)NULL;
+    else {
+        __ASTREE_modify((__astree_tmpfile));
+        return &__astree_tmpfile;
+    }
+}
+
+__ASTREE_WEAK char* tmpnam(char* s)
+{
+    if (zero_or_one) {
+        return NULL;
+    } else {
+        static char __astree_tmpnam[L_tmpnam];
+        char* buf = s ? s : __astree_tmpnam;
+        __astree_bzero(buf, L_tmpnam);
+        __ASTREE_trash((buf, L_tmpnam - 1));
+        return buf;
+    }
+}
+
+__ASTREE_WEAK int fclose(FILE* stream)
+{
+    __ASTREE_CHECK_HANDLE_PTR(stream);
+
+    if (zero_or_one)
+        return EOF;
+    else
+        return 0;
+}
+
+__ASTREE_WEAK int fflush(FILE* stream)
+{
+    if (zero_or_one)
+        return EOF;
+    else
+        return 0;
+}
+
+__ASTREE_WEAK FILE* fopen(const char* __ASTREE_restrict filename, const char* __ASTREE_restrict mode)
+{
+    __ASTREE_CHECK_HANDLE_STR(filename);
+    __ASTREE_CHECK_HANDLE_STR(mode);
+
+    if (zero_or_one)
+        return (FILE*)NULL;
+    else {
+        __ASTREE_modify((__astree_tmpfile));
+        return &__astree_tmpfile;
+    }
+}
+
+__ASTREE_WEAK FILE* freopen(const char* __ASTREE_restrict filename, const char* __ASTREE_restrict mode, FILE* stream)
+{
+    fclose(stream);
+    return fopen(filename, mode);
+}
+
+__ASTREE_WEAK void setbuf(FILE* __ASTREE_restrict stream, char* __ASTREE_restrict buf)
+{
+    __ASTREE_CHECK_HANDLE_PTR(stream);
+    setvbuf(stream, buf, _IONBF, BUFSIZ);
+}
+
+__ASTREE_WEAK int setvbuf(FILE* __ASTREE_restrict stream, char* __ASTREE_restrict buf, int mode, size_t size)
+{
+    __ASTREE_CHECK_HANDLE_PTR(stream);
+
+    if (buf) {
+        __ASTREE_CHECK_HANDLE_STR(buf);
+        assert((size > 0));
+        __ASTREE_alarm((raise_here; stub_invocation; "side-effects of setvbuf are ignored"));
+        __ASTREE_trash((buf, size));
+    }
+
+    return m_inf_to_inf;
+}
+
+__ASTREE_WEAK int fprintf(FILE* __ASTREE_restrict stream, const char* __ASTREE_restrict format, ...)
+{
+    __ASTREE_alarm((raise_here; stub_invocation; "side-effects of fprintf are ignored"));
+    return m_inf_to_inf;
+}
+
+__ASTREE_WEAK int fscanf(FILE* __ASTREE_restrict stream, const char* __ASTREE_restrict format, ...)
+{
+    __ASTREE_alarm((raise_here; stub_invocation; "side-effects of fscanf are ignored"));
+    return m_inf_to_inf;
+}
+
+__ASTREE_WEAK int printf(const char* __ASTREE_restrict format, ...)
+{
+    __ASTREE_alarm((raise_here; stub_invocation; "side-effects of printf are ignored"));
+    return m_inf_to_inf;
+}
+
+__ASTREE_WEAK int scanf(const char* __ASTREE_restrict format, ...)
+{
+    __ASTREE_alarm((raise_here; stub_invocation; "side-effects of scanf are ignored"));
+    return m_inf_to_inf;
+}
+
+__ASTREE_WEAK int sprintf(char* __ASTREE_restrict sm, const char* __ASTREE_restrict format, ...)
+{
+    __ASTREE_alarm((raise_here; stub_invocation; "side-effects of sprintf are ignored"));
+    return m_inf_to_inf;
+}
+
+__ASTREE_WEAK int sscanf(const char* __ASTREE_restrict sm, const char* __ASTREE_restrict format, ...)
+{
+    __ASTREE_alarm((raise_here; stub_invocation; "side-effects of sscanf are ignored"));
+    return m_inf_to_inf;
+}
+
+__ASTREE_WEAK int snprintf(char* __ASTREE_restrict s, size_t n, const char* __ASTREE_restrict format, ...)
+{
+    if (n != 0) {
+      if (!s) {
+          __ASTREE_alarm((stop; invalid_pointer_dereference; "pointer to buffer must be non-null when buffer size is non-zero"));
+      } else {
+          __ASTREE_trash((s, n));
+      }
+    }
+    __ASTREE_alarm((stub_invocation; "side-effects of snprintf are partially ignored"));
+
+    return m_inf_to_inf;
+}
+
+__ASTREE_WEAK int vfprintf(FILE* __ASTREE_restrict stream, const char* __ASTREE_restrict format, va_list arg)
+{
+    return fprintf(stream, format);
+}
+
+__ASTREE_WEAK int vfscanf(FILE* __ASTREE_restrict stream, const char* __ASTREE_restrict format, va_list arg)
+{
+    return fscanf(stream, format);
+}
+
+__ASTREE_WEAK int vprintf(const char* __ASTREE_restrict format, va_list arg)
+{
+    return printf(format);
+}
+
+__ASTREE_WEAK int vscanf(const char* __ASTREE_restrict format, va_list arg)
+{
+    return scanf(format);
+}
+
+__ASTREE_WEAK int vsnprintf(char* __ASTREE_restrict s, size_t n, const char* __ASTREE_restrict format, va_list arg)
+{
+    return snprintf(s, n, format);
+}
+
+__ASTREE_WEAK int vsprintf(char* __ASTREE_restrict s, const char* __ASTREE_restrict format, va_list arg)
+{
+    unsigned u;
+    __ASTREE_initialize((u));
+    __ASTREE_alarm((raise_here; stub_invocation; "side-effects of vsprintf are ignored"));
+    return m_inf_to_inf;
+}
+
+__ASTREE_WEAK int vsscanf(const char* __ASTREE_restrict s, const char* __ASTREE_restrict format, va_list arg)
+{
+    return sscanf(s, format);
+}
+
+__ASTREE_WEAK int fgetc(FILE* stream)
+{
+    __ASTREE_CHECK_HANDLE_PTR(stream);
+
+    if (zero_or_one)
+        return EOF;
+    else
+        return uchar_zero_to_inf;
+}
+
+__ASTREE_WEAK char* fgets(char* __ASTREE_restrict s, int n, FILE* __ASTREE_restrict stream)
+{
+    assert(n >= 0);
+    __ASTREE_CHECK_HANDLE_PTR(stream);
+
+    if (n <= 0) {
+        *s = 0;
+        return s;
+    }
+
+    char c;
+    __ASTREE_initialize((c));
+    __ASTREE_unroll((1024))
+    for (int i = 0; i < n; i++) s[i] = c;
+
+    s[n-1] = 0;
+    if (zero_or_one)
+        return (char*)NULL;
+    else
+        return s;
+}
+
+__ASTREE_WEAK int fputc(int c, FILE* stream)
+{
+    __ASTREE_alarm((raise_here; stub_invocation; "side-effects of fputc are ignored"));
+
+    if (zero_or_one)
+        return EOF;
+    else
+        return c;
+}
+
+__ASTREE_WEAK int fputs(const char* __ASTREE_restrict s, FILE* __ASTREE_restrict stream)
+{
+    __ASTREE_alarm((raise_here; stub_invocation; "side-effects of fputs are ignored"));
+
+    return m_inf_to_inf;
+}
+
+__ASTREE_WEAK int getc(FILE* stream)
+{
+    return fgetc(stream);
+}
+
+__ASTREE_WEAK int getchar(void)
+{
+    return getc(stdin);
+}
+
+__ASTREE_WEAK char* gets(char* s)
+{
+    __ASTREE_CHECK_HANDLE_STR(s);
+
+    /* An arbitrary number of chars might be written into the 
+       buffer s. The modify directive below therefore raises an alarm. */
+    unsigned zero_to_inf;
+    __ASTREE_initialize((zero_to_inf));
+    __ASTREE_trash((&s[zero_to_inf], sizeof(s[zero_to_inf])));
+
+    if (zero_or_one)
+        return (char*)NULL;
+    else
+        return s;
+}
+
+__ASTREE_WEAK int putc(int c, FILE* stream)
+{
+    return fputc(c, stream);
+}
+
+__ASTREE_WEAK int putchar(int c)
+{
+    return fputc(c, stdout);
+}
+
+__ASTREE_WEAK int puts(const char* s)
+{
+    return fputs(s, stdout);
+}
+
+__ASTREE_WEAK int ungetc(int c, FILE* stream)
+{
+    __ASTREE_alarm((raise_here; stub_invocation; "side-effects of ungetc are ignored"));
+
+    if (zero_or_one)
+        return EOF;
+    else
+        return uchar_zero_to_inf;
+}
+
+__ASTREE_WEAK size_t fread(void* __ASTREE_restrict ptr, size_t size, size_t nmemb, FILE* __ASTREE_restrict stream)
+{
+    __ASTREE_CHECK_HANDLE_PTR(ptr);
+    __ASTREE_CHECK_HANDLE_PTR(stream);
+
+    size_t n;
+
+    if (size == 0 || nmemb == 0)
+        return 0;
+
+    __ASTREE_initialize((n));
+    __ASTREE_known_fact((n <= nmemb));
+    __ASTREE_trash((ptr, size * nmemb));
+
+    return n;
+}
+
+__ASTREE_WEAK size_t fwrite(const void* __ASTREE_restrict ptr, size_t size, size_t nmemb, FILE* __ASTREE_restrict stream)
+{
+    __ASTREE_CHECK_HANDLE_PTR(ptr);
+    __ASTREE_CHECK_HANDLE_PTR(stream);
+
+    size_t n;
+
+    if (size == 0 || nmemb == 0)
+        return 0;
+
+    __ASTREE_initialize((n));
+    __ASTREE_known_fact((n <= nmemb));
+    __ASTREE_access((ptr, size * nmemb));
+
+    return n;
+}
+
+__ASTREE_WEAK int fgetpos(FILE* stream, fpos_t* pos)
+{
+    __ASTREE_CHECK_ERRNO_RESET;
+    __ASTREE_CHECK_HANDLE_PTR(stream);
+    fpos_t p;
+    __ASTREE_initialize((p));
+    __ASTREE_known_fact((p >= 0));
+    *pos = p;
+    return m_inf_to_inf;
+}
+
+__ASTREE_WEAK int fseek(FILE* stream, long int offset, int whence)
+{
+    assert(offset >= 0);
+    __ASTREE_CHECK_HANDLE_PTR(stream);
+
+    if (zero_or_one)
+        return EOF;
+    else
+        return 0;
+}
+
+__ASTREE_WEAK int fsetpos(FILE* stream, const fpos_t* pos)
+{
+    __ASTREE_CHECK_ERRNO_RESET;
+    __ASTREE_CHECK_HANDLE_PTR(stream);
+    __ASTREE_CHECK_HANDLE_PTR(pos);
+    return m_inf_to_inf;
+}
+
+__ASTREE_WEAK long int ftell(FILE* stream)
+{
+    __ASTREE_CHECK_ERRNO_RESET;
+    __ASTREE_CHECK_HANDLE_PTR(stream);
+    return long_m_one_to_inf;
+}
+
+__ASTREE_WEAK void rewind(FILE* stream)
+{
+    __ASTREE_CHECK_HANDLE_PTR(stream);
+}
+
+__ASTREE_WEAK void clearerr(FILE* stream)
+{
+    __ASTREE_CHECK_HANDLE_PTR(stream);
+}
+
+__ASTREE_WEAK int feof(FILE* stream)
+{
+    __ASTREE_CHECK_HANDLE_PTR(stream);
+    return m_inf_to_inf;
+}
+
+__ASTREE_WEAK int ferror(FILE* stream)
+{
+    __ASTREE_CHECK_HANDLE_PTR(stream);
+    return m_inf_to_inf;
+}
+
+__ASTREE_WEAK void perror(const char* s)
+{
+     __ASTREE_CHECK_HANDLE_STR(s);
+}
+
+#ifdef __cplusplus
+__ASTREE_WEAK int vasprintf(char **sptr, const char *__restrict fmt, va_list ap)
+{
+    __ASTREE_alarm((raise_here; stub_invocation; "function vasprintf is not implemented"));
+
+}
+#endif
+
+/*
+ * string.h
+ */
+
+__ASTREE_WEAK void* memcpy(void * __ASTREE_restrict s1, const void * __ASTREE_restrict s2, size_t n)
+{
+    __astree_memcpy(s1, s2, n);
+    return s1;
+}
+
+__ASTREE_WEAK void* memmove(void *s1, const void *s2, size_t n)
+{
+    return memcpy(s1, s2, n);
+}
+
+__ASTREE_WEAK char* strcpy(char * __ASTREE_restrict s1, const char * __ASTREE_restrict s2)
+{
+    size_t n = strlen(s2);
+    memcpy(s1, s2, n * sizeof(char));
+    s1[n * sizeof(char)] = '\0';
+
+    return s1;
+}
+
+__ASTREE_WEAK char* strncpy(char * __ASTREE_restrict s1, const char * __ASTREE_restrict s2, size_t n)
+{
+    _Bool zero = 0;
+    __ASTREE_unroll((1024))
+    for (size_t i = 0; i < n; ++i) {
+        char c = '\0';
+        if (!zero) {
+            c = s2[i];
+            if (c == '\0')
+                zero = 1;
+        }
+        s1[i] = c;
+    }
+
+    return s1;
+}
+
+__ASTREE_WEAK char* strcat(char * __ASTREE_restrict s1, const char * __ASTREE_restrict s2)
+{
+    size_t m = strlen(s1);
+    size_t n = strlen(s2);
+
+    memcpy(s1 + m, s2, n);
+    s1[m + n] = '\0';
+
+    return s1;
+}
+
+__ASTREE_WEAK char* strncat(char * __ASTREE_restrict s1, const char * __ASTREE_restrict s2, size_t n)
+{
+    size_t m = strlen(s1);
+    size_t i;
+    
+    __ASTREE_unroll((1024))
+    for (i = 0 ; i < n && s2[i] != '\0' ; i++);
+
+    memcpy(s1 + m, s2, i);
+    s1[m + i] = '\0';
+
+    return s1;
+}
+
+
+__ASTREE_WEAK int memcmp(const void *s1, const void *s2, size_t n)
+{
+    size_t i;
+
+    __ASTREE_unroll((1024))
+    for (i = 0; i < n; i++) {
+        char c1 = ((char*)s1)[i];
+        char c2 = ((char*)s2)[i];
+
+        if (c1 > c2)
+            return one_to_inf;
+
+        if (c1 < c2)
+            return m_inf_to_m_one;
+    }
+  
+    return 0;
+}
+
+__ASTREE_WEAK int strcmp(const char *s1, const char *s2)
+{
+    if (s1 == s2)
+        return 0;
+
+    int i;
+    __ASTREE_unroll((1024))
+    for (i = 0;  s1[i] != '\0' && s2[i] != '\0' && s1[i] == s2[i];  i++);
+
+    return (unsigned char)s1[i] - (unsigned char)s2[i];
+}
+
+__ASTREE_WEAK int strcoll(const char *s1, const char *s2)
+{
+    __ASTREE_CHECK_HANDLE_STR(s1);
+    __ASTREE_CHECK_HANDLE_STR(s2);
+
+    int r;
+    __ASTREE_initialize((r));
+    return r;
+}
+
+__ASTREE_WEAK int strncmp(const char *s1, const char *s2, size_t n)
+{
+    if (s1 == s2)
+        return 0;
+
+    int i;
+    __ASTREE_unroll((1024))
+    for (i = 0;  i < n && s1[i] != '\0' && s2[i] != '\0' && s1[i] == s2[i];  i++);
+
+    if (i == n)
+        return 0;
+
+    return (unsigned char)s1[i] - (unsigned char)s2[i];
+}
+
+__ASTREE_WEAK size_t strxfrm(char * __ASTREE_restrict s1, const char * __ASTREE_restrict s2, size_t n)
+{
+    __ASTREE_CHECK_HANDLE_STR(s2);
+
+    size_t r;
+    __ASTREE_initialize((r));
+
+    if (n <= 0)
+        return 0;
+
+    __ASTREE_known_fact((r >= 0 && r < n));
+
+    __ASTREE_trash((s1, n));
+    s1[n-1] = 0;
+
+    return r;
+}
+
+__ASTREE_WEAK void* memchr(const void *s, int c, size_t n)
+{
+    size_t i;
+
+    for (i = 0; i < n && ((char*)s)[i] != c; i++);
+
+    if (i == n)
+        return (void*)0;
+
+    return (char*)s + i;
+}
+
+__ASTREE_WEAK char* strchr(const char *s, int c)
+{
+    size_t i;
+
+    __ASTREE_unroll((1024))
+    for (i = 0; s[i] && s[i] != c; i++);
+
+    if (s[i] ||!c)
+        return (char*)s + i;
+
+    else return NULL;
+}
+
+__ASTREE_WEAK size_t strcspn(const char *s1, const char *s2)
+{
+    __ASTREE_CHECK_HANDLE_STR(s2);
+
+    size_t l = strlen(s1);
+    size_t a;
+    __ASTREE_initialize((a));
+    __ASTREE_known_fact((a <= l || a == 0));
+    return a;
+}
+
+__ASTREE_WEAK char* strrchr(const char *s, int c)
+{
+    char* last = NULL;
+    size_t i;
+    size_t m = strlen(s);
+
+    __ASTREE_unroll((1024))
+    for (i = 0; i<=m; i++)
+        if (s[i] == c)
+            last = (char*)s + i;
+
+    return last;
+}
+
+__ASTREE_WEAK char* strpbrk(const char *s1, const char *s2)
+{
+  size_t i;
+  size_t j;
+  
+  __ASTREE_unroll((100))
+  for (i = 0; s1[i]; i++)
+  {
+    __ASTREE_unroll((10))
+    for (j=0;s2[j]; j++)
+      if (s1[i]==s2[j])
+        return (char*)s1 +i;
+  }
+  return NULL;
+}
+
+__ASTREE_WEAK size_t strspn(const char *s1, const char *s2)
+{
+    __ASTREE_CHECK_HANDLE_STR(s2);
+
+    size_t l = strlen(s1);
+    size_t a;
+    __ASTREE_initialize((a));
+    __ASTREE_known_fact((a <= l || a == 0));
+    return a;
+}
+
+__ASTREE_WEAK char* strstr(const char *s1, const char *s2)
+{
+    size_t l1 = strlen(s1);
+    size_t l2 = strlen(s2);
+    size_t a;
+    __ASTREE_initialize((a));
+
+    if (zero_or_one) {
+        return NULL;
+    } else if (l1 >= l2) {
+        __ASTREE_known_fact((a <= l1 - l2));
+        return (char*)s1 + a;
+    } else {
+        return (char*) s1;
+    }
+}
+
+__ASTREE_WEAK char* strtok(char * __ASTREE_restrict s1, const char * __ASTREE_restrict s2)
+{
+    __ASTREE_CHECK_HANDLE_STR(s2);
+
+    static char* a = NULL;
+    char* rval = NULL;
+
+    size_t b = 0;
+    __ASTREE_modify((b; full_range));
+
+    /* string argument is not NULL */
+    if (s1) {
+        size_t l1 = strlen(s1);
+        __ASTREE_known_fact((b <= l1));
+        if (b > 0) { __ASTREE_trash((s1, b)); }
+        a = s1;
+        if (zero_or_one) { rval = (char*) s1 + b; };
+        return rval;
+    }
+
+    /* string argument is NULL, subsequent call */
+    if (a) {
+        size_t l1 = strlen(a);
+        __ASTREE_known_fact((b <= l1));
+        if (b > 0) { __ASTREE_trash((a, b)); }
+        if (zero_or_one) { rval = (char*) a + b; }
+        return rval;
+    }
+
+    /* string argument is NULL in first call */
+    return rval;
+}
+
+__ASTREE_WEAK void* memset(void *s, int c, size_t n)
+{
+    char cc = (char)c;
+    size_t i;
+
+    if (c == 0)
+    {
+        __astree_bzero(s,n);
+        return s;
+    }
+
+    for (i = 0; i < n; i++)
+        ((char*)s)[i] = cc;
+
+    return s;
+}
+
+static char strerror_result[32];
+
+__ASTREE_WEAK char* strerror(int errnum)
+{
+    __ASTREE_modify((strerror_result));
+    return strerror_result;
+}
+
+__ASTREE_WEAK size_t strlen(const char *s)
+{
+    size_t i;
+
+    __ASTREE_unroll((1024))
+    for (i = 0; s[i] != '\0'; i++);
+
+    return i;
+}
+
+/*
+ * time.h
+ */
+
+__ASTREE_WEAK clock_t clock(void)
+{
+    clock_t r;
+    __ASTREE_initialize((r));
+    return r;
+}
+
+__ASTREE_WEAK double difftime(time_t time1, time_t time0)
+{
+    return (double)time1 - (double)time0;
+}
+
+__ASTREE_WEAK time_t mktime(struct tm *timeptr)
+{
+    time_t r;
+    __ASTREE_initialize((r));
+    __ASTREE_trash((timeptr, sizeof(*timeptr)));
+    return r;
+}
+
+__ASTREE_WEAK time_t time(time_t *timer)
+{
+    time_t r;
+    __ASTREE_initialize((r));
+
+    if (timer)
+        *timer = r;
+
+    return r;
+}
+
+__ASTREE_WEAK int timespec_get(struct timespec *ts, int base)
+{
+    if(base != TIME_UTC)
+    {
+        __ASTREE_alarm((raise_here; stub_invocation; "unsupported base argument for timespec_get (only TIME_UTC is supported)"));
+        return 1;
+    }
+    if(ts == NULL)
+    {
+        __ASTREE_alarm((raise_at_caller; uninitialized_variable_use;
+            "clib: ts is not initialized"));
+        return 1;
+    }
+    if(zero_or_one)
+    {
+        __ASTREE_trash((&ts->tv_sec, sizeof(ts->tv_sec)));
+        __ASTREE_trash((&ts->tv_nsec, sizeof(ts->tv_nsec)));
+        return 0;
+    }
+    return 1;
+}
+
+static char __astree_asctime_buf[26];
+
+__ASTREE_WEAK char* asctime(const struct tm *timeptr)
+{
+    *timeptr;
+    __ASTREE_modify((__astree_asctime_buf));
+    __astree_asctime_buf[25] = 0;
+
+    if (zero_or_one)
+        return __astree_asctime_buf;
+    else
+        return NULL;
+}
+
+__ASTREE_WEAK char* ctime(const time_t *timer)
+{
+    struct tm *t = localtime(timer);
+    return asctime(t);
+}
+
+static struct tm __astree_gmtime_buf;
+
+__ASTREE_WEAK struct tm* gmtime(const time_t *timer)
+{
+    __ASTREE_modify((__astree_gmtime_buf));
+    __ASTREE_CHECK_HANDLE_PTR(timer);
+
+    if (zero_or_one)
+        return &__astree_gmtime_buf;
+    else
+        return NULL;
+}
+
+static struct tm __astree_localtime_buf;
+
+__ASTREE_WEAK struct tm* localtime(const time_t *timer)
+{
+    __ASTREE_modify((__astree_localtime_buf));
+    __ASTREE_CHECK_HANDLE_PTR(timer);
+
+    if (zero_or_one)
+        return &__astree_localtime_buf;
+    else
+        return NULL;
+}
+
+__ASTREE_WEAK size_t strftime(char *s, size_t maxsize, const char *format, const struct tm *timeptr)
+{
+    __ASTREE_CHECK_HANDLE_STR(s);
+    __ASTREE_CHECK_HANDLE_STR(format);
+
+    size_t r;
+    __ASTREE_initialize((r));
+    *timeptr;
+
+    __ASTREE_trash((s, maxsize));
+    s[maxsize-1] = 0;
+    __ASTREE_known_fact((r >= 0 && r <= maxsize));
+
+    return r;
+}
+
+/*
+ * wchar.h
+ */
+__ASTREE_WEAK int fwprintf(FILE *stream, const wchar_t *format, ...)
+{
+    __ASTREE_alarm((raise_here; stub_invocation; "side-effects of fwprintf are ignored"));
+    return m_inf_to_inf;
+}
+
+__ASTREE_WEAK int fwscanf(FILE *stream, const wchar_t *format, ...)
+{
+    __ASTREE_alarm((raise_here; stub_invocation; "side-effects of fwscanf are ignored"));
+    return m_inf_to_inf;
+}
+
+__ASTREE_WEAK int swprintf(wchar_t *s, size_t n, const wchar_t *format, ...)
+{
+    __ASTREE_alarm((raise_here; stub_invocation; "side-effects of swprintf are ignored"));
+    return m_inf_to_inf;
+}
+
+__ASTREE_WEAK int swscanf(const wchar_t *s, const wchar_t *format, ...)
+{
+    __ASTREE_alarm((raise_here; stub_invocation; "side-effects of swscanf are ignored"));
+    return m_inf_to_inf;
+}
+
+__ASTREE_WEAK int wprintf(const wchar_t *format, ...)
+{
+    __ASTREE_alarm((raise_here; stub_invocation; "side-effects of wprintf are ignored"));
+    return m_inf_to_inf;
+}
+
+__ASTREE_WEAK int wscanf(const wchar_t *format, ...)
+{
+    __ASTREE_alarm((raise_here; stub_invocation; "side-effects of wscanf are ignored"));
+    return m_inf_to_inf;
+}
+
+__ASTREE_WEAK int vfwprintf(FILE *stream, const wchar_t *format, va_list arg)
+{
+    return fwprintf(stream, format);
+}
+
+__ASTREE_WEAK int vfwscanf(FILE *stream, const wchar_t *format, va_list arg)
+{
+    return fwscanf(stream, format);
+}
+
+__ASTREE_WEAK int vswprintf(wchar_t *s, size_t n, const wchar_t *format, va_list arg)
+{
+    return swprintf(s, n, format);
+}
+
+__ASTREE_WEAK int vswscanf(const wchar_t *s, const wchar_t *format, va_list arg)
+{
+    return swscanf(s, format);
+}
+
+__ASTREE_WEAK int vwprintf(const wchar_t *format, va_list arg)
+{
+    return wprintf(format);
+}
+
+__ASTREE_WEAK int vwscanf(const wchar_t *format, va_list arg)
+{
+    return wscanf(format);
+}
+
+/*
+ * wctypes.h
+ */
+
+static wctrans_t wctrans_rp;
+
+__ASTREE_WEAK int iswalnum(wint_t wc)
+{
+    int r = 0;
+    __ASTREE_modify((r; [INT_MIN, INT_MAX]));
+    return r;
+}
+
+__ASTREE_WEAK int iswalpha(wint_t wc)
+{
+    int r = 0;
+    __ASTREE_modify((r; [INT_MIN, INT_MAX]));
+    return r;
+}
+
+__ASTREE_WEAK int iswblank(wint_t wc)
+{
+    int r = 0;
+    __ASTREE_modify((r; [INT_MIN, INT_MAX]));
+    return r;
+}
+
+__ASTREE_WEAK int iswcntrl(wint_t wc)
+{
+    int r = 0;
+    __ASTREE_modify((r; [INT_MIN, INT_MAX]));
+    return r;
+}
+
+__ASTREE_WEAK int iswdigit(wint_t wc)
+{
+    int r = 0;
+    __ASTREE_modify((r; [INT_MIN, INT_MAX]));
+    return r;
+}
+
+__ASTREE_WEAK int iswgraph(wint_t wc)
+{
+    int r = 0;
+    __ASTREE_modify((r; [INT_MIN, INT_MAX]));
+    return r;
+}
+
+__ASTREE_WEAK int iswlower(wint_t wc)
+{
+    int r = 0;
+    __ASTREE_modify((r; [INT_MIN, INT_MAX]));
+    return r;
+}
+
+__ASTREE_WEAK int iswprint(wint_t wc)
+{
+    int r = 0;
+    __ASTREE_modify((r; [INT_MIN, INT_MAX]));
+    return r;
+}
+
+__ASTREE_WEAK int iswpunct(wint_t wc)
+{
+    int r = 0;
+    __ASTREE_modify((r; [INT_MIN, INT_MAX]));
+    return r;
+}
+
+__ASTREE_WEAK int iswspace(wint_t wc)
+{
+    int r = 0;
+    __ASTREE_modify((r; [INT_MIN, INT_MAX]));
+    return r;
+}
+
+__ASTREE_WEAK int iswupper(wint_t wc)
+{
+    int r = 0;
+    __ASTREE_modify((r; [INT_MIN, INT_MAX]));
+    return r;
+}
+
+__ASTREE_WEAK int iswxdigit(wint_t wc)
+{
+    int r = 0;
+    __ASTREE_modify((r; [INT_MIN, INT_MAX]));
+    return r;
+}
+
+__ASTREE_WEAK int iswctype(wint_t wc, wctype_t desc)
+{
+    int r = 0;
+    __ASTREE_modify((r; [INT_MIN, INT_MAX]));
+    return r;
+}
+
+__ASTREE_WEAK wctype_t wctype(const char *property)
+{
+    __ASTREE_CHECK_HANDLE_STR(property);
+
+    int r = 0;
+    __ASTREE_modify((r; [INT_MIN, INT_MAX]));
+    return r;
+}
+
+__ASTREE_WEAK wint_t towlower(wint_t wc)
+{
+    int r = 0;
+    __ASTREE_modify((r; [INT_MIN, INT_MAX]));
+    return r;
+}
+
+__ASTREE_WEAK wint_t towupper(wint_t wc)
+{
+    int r = 0;
+    __ASTREE_modify((r; [INT_MIN, INT_MAX]));
+    return r;
+}
+
+__ASTREE_WEAK wint_t towctrans(wint_t wc, wctrans_t desc)
+{
+    int r = 0;
+    __ASTREE_modify((r; [INT_MIN, INT_MAX]));
+    return r;
+}
+
+__ASTREE_WEAK wctrans_t wctrans(const char *property)
+{
+    __ASTREE_CHECK_HANDLE_STR(property);
+
+    int r = 0;
+    __ASTREE_modify((r; [INT_MIN, INT_MAX]));
+    *wctrans_rp = r;
+    return wctrans_rp;
+}
+
+/* RULECHECKER_suppress(rules-category) */
+__ASTREE_attributes((coverage_ignore, raise_at_caller, hide_directives));

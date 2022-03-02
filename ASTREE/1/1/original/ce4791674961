@@ -1,0 +1,96 @@
+/* ----------------------------------------------------------------------
+ *    AbsInt -- Angewandte Informatik GmbH
+ *    http://www.AbsInt.de/
+ * ----------------------------------------------------------------------
+ *
+ * Example implementation of the ISO/IEC 9899:1999 (E) standard C
+ * library for static program analyses with Astree.
+ *
+ * Developed and distributed by AbsInt, under license from the CNRS/ENS.
+ * ---------------------------------------------------------------------- */
+
+#pragma once
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+/* FP exception flags. Example values corresponding to the x87 fpu control word. */
+#ifdef FE_DIVBYZERO
+#undef FE_DIVBYZERO
+#endif
+#define FE_DIVBYZERO 0x04
+#ifdef FE_INEXACT
+#undef FE_INEXACT
+#endif
+#define FE_INEXACT 0x20
+#ifdef FE_INVALID
+#undef FE_INVALID
+#endif
+#define FE_INVALID 0x01
+#ifdef FE_OVERFLOW
+#undef FE_OVERFLOW
+#endif
+#define FE_OVERFLOW 0x08
+#ifdef FE_UNDERFLOW
+#undef FE_UNDERFLOW
+#endif
+#define FE_UNDERFLOW 0x10
+
+#ifdef FE_ALL_EXCEPT
+#undef FE_ALL_EXCEPT
+#endif
+#define FE_ALL_EXCEPT ( FE_DIVBYZERO | FE_INEXACT | FE_INVALID | FE_OVERFLOW | FE_UNDERFLOW )
+
+/* Rounding modes. Example values corresponding to the x87 fpu control word. */
+#ifdef FE_DOWNWARD
+#undef FE_DOWNWARD
+#endif
+#define FE_DOWNWARD 0x400
+#ifdef FE_TONEAREST
+#undef FE_TONEAREST
+#endif
+#define FE_TONEAREST 0x0
+#ifdef FE_TOWARDZERO
+#undef FE_TOWARDZERO
+#endif
+#define FE_TOWARDZERO  0xc00
+#ifdef FE_UPWARD
+#undef FE_UPWARD
+#endif
+#define FE_UPWARD 0x800
+
+/* Exception flag type. */
+typedef unsigned short int fexcept_t;
+
+/* Dummy representation of the floating point environment. */
+typedef struct {
+    fexcept_t __fexcept;
+    int __roundMode;
+} fenv_t;
+
+extern fenv_t __astree_default_fenv;
+
+#ifdef FE_DFL_ENV
+#undef FE_DFL_ENV
+#endif
+#define FE_DFL_ENV ((const fenv_t *) &(__astree_default_fenv))
+
+int feclearexcept(int excepts);
+int fegetexceptflag(fexcept_t *flagp, int excepts);
+int feraiseexcept(int excepts);
+int fesetexceptflag(const fexcept_t *flagp, int excepts);
+int fetestexcept(int excepts);
+int fegetround(void);
+int fesetround(int round);
+int fegetenv(fenv_t *envp);
+int feholdexcept(fenv_t *envp);
+int fesetenv(const fenv_t *envp);
+int feupdateenv(const fenv_t *envp);
+
+#ifdef __cplusplus
+}
+#endif
+
+/* RULECHECKER_suppress(rules-category) */
+__ASTREE_attributes((coverage_ignore, raise_at_caller, hide_directives));

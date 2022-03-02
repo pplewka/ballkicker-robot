@@ -1,0 +1,69 @@
+/* ----------------------------------------------------------------------
+ *    AbsInt -- Angewandte Informatik GmbH
+ *    http://www.AbsInt.de/
+ * ----------------------------------------------------------------------
+ *
+ * Example implementation of the ISO/IEC 9899:1999 (E) standard C
+ * library for static program analyses with Astree.
+ *
+ * Developed and distributed by AbsInt, under license from the CNRS/ENS.
+ * ---------------------------------------------------------------------- */
+
+#pragma once
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef va_start
+#undef va_start
+#endif
+
+#ifdef va_end
+#undef va_end
+#endif
+
+#ifdef va_copy
+#undef va_copy
+#endif
+
+#ifdef va_arg
+#undef va_arg
+#endif
+
+#ifdef __ASTREE_CLANG_COMPATIBLE
+
+typedef __builtin_va_list va_list;
+
+#define va_start(va, last) __builtin_va_start(va, last)
+#define va_end(ap)         __builtin_va_end(ap)
+#define va_copy(d, s)      __builtin_va_copy(d, s)
+#define va_arg(ap, type)   __builtin_va_arg(ap, type)
+
+#else /* #ifdef __ASTREE_CLANG_COMPATIBLE */
+
+/* can store a scalar argument of any size */
+typedef union {
+  int i;
+  long l;
+  long long ll;
+  double d;
+  long double dd;
+  void *p;
+} ASTREE_va_arg_any;
+
+typedef ASTREE_va_arg_any *va_list;
+
+#define va_start(va, last) (va) = __astree_va_start(last)
+#define va_end(va)         (va) = ((void*)0)
+#define va_copy(dst,src)   (dst)=(src)
+#define va_arg(va,type)    (*(type*)(va)++)
+
+#endif /* __ASTREE_CLANG_COMPATIBLE */
+
+#ifdef __cplusplus
+}
+#endif
+
+/* RULECHECKER_suppress(rules-category) */
+__ASTREE_attributes((coverage_ignore, raise_at_caller, hide_directives));

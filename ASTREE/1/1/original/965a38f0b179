@@ -1,0 +1,182 @@
+/* ----------------------------------------------------------------------
+ *    AbsInt -- Angewandte Informatik GmbH
+ *    http://www.AbsInt.de/
+ * ----------------------------------------------------------------------
+ *
+ * Example implementation of the ISO/IEC 9899:1999 (E) standard C
+ * library for static program analyses with Astree.
+ *
+ * Developed and distributed by AbsInt, under license from the CNRS/ENS.
+ * ---------------------------------------------------------------------- */
+
+#pragma once
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+struct lconv {
+    char* decimal_point;
+    char* thousands_sep;
+    char* grouping;
+    char* mon_decimal_point;
+    char* mon_thousands_sep;
+    char* mon_grouping;
+    char* positive_sign;
+    char* negative_sign;
+    char* currency_symbol;
+    char frac_digits;
+    char p_cs_precedes;
+    char n_cs_precedes;
+    char p_sep_by_space;
+    char n_sep_by_space;
+    char p_sign_posn;
+    char n_sign_posn;
+    char* int_curr_symbol;
+    char int_frac_digits;
+    char int_p_cs_precedes;
+    char int_n_cs_precedes;
+    char int_p_sep_by_space;
+    char int_n_sep_by_space;
+    char int_p_sign_posn;
+    char int_n_sign_posn;
+};
+
+#ifdef LC_ALL
+#undef LC_ALL
+#endif
+#define LC_ALL 1
+#ifdef LC_COLLATE
+#undef LC_COLLATE
+#endif
+#define LC_COLLATE 2
+#ifdef LC_CTYPE
+#undef LC_CTYPE
+#endif
+#define LC_CTYPE 3
+#ifdef LC_MONETARY
+#undef LC_MONETARY
+#endif
+#define LC_MONETARY 4
+#ifdef LC_NUMERIC
+#undef LC_NUMERIC
+#endif
+#define LC_NUMERIC 5
+#ifdef LC_TIME
+#undef LC_TIME
+#endif
+#define LC_TIME 6
+
+#ifdef NULL
+#undef NULL
+#endif
+#ifdef __cplusplus
+#define NULL 0
+#else
+#define NULL ((void *)0)
+#endif
+
+char* setlocale(int category, const char* locale);
+struct lconv* localeconv(void);
+
+#ifdef __cplusplus
+
+#ifdef LC_MESSAGES
+#undef LC_MESSAGES
+#endif
+#define LC_MESSAGES 0
+
+/* Patch over lack of extended locale support */
+typedef void *locale_t;
+static inline locale_t duplocale(locale_t) {
+  __ASTREE_attributes((raise_at_caller));
+  return NULL;
+}
+
+static inline void freelocale(locale_t) {
+  __ASTREE_attributes((raise_at_caller));
+}
+
+static inline locale_t newlocale(int, const char *, locale_t) {
+  __ASTREE_attributes((raise_at_caller));
+  return NULL;
+}
+
+static inline locale_t uselocale(locale_t) {
+  __ASTREE_attributes((raise_at_caller));
+  return NULL;
+}
+
+#define LC_COLLATE_MASK  (1 << LC_COLLATE)
+#define LC_CTYPE_MASK    (1 << LC_CTYPE)
+#define LC_MESSAGES_MASK (1 << LC_MESSAGES)
+#define LC_MONETARY_MASK (1 << LC_MONETARY)
+#define LC_NUMERIC_MASK  (1 << LC_NUMERIC)
+#define LC_TIME_MASK     (1 << LC_TIME)
+#define LC_ALL_MASK (LC_COLLATE_MASK|\
+                     LC_CTYPE_MASK|\
+                     LC_MONETARY_MASK|\
+                     LC_NUMERIC_MASK|\
+                     LC_TIME_MASK|\
+                     LC_MESSAGES_MASK)
+
+inline int isascii(int ch) {
+    __ASTREE_attributes((raise_at_caller));
+    return ch >= 0 && ch < 128;
+}
+
+#ifdef __cplusplus
+}
+#endif
+
+#include <wchar.h>
+#include <stdlib.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+inline float strtof_l(const char *nptr, char **endptr, locale_t) {
+  __ASTREE_attributes((raise_at_caller));
+  return strtof(nptr, endptr);
+}
+
+inline double strtod_l(const char *nptr, char **endptr, locale_t) {
+  __ASTREE_attributes((raise_at_caller));
+  return strtod(nptr, endptr);
+}
+
+inline long double strtold_l(const char *nptr, char **endptr, locale_t) {
+  __ASTREE_attributes((raise_at_caller));
+  return strtold(nptr, endptr);
+}
+
+inline long long
+strtoll_l(const char *nptr, char **endptr, int base, locale_t) {
+  __ASTREE_attributes((raise_at_caller));
+  return strtoll(nptr, endptr, base);
+}
+
+inline unsigned long long
+strtoull_l(const char *nptr, char **endptr, int base, locale_t) {
+  __ASTREE_attributes((raise_at_caller));
+  return strtoull(nptr, endptr, base);
+}
+
+inline int isxdigit_l(int c, locale_t) {
+  __ASTREE_attributes((raise_at_caller));
+  return isxdigit(c);
+}
+
+inline int isdigit_l(int c, locale_t) {
+  return isdigit(c);
+}
+
+#endif
+
+#ifdef __cplusplus
+} /* extern "C" */
+#endif
+
+/* RULECHECKER_suppress(rules-category) */
+__ASTREE_attributes((coverage_ignore, raise_at_caller, hide_directives));

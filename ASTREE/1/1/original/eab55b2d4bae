@@ -1,0 +1,136 @@
+/* ----------------------------------------------------------------------
+ *    AbsInt -- Angewandte Informatik GmbH
+ *    http://www.AbsInt.de/
+ * ----------------------------------------------------------------------
+ *
+ * Example implementation of the ISO/IEC 9899:1999 (E) standard C
+ * library for static program analyses with Astree.
+ *
+ * Developed and distributed by AbsInt, under license from the CNRS/ENS.
+ * ---------------------------------------------------------------------- */
+
+#pragma once
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+typedef __ASTREE_SIG_ATOMIC_T sig_atomic_t;
+
+void astree_sig_dfl(int);
+void astree_sig_err(int);
+void astree_sig_ign(int);
+
+#ifdef SIG_DFL
+#undef SIG_DFL
+#endif
+#define SIG_DFL   (&astree_sig_dfl)
+#ifdef SIG_ERR
+#undef SIG_ERR
+#endif
+#define SIG_ERR   (&astree_sig_err)
+#ifdef SIG_IGN
+#undef SIG_IGN
+#endif
+#define SIG_IGN   (&astree_sig_ign)
+
+/* sample values taken from Linux */
+#ifdef SIGABRT
+#undef SIGABRT
+#endif
+#define SIGABRT 6
+#ifdef SIGFPE
+#undef SIGFPE
+#endif
+#define SIGFPE  8
+#ifdef SIGILL
+#undef SIGILL
+#endif
+#define SIGILL  4
+#ifdef SIGINT
+#undef SIGINT
+#endif
+#define SIGINT  2
+#ifdef SIGSEGV
+#undef SIGSEGV
+#endif
+#define SIGSEGV 11
+#ifdef SIGTERM
+#undef SIGTERM
+#endif
+#define SIGTERM 15
+
+/* sample values taken from Linux */
+#ifdef SA_NOCLDSTOP
+#undef
+#endif
+#define SA_NOCLDSTOP 0x00000001
+#ifdef SA_NOCLDWAIT
+#undef
+#endif
+#define SA_NOCLDWAIT 0x00000002
+#ifdef SA_SIGINFO
+#undef
+#endif
+#define SA_SIGINFO   0x00000004
+#ifdef SA_ONSTACK
+#undef
+#endif
+#define SA_ONSTACK   0x08000000
+#ifdef SA_RESTART
+#undef
+#endif
+#define SA_RESTART   0x10000000
+#ifdef SA_NODEFER
+#undef
+#endif
+#define SA_NODEFER   0x40000000
+#ifdef SA_RESETHAND
+#undef
+#endif
+#define SA_RESETHAND 0x80000000
+
+void (*signal(int sig, void (*func)(int)))(int);
+int raise(int sig);
+
+#ifdef __ASTREE_POSIX__
+
+#include <sys/types.h>
+
+typedef unsigned sigset_t;
+
+union sigval {
+    int   sival_int;
+    void* sival_ptr;
+};
+
+typedef struct {
+    int si_signo;
+    int si_errno;
+    int si_code;
+    pid_t si_pid;
+    uid_t si_uid;
+    void *si_addr;
+    int si_status;
+    long si_band;
+    union sigval si_value;
+} siginfo_t;
+
+struct sigaction {
+    void (*sa_handler)(int);
+    sigset_t sa_mask;
+    int sa_flags;
+    void (*sa_sigaction)(int, siginfo_t *, void *);
+};
+
+int pthread_kill(pthread_t, int);
+int pthread_sigmask(int, const sigset_t *, sigset_t *);
+
+#endif /* __ASTREE_POSIX__ */
+
+#ifdef __cplusplus
+}
+#endif
+
+/* RULECHECKER_suppress(rules-category) */
+__ASTREE_attributes((coverage_ignore, raise_at_caller, hide_directives));
