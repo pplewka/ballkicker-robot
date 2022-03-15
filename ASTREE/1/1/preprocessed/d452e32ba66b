@@ -1,4 +1,4 @@
-# 1 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.c"
+# 1 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 10 "<built-in>"
@@ -8,8 +8,8 @@
 
 # 1 "<command line>" 1
 # 1 "<built-in>" 2
-# 1 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.c" 2
-# 13 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.c"
+# 1 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.c" 2
+# 13 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.c"
 # 1 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdlib.h" 1
 # 14 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdlib.h"
 # 1 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\astree_config.h" 1
@@ -109,7 +109,7 @@ size_t wcstombs(char * restrict s, const wchar_t * restrict pwcs, size_t n);
 
 
 __ASTREE_attributes((coverage_ignore, raise_at_caller, hide_directives));
-# 14 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.c" 2
+# 14 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.c" 2
 # 1 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\string.h" 1
 # 21 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\string.h"
 void *memcpy(void * restrict s1, const void * restrict s2, size_t n);
@@ -137,7 +137,7 @@ char *strerror(int errnum);
 size_t strlen(const char *s);
 # 55 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\string.h"
 __ASTREE_attributes((coverage_ignore, raise_at_caller, hide_directives));
-# 15 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.c" 2
+# 15 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.c" 2
 # 1 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdio.h" 1
 # 15 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdio.h"
 # 1 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdarg.h" 1
@@ -226,9 +226,9 @@ int ferror(FILE* stream);
 void perror(const char* s);
 # 155 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdio.h"
 __ASTREE_attributes((coverage_ignore, raise_at_caller, hide_directives));
-# 16 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.c" 2
-# 1 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/3d_party\\modp_numtoa.h" 1
-# 37 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/3d_party\\modp_numtoa.h"
+# 16 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.c" 2
+# 1 "C:/ballkicker-robot/src/ev3dev-c/3d_party\\modp_numtoa.h" 1
+# 37 "C:/ballkicker-robot/src/ev3dev-c/3d_party\\modp_numtoa.h"
 # 1 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdint.h" 1
 # 16 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdint.h"
 typedef signed char int8_t;
@@ -288,7 +288,7 @@ typedef long long int intmax_t;
 typedef long long unsigned int uintmax_t;
 # 243 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdint.h"
 __ASTREE_attributes((coverage_ignore, raise_at_caller, hide_directives));
-# 38 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/3d_party\\modp_numtoa.h" 2
+# 38 "C:/ballkicker-robot/src/ev3dev-c/3d_party\\modp_numtoa.h" 2
 
 
 
@@ -321,19 +321,19 @@ char* modp_litoa10(int64_t value, char* buf);
 
 
 char* modp_ulitoa10(uint64_t value, char* buf);
-# 86 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/3d_party\\modp_numtoa.h"
+# 86 "C:/ballkicker-robot/src/ev3dev-c/3d_party\\modp_numtoa.h"
 char* modp_dtoa(double value, char* buf, int precision);
-# 104 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/3d_party\\modp_numtoa.h"
+# 104 "C:/ballkicker-robot/src/ev3dev-c/3d_party\\modp_numtoa.h"
 char* modp_dtoa2(double value, char* buf, int precision);
-# 17 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.c" 2
-# 1 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3.h" 1
-# 40 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3.h"
+# 17 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.c" 2
+# 1 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3.h" 1
+# 40 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3.h"
 # 1 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdbool.h" 1
 # 27 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdbool.h"
 __ASTREE_attributes((coverage_ignore, raise_at_caller, hide_directives));
-# 41 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3.h" 2
-# 1 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_both.h" 1
-# 18 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_both.h"
+# 41 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3.h" 2
+# 1 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_both.h" 1
+# 18 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_both.h"
 enum {
  EV3_KEY__NONE_ = 0,
 
@@ -344,8 +344,8 @@ enum {
  EV3_KEY_CENTER = 0x10L,
  EV3_KEY_BACK = 0x20L,
 };
-# 42 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3.h" 2
-# 62 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3.h"
+# 42 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3.h" 2
+# 62 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3.h"
 extern char *ev3_brick_addr;
 
 
@@ -364,14 +364,14 @@ typedef uint32_t dword;
 
 typedef uint8_t INX_T;
 typedef uint8_t FLAGS_T;
-# 90 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3.h"
+# 90 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3.h"
 extern int ev3_init( void );
 
 
 
 
 extern void ev3_uninit( void );
-# 104 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3.h"
+# 104 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3.h"
 extern size_t ev3_write_binary( const char *fn, char *data, size_t sz );
 
 
@@ -424,7 +424,7 @@ extern size_t ev3_write_float( const char *fn, float value );
 
 extern size_t ev3_write_char_array( const char *fn, char *value );
 extern size_t ev3_write_byte_array( const char *fn, uint8_t *value, size_t sz );
-# 166 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3.h"
+# 166 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3.h"
 extern size_t ev3_multi_write_binary( uint8_t *sn, uint16_t pos, const char *fn, char *data, size_t sz );
 
 extern size_t ev3_multi_write( uint8_t *sn, uint16_t pos, const char *fn, char *value );
@@ -435,9 +435,9 @@ extern size_t ev3_multi_write_byte( uint8_t *sn, uint16_t pos, const char *fn, u
 extern size_t ev3_multi_write_float( uint8_t *sn, uint16_t pos, const char *fn, float value );
 extern size_t ev3_multi_write_char_array( uint8_t *sn, uint16_t pos, const char *fn, char *value );
 extern size_t ev3_multi_write_byte_array( uint8_t *sn, uint16_t pos, const char *fn, uint8_t *value, size_t sz );
-# 184 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3.h"
+# 184 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3.h"
 extern size_t ev3_read_binary( const char *fn, char *buf, size_t sz );
-# 193 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3.h"
+# 193 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3.h"
 extern size_t ev3_read( const char *fn, char *buf, size_t sz );
 
 
@@ -482,7 +482,7 @@ extern size_t ev3_read_float( const char *fn, float *buf );
 
 extern size_t ev3_read_char_array( const char *fn, char *buf, size_t sz );
 extern size_t ev3_read_byte_array( const char *fn, uint8_t *buf, size_t sz );
-# 245 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3.h"
+# 245 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3.h"
 extern size_t ev3_listdir( const char *fn, char *buf, size_t sz );
 
 
@@ -497,11 +497,11 @@ extern size_t ev3_read_keys( uint8_t *buf );
 
 
 extern _Bool ev3_poweroff( void );
-# 268 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3.h"
+# 268 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3.h"
 extern int ev3_string_suffix( const char *prefix, char **s, uint32_t *buf );
-# 18 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.c" 2
-# 1 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.h" 1
-# 59 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.h"
+# 18 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.c" 2
+# 1 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_port.h" 1
+# 59 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_port.h"
 typedef struct {
  INX_T type_inx;
  uint8_t port;
@@ -509,7 +509,7 @@ typedef struct {
  uint8_t addr;
 
 } EV3_PORT;
-# 74 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.h"
+# 74 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_port.h"
 extern EV3_PORT ev3_port[ 64 ];
 
 
@@ -589,23 +589,23 @@ enum {
  PORT_MODE__COUNT_,
  PORT_MODE__UNKNOWN_ = PORT_MODE__COUNT_
 };
-# 161 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.h"
+# 161 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_port.h"
 extern size_t get_port_address( uint8_t sn, char *buf, size_t sz );
-# 170 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.h"
+# 170 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_port.h"
 extern size_t get_port_driver_name( uint8_t sn, char *buf, size_t sz );
-# 179 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.h"
+# 179 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_port.h"
 extern size_t get_port_mode( uint8_t sn, char *buf, size_t sz );
-# 188 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.h"
+# 188 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_port.h"
 extern size_t set_port_mode( uint8_t sn, char *value );
-# 197 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.h"
+# 197 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_port.h"
 extern size_t multi_set_port_mode( uint8_t *sn, char *value );
-# 206 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.h"
+# 206 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_port.h"
 extern size_t get_port_modes( uint8_t sn, char *buf, size_t sz );
-# 215 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.h"
+# 215 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_port.h"
 extern size_t set_port_set_device( uint8_t sn, char *value );
-# 224 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.h"
+# 224 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_port.h"
 extern size_t multi_set_port_set_device( uint8_t *sn, char *value );
-# 233 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.h"
+# 233 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_port.h"
 extern size_t get_port_status( uint8_t sn, char *buf, size_t sz );
 
 
@@ -672,9 +672,9 @@ extern uint8_t ev3_port_desc_addr( uint8_t sn );
 
 
 extern char *ev3_port_port_name( uint8_t sn, char *buf );
-# 307 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.h"
+# 307 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_port.h"
 extern _Bool ev3_search_port_type( INX_T type_inx, uint8_t *sn, uint8_t from );
-# 317 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.h"
+# 317 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_port.h"
 extern _Bool ev3_search_port_plugged_in( uint8_t port, uint8_t extport, uint8_t *sn, uint8_t from );
 
 
@@ -691,7 +691,7 @@ extern const char *ev3_port_mode( INX_T mode_inx );
 
 
 extern INX_T get_port_mode_inx_of_type( uint8_t sn, INX_T type_inx );
-# 341 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.h"
+# 341 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_port.h"
 extern INX_T get_port_mode_inx( uint8_t sn );
 
 
@@ -715,22 +715,22 @@ extern size_t multi_set_port_mode_inx( uint8_t *sn, INX_T mode_inx );
 
 
 extern int ev3_port_init( void );
-# 409 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.h"
+# 409 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_port.h"
 extern uint8_t ev3_search_port( uint8_t port, uint8_t extport );
-# 418 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.h"
+# 418 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_port.h"
 extern void ev3_parse_port_name( char *name, uint8_t *port, uint8_t *extport, uint8_t *addr );
-# 428 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.h"
+# 428 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_port.h"
 extern char *ev3_port_name( uint8_t port, uint8_t extport, uint8_t addr, char *buf );
-# 19 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.c" 2
-# 1 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h" 1
-# 59 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 19 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.c" 2
+# 1 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h" 1
+# 59 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 typedef struct {
  INX_T type_inx;
  uint8_t port;
  uint8_t extport;
 
 } EV3_TACHO;
-# 73 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 73 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 EV3_TACHO ev3_tacho[ 64 ];
 
 
@@ -805,121 +805,121 @@ enum {
  TACHO_STALLED = 0x10L,
 
 };
-# 155 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 155 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t get_tacho_address( uint8_t sn, char *buf, size_t sz );
-# 164 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 164 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t set_tacho_command( uint8_t sn, char *value );
-# 173 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 173 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t multi_set_tacho_command( uint8_t *sn, char *value );
-# 182 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 182 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t get_tacho_commands( uint8_t sn, char *buf, size_t sz );
-# 191 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 191 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t get_tacho_count_per_rot( uint8_t sn, int *buf );
-# 200 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 200 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t get_tacho_count_per_m( uint8_t sn, int *buf );
-# 209 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 209 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t get_tacho_full_travel_count( uint8_t sn, int *buf );
-# 218 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 218 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t get_tacho_driver_name( uint8_t sn, char *buf, size_t sz );
-# 227 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 227 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t get_tacho_duty_cycle( uint8_t sn, int *buf );
-# 236 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 236 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t get_tacho_duty_cycle_sp( uint8_t sn, int *buf );
-# 245 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 245 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t set_tacho_duty_cycle_sp( uint8_t sn, int value );
-# 254 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 254 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t multi_set_tacho_duty_cycle_sp( uint8_t *sn, int value );
-# 263 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 263 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t get_tacho_hold_pid_Kd( uint8_t sn, int *buf );
-# 272 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 272 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t set_tacho_hold_pid_Kd( uint8_t sn, int value );
-# 281 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 281 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t multi_set_tacho_hold_pid_Kd( uint8_t *sn, int value );
-# 290 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 290 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t get_tacho_hold_pid_Ki( uint8_t sn, int *buf );
-# 299 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 299 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t set_tacho_hold_pid_Ki( uint8_t sn, int value );
-# 308 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 308 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t multi_set_tacho_hold_pid_Ki( uint8_t *sn, int value );
-# 317 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 317 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t get_tacho_hold_pid_Kp( uint8_t sn, int *buf );
-# 326 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 326 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t set_tacho_hold_pid_Kp( uint8_t sn, int value );
-# 335 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 335 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t multi_set_tacho_hold_pid_Kp( uint8_t *sn, int value );
-# 344 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 344 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t get_tacho_max_speed( uint8_t sn, int *buf );
-# 353 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 353 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t get_tacho_polarity( uint8_t sn, char *buf, size_t sz );
-# 362 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 362 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t set_tacho_polarity( uint8_t sn, char *value );
-# 371 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 371 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t multi_set_tacho_polarity( uint8_t *sn, char *value );
-# 380 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 380 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t get_tacho_position( uint8_t sn, int *buf );
-# 389 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 389 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t set_tacho_position( uint8_t sn, int value );
-# 398 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 398 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t multi_set_tacho_position( uint8_t *sn, int value );
-# 407 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 407 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t get_tacho_position_sp( uint8_t sn, int *buf );
-# 416 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 416 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t set_tacho_position_sp( uint8_t sn, int value );
-# 425 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 425 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t multi_set_tacho_position_sp( uint8_t *sn, int value );
-# 434 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 434 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t get_tacho_ramp_down_sp( uint8_t sn, int *buf );
-# 443 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 443 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t set_tacho_ramp_down_sp( uint8_t sn, int value );
-# 452 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 452 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t multi_set_tacho_ramp_down_sp( uint8_t *sn, int value );
-# 461 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 461 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t get_tacho_ramp_up_sp( uint8_t sn, int *buf );
-# 470 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 470 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t set_tacho_ramp_up_sp( uint8_t sn, int value );
-# 479 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 479 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t multi_set_tacho_ramp_up_sp( uint8_t *sn, int value );
-# 488 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 488 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t get_tacho_speed( uint8_t sn, int *buf );
-# 497 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 497 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t get_tacho_speed_pid_Kd( uint8_t sn, int *buf );
-# 506 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 506 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t set_tacho_speed_pid_Kd( uint8_t sn, int value );
-# 515 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 515 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t multi_set_tacho_speed_pid_Kd( uint8_t *sn, int value );
-# 524 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 524 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t get_tacho_speed_pid_Ki( uint8_t sn, int *buf );
-# 533 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 533 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t set_tacho_speed_pid_Ki( uint8_t sn, int value );
-# 542 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 542 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t multi_set_tacho_speed_pid_Ki( uint8_t *sn, int value );
-# 551 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 551 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t get_tacho_speed_pid_Kp( uint8_t sn, int *buf );
-# 560 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 560 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t set_tacho_speed_pid_Kp( uint8_t sn, int value );
-# 569 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 569 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t multi_set_tacho_speed_pid_Kp( uint8_t *sn, int value );
-# 578 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 578 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t get_tacho_speed_sp( uint8_t sn, int *buf );
-# 587 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 587 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t set_tacho_speed_sp( uint8_t sn, int value );
-# 596 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 596 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t multi_set_tacho_speed_sp( uint8_t *sn, int value );
-# 605 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 605 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t get_tacho_state( uint8_t sn, char *buf, size_t sz );
-# 614 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 614 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t get_tacho_stop_action( uint8_t sn, char *buf, size_t sz );
-# 623 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 623 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t set_tacho_stop_action( uint8_t sn, char *value );
-# 632 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 632 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t multi_set_tacho_stop_action( uint8_t *sn, char *value );
-# 641 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 641 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t get_tacho_stop_actions( uint8_t sn, char *buf, size_t sz );
-# 650 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 650 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t get_tacho_time_sp( uint8_t sn, int *buf );
-# 659 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 659 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t set_tacho_time_sp( uint8_t sn, int value );
-# 668 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 668 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern size_t multi_set_tacho_time_sp( uint8_t *sn, int value );
 
 
@@ -979,9 +979,9 @@ extern uint8_t ev3_tacho_desc_extport( uint8_t sn );
 
 
 extern char *ev3_tacho_port_name( uint8_t sn, char *buf );
-# 735 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 735 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern _Bool ev3_search_tacho( INX_T type_inx, uint8_t *sn, uint8_t from );
-# 745 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.h"
+# 745 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.h"
 extern _Bool ev3_search_tacho_plugged_in( uint8_t port, uint8_t extport, uint8_t *sn, uint8_t from );
 
 
@@ -1080,8 +1080,8 @@ extern size_t get_tacho_state_flags( uint8_t sn, FLAGS_T *flags );
 
 
 extern int ev3_tacho_init( void );
-# 20 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.c" 2
-# 52 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_tacho.c"
+# 20 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.c" 2
+# 52 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_tacho.c"
 size_t get_tacho_address( uint8_t sn, char *buf, size_t sz )
 {
  char s[] = "/sys/class/tacho-motor/motor" "///" "address";

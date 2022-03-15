@@ -75,16 +75,16 @@
 		</rules>
 		<checks />
 		<paths>
-			<path action="add" kind="file">C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ballkicker/main.c</path>
-			<path action="remove" kind="folder">C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c</path>
+			<path action="add" kind="file">C:/ballkicker-robot/src/ballkicker/main.c</path>
+			<path action="remove" kind="folder">C:/ballkicker-robot/src/ev3dev-c</path>
 		</paths>
 	</rulechecks>
 	<rulechecks name="Ev3">
 		<rules />
 		<checks />
 		<paths>
-			<path action="add" kind="folder">C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c</path>
-			<path action="remove" kind="file">C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ballkicker/main.c</path>
+			<path action="remove" kind="file">C:/ballkicker-robot/src/ballkicker/main.c</path>
+			<path action="add" kind="folder">C:/ballkicker-robot/src/ev3dev-c</path>
 		</paths>
 	</rulechecks>
 	<options>

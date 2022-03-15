@@ -1,0 +1,726 @@
+# 1 "C:/ballkicker-robot/src/ev3dev-c/3d_party/modp_numtoa.c"
+# 1 "<built-in>" 1
+# 1 "<built-in>" 3
+# 10 "<built-in>"
+
+
+
+
+# 1 "<command line>" 1
+# 1 "<built-in>" 2
+# 1 "C:/ballkicker-robot/src/ev3dev-c/3d_party/modp_numtoa.c" 2
+
+
+
+# 1 "C:/ballkicker-robot/src/ev3dev-c/3d_party/modp_numtoa.h" 1
+# 37 "C:/ballkicker-robot/src/ev3dev-c/3d_party/modp_numtoa.h"
+# 1 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdint.h" 1
+# 13 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdint.h"
+# 1 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\astree_config.h" 1
+# 471 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\astree_config.h"
+__ASTREE_attributes((coverage_ignore, raise_at_caller, hide_directives));
+# 14 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdint.h" 2
+
+
+typedef signed char int8_t;
+
+typedef signed short int16_t;
+typedef signed int int32_t;
+
+typedef signed long long int int64_t;
+
+
+typedef unsigned char uint8_t;
+
+typedef unsigned short uint16_t;
+typedef unsigned int uint32_t;
+
+typedef unsigned long long int uint64_t;
+
+
+typedef long int intptr_t;
+typedef long unsigned int uintptr_t;
+
+
+typedef int8_t int_least8_t;
+
+typedef int16_t int_least16_t;
+typedef int32_t int_least32_t;
+
+typedef int64_t int_least64_t;
+
+
+typedef uint8_t uint_least8_t;
+
+typedef uint16_t uint_least16_t;
+typedef uint32_t uint_least32_t;
+
+typedef uint64_t uint_least64_t;
+
+
+
+typedef int8_t int_fast8_t;
+
+typedef int16_t int_fast16_t;
+typedef int32_t int_fast32_t;
+
+typedef int64_t int_fast64_t;
+
+
+typedef uint8_t uint_fast8_t;
+
+typedef uint16_t uint_fast16_t;
+typedef uint32_t uint_fast32_t;
+
+typedef uint64_t uint_fast64_t;
+
+
+typedef long long int intmax_t;
+typedef long long unsigned int uintmax_t;
+# 243 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdint.h"
+__ASTREE_attributes((coverage_ignore, raise_at_caller, hide_directives));
+# 38 "C:/ballkicker-robot/src/ev3dev-c/3d_party/modp_numtoa.h" 2
+
+
+
+
+
+
+
+char* modp_itoa10(int32_t value, char* buf);
+
+
+
+
+
+
+
+char* modp_uitoa10(uint32_t value, char* buf);
+
+
+
+
+
+
+
+char* modp_litoa10(int64_t value, char* buf);
+
+
+
+
+
+
+
+char* modp_ulitoa10(uint64_t value, char* buf);
+# 86 "C:/ballkicker-robot/src/ev3dev-c/3d_party/modp_numtoa.h"
+char* modp_dtoa(double value, char* buf, int precision);
+# 104 "C:/ballkicker-robot/src/ev3dev-c/3d_party/modp_numtoa.h"
+char* modp_dtoa2(double value, char* buf, int precision);
+# 5 "C:/ballkicker-robot/src/ev3dev-c/3d_party/modp_numtoa.c" 2
+
+
+# 1 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdio.h" 1
+# 14 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdio.h"
+# 1 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stddef.h" 1
+# 20 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stddef.h"
+typedef long int ptrdiff_t;
+typedef long unsigned int size_t;
+
+
+typedef int wchar_t;
+# 46 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stddef.h"
+typedef int errno_t;
+
+
+typedef double long max_align_t;
+
+typedef size_t rsize_t;
+
+
+
+
+
+
+__ASTREE_attributes((coverage_ignore, raise_at_caller, hide_directives));
+# 15 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdio.h" 2
+# 1 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdarg.h" 1
+# 46 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdarg.h"
+typedef union {
+  int i;
+  long l;
+  long long ll;
+  double d;
+  long double dd;
+  void *p;
+} ASTREE_va_arg_any;
+
+typedef ASTREE_va_arg_any *va_list;
+# 69 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdarg.h"
+__ASTREE_attributes((coverage_ignore, raise_at_caller, hide_directives));
+# 16 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdio.h" 2
+# 1 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\astree_restrict.h" 1
+# 22 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\astree_restrict.h"
+__ASTREE_attributes((coverage_ignore, raise_at_caller, hide_directives));
+# 17 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdio.h" 2
+
+
+
+
+
+typedef struct { char dummy; } FILE;
+
+typedef int fpos_t;
+# 85 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdio.h"
+extern FILE* stderr;
+extern FILE* stdin;
+extern FILE* stdout;
+
+int remove(const char *filename);
+int rename(const char *oldname, const char *newname);
+FILE* tmpfile(void);
+char* tmpnam(char* s);
+int fclose(FILE* stream);
+int fflush(FILE* stream);
+FILE* fopen(const char* restrict filename, const char* restrict mode);
+FILE* freopen(const char* restrict filename, const char* restrict mode, FILE* stream);
+void setbuf(FILE* restrict stream, char* restrict buf);
+int setvbuf(FILE* restrict stream, char* restrict buf, int mode, size_t size);
+
+
+
+
+
+int fprintf(FILE* restrict stream, const char* restrict format, ...);
+int fscanf(FILE* restrict stream, const char* restrict format, ...);
+int printf(const char* restrict format, ...);
+int scanf(const char* restrict format, ...);
+int sprintf(char* restrict sm, const char* restrict format, ...);
+int sscanf(const char* restrict sm, const char* restrict format, ...);
+int snprintf(char* restrict s, size_t n, const char* restrict format, ...);
+
+int vfprintf(FILE* restrict stream, const char* restrict format, va_list arg);
+int vfscanf(FILE* restrict stream, const char* restrict format, va_list arg);
+int vprintf(const char* restrict format, va_list arg);
+int vscanf(const char* restrict format, va_list arg);
+int vsnprintf(char* restrict s, size_t n, const char* restrict format, va_list arg);
+int vsprintf(char* restrict s, const char* restrict format, va_list arg);
+int vsscanf(const char* restrict s, const char* restrict format, va_list arg);
+
+int fgetc(FILE* stream);
+char* fgets(char* restrict s, int n, FILE* restrict stream);
+int fputc(int c, FILE* stream);
+int fputs(const char* restrict s, FILE* restrict stream);
+int getc(FILE* stream);
+int getchar(void);
+
+char* gets(char* s);
+
+int putc(int c, FILE* stream);
+int putchar(int c);
+int puts(const char* s);
+int ungetc(int c, FILE* stream);
+size_t fread(void* restrict ptr, size_t size, size_t nmemb, FILE* restrict stream);
+size_t fwrite(const void* restrict ptr, size_t size, size_t nmemb, FILE* restrict stream);
+int fgetpos(FILE* restrict stream, fpos_t* restrict pos);
+int fseek(FILE* stream, long int offset, int whence);
+int fsetpos(FILE* stream, const fpos_t* pos);
+long int ftell(FILE* stream);
+void rewind(FILE* stream);
+void clearerr(FILE* stream);
+int feof(FILE* stream);
+int ferror(FILE* stream);
+void perror(const char* s);
+# 155 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdio.h"
+__ASTREE_attributes((coverage_ignore, raise_at_caller, hide_directives));
+# 8 "C:/ballkicker-robot/src/ev3dev-c/3d_party/modp_numtoa.c" 2
+# 1 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\math.h" 1
+# 20 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\math.h"
+typedef float float_t;
+typedef double double_t;
+# 61 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\math.h"
+enum {
+    FP_INFINITE,
+    FP_NAN,
+    FP_NORMAL,
+    FP_SUBNORMAL,
+    FP_ZERO,
+};
+# 85 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\math.h"
+typedef float __astree_float;
+typedef double __astree_double;
+typedef long double __astree_long_double;
+# 121 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\math.h"
+static inline int __astree_signbit_f(float x)
+{
+    __ASTREE_attributes((raise_at_caller));
+    int any = 0;
+    __ASTREE_modify((any; [0, 1]));
+    return (x) < 0.0f ? 1 : ((x) > 0.0f ? 0 : any);
+}
+
+static inline int __astree_signbit_d(double x)
+{
+    __ASTREE_attributes((raise_at_caller));
+    int any = 0;
+    __ASTREE_modify((any; [0, 1]));
+    return (x) < 0.0 ? 1 : ((x) > 0.0 ? 0 : any);
+}
+
+static inline int __astree_signbit_ld(long double x)
+{
+    __ASTREE_attributes((raise_at_caller));
+    int any = 0;
+    __ASTREE_modify((any; [0, 1]));
+    return (x) < 0.0L ? 1 : ((x) > 0.0L ? 0 : any);
+}
+
+
+
+
+
+
+
+double acos(double x);
+float acosf(float x);
+long double acosl(long double x);
+double asin(double x);
+float asinf(float x);
+long double asinl(long double x);
+double atan(double x);
+float atanf(float x);
+long double atanl(long double x);
+double atan2(double y, double x);
+float atan2f(float y, float x);
+long double atan2l(long double y, long double x);
+double cos(double x);
+float cosf(float x);
+long double cosl(long double x);
+double sin(double x);
+float sinf(float x);
+long double sinl(long double x);
+double tan(double x);
+float tanf(float x);
+long double tanl(long double x);
+double acosh(double x);
+float acoshf(float x);
+long double acoshl(long double x);
+double asinh(double x);
+float asinhf(float x);
+long double asinhl(long double x);
+double atanh(double x);
+float atanhf(float x);
+long double atanhl(long double x);
+double cosh(double x);
+float coshf(float x);
+long double coshl(long double x);
+double sinh(double x);
+float sinhf(float x);
+long double sinhl(long double x);
+double tanh(double x);
+float tanhf(float x);
+long double tanhl(long double x);
+double exp(double x);
+float expf(float x);
+long double expl(long double x);
+double exp2(double x);
+float exp2f(float x);
+long double exp2l(long double x);
+double expm1(double x);
+float expm1f(float x);
+long double expm1l(long double x);
+double frexp(double value, int *exp);
+float frexpf(float value, int *exp);
+long double frexpl(long double value, int *exp);
+int ilogb(double x);
+int ilogbf(float x);
+int ilogbl(long double x);
+double ldexp(double x, int exp);
+float ldexpf(float x, int exp);
+long double ldexpl(long double x, int exp);
+double log(double x);
+float logf(float x);
+long double logl(long double x);
+double log10(double x);
+float log10f(float x);
+long double log10l(long double x);
+double log1p(double x);
+float log1pf(float x);
+long double log1pl(long double x);
+double log2(double x);
+float log2f(float x);
+long double log2l(long double x);
+double logb(double x);
+float logbf(float x);
+long double logbl(long double x);
+double modf(double value, double *iptr);
+float modff(float value, float *iptr);
+long double modfl(long double value, long double *iptr);
+double scalbn(double x, int n);
+float scalbnf(float x, int n);
+long double scalbnl(long double x, int n);
+double scalbln(double x, long int n);
+float scalblnf(float x, long int n);
+long double scalblnl(long double x, long int n);
+double cbrt(double x);
+float cbrtf(float x);
+long double cbrtl(long double x);
+double fabs(double x);
+float fabsf(float x);
+long double fabsl(long double x);
+double hypot(double x, double y);
+float hypotf(float x, float y);
+long double hypotl(long double x, long double y);
+double pow(double x, double y);
+float powf(float x, float y);
+long double powl(long double x, long double y);
+double sqrt(double x);
+float sqrtf(float x);
+long double sqrtl(long double x);
+double erf(double x);
+float erff(float x);
+long double erfl(long double x);
+double erfc(double x);
+float erfcf(float x);
+long double erfcl(long double x);
+double lgamma(double x);
+float lgammaf(float x);
+long double lgammal(long double x);
+double tgamma(double x);
+float tgammaf(float x);
+long double tgammal(long double x);
+double ceil(double x);
+float ceilf(float x);
+long double ceill(long double x);
+double floor(double x);
+float floorf(float x);
+long double floorl(long double x);
+double nearbyint(double x);
+float nearbyintf(float x);
+long double nearbyintl(long double x);
+double rint(double x);
+float rintf(float x);
+long double rintl(long double x);
+long int lrint(double x);
+long int lrintf(float x);
+long int lrintl(long double x);
+long long int llrint(double x);
+long long int llrintf(float x);
+long long int llrintl(long double x);
+double round(double x);
+float roundf(float x);
+long double roundl(long double x);
+long int lround(double x);
+long int lroundf(float x);
+long int lroundl(long double x);
+long long int llround(double x);
+long long int llroundf(float x);
+long long int llroundl(long double x);
+double trunc(double x);
+float truncf(float x);
+long double truncl(long double x);
+double fmod(double x, double y);
+float fmodf(float x, float y);
+long double fmodl(long double x, long double y);
+double remainder(double x, double y);
+float remainderf(float x, float y);
+long double remainderl(long double x, long double y);
+double remquo(double x, double y, int *quo);
+float remquof(float x, float y, int *quo);
+long double remquol(long double x, long double y, int *quo);
+double copysign(double x, double y);
+float copysignf(float x, float y);
+long double copysignl(long double x, long double y);
+double nan(const char *tagp);
+float nanf(const char *tagp);
+long double nanl(const char *tagp);
+double nextafter(double x, double y);
+float nextafterf(float x, float y);
+long double nextafterl(long double x, long double y);
+double nexttoward(double x, long double y);
+float nexttowardf(float x, long double y);
+long double nexttowardl(long double x, long double y);
+double fdim(double x, double y);
+float fdimf(float x, float y);
+long double fdiml(long double x, long double y);
+double fmax(double x, double y);
+float fmaxf(float x, float y);
+long double fmaxl(long double x, long double y);
+double fmin(double x, double y);
+float fminf(float x, float y);
+long double fminl(long double x, long double y);
+double fma(double x, double y, double z);
+float fmaf(float x, float y, float z);
+long double fmal(long double x, long double y, long double z);
+# 340 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\math.h"
+__ASTREE_attributes((coverage_ignore, raise_at_caller, hide_directives));
+# 9 "C:/ballkicker-robot/src/ev3dev-c/3d_party/modp_numtoa.c" 2
+# 25 "C:/ballkicker-robot/src/ev3dev-c/3d_party/modp_numtoa.c"
+static const double pow10[] = {1, 10, 100, 1000, 10000, 100000, 1000000,
+                               10000000, 100000000, 1000000000};
+
+static void strreverse(char* begin, char* end)
+{
+    char aux;
+    while (end > begin)
+        aux = *end, *end-- = *begin, *begin++ = aux;
+}
+
+char* modp_itoa10(int32_t value, char* str)
+{
+    char* wstr=str;
+
+    unsigned int uvalue = (value < 0) ? -value : value;
+
+    do *wstr++ = (char)(48 + (uvalue % 10)); while(uvalue /= 10);
+    if (value < 0) *wstr++ = '-';
+    *wstr='\0';
+
+    strreverse(str,wstr-1);
+    return wstr;
+}
+
+char* modp_uitoa10(uint32_t value, char* str)
+{
+    char* wstr=str;
+
+    do *wstr++ = (char)(48 + (value % 10)); while (value /= 10);
+    *wstr='\0';
+
+    strreverse(str, wstr-1);
+    return wstr;
+}
+
+char* modp_litoa10(int64_t value, char* str)
+{
+    char* wstr=str;
+    unsigned long uvalue = (value < 0) ? -value : value;
+
+
+    do *wstr++ = (char)(48 + (uvalue % 10)); while(uvalue /= 10);
+    if (value < 0) *wstr++ = '-';
+    *wstr='\0';
+
+    strreverse(str,wstr-1);
+    return wstr;
+}
+
+char* modp_ulitoa10(uint64_t value, char* str)
+{
+    char* wstr=str;
+
+    do *wstr++ = (char)(48 + (value % 10)); while (value /= 10);
+    *wstr='\0';
+
+    strreverse(str, wstr-1);
+    return wstr;
+}
+
+char* modp_dtoa(double value, char* str, int prec)
+{
+
+
+
+
+
+    if (! (value == value)) {
+        str[0] = 'n'; str[1] = 'a'; str[2] = 'n'; str[3] = '\0';
+        return str + 3;
+    }
+
+    const double thres_max = (double)(0x7FFFFFFF);
+
+    double diff = 0.0;
+    char* wstr = str;
+
+    if (prec < 0) {
+        prec = 0;
+    } else if (prec > 9) {
+
+        prec = 9;
+    }
+
+
+
+
+    int neg = 0;
+    if (value < 0) {
+        neg = 1;
+        value = -value;
+    }
+
+
+    int whole = (int) value;
+    double tmp = (value - whole) * pow10[prec];
+    uint32_t frac = (uint32_t)(tmp);
+    diff = tmp - frac;
+
+    if (diff > 0.5) {
+        ++frac;
+
+        if (frac >= pow10[prec]) {
+            frac = 0;
+            ++whole;
+        }
+    } else if (diff == 0.5 && ((frac == 0) || (frac & 1))) {
+
+
+        ++frac;
+    }
+
+
+
+
+
+
+
+    if (value > thres_max) {
+        return str + sprintf(str, "%e", neg ? -value : value);
+    }
+
+    if (prec == 0) {
+        diff = value - whole;
+        if (diff > 0.5) {
+
+            ++whole;
+        } else if (diff == 0.5 && (whole & 1)) {
+
+
+            ++whole;
+        }
+    } else {
+        int count = prec;
+
+        do {
+            --count;
+            *wstr++ = (char)(48 + (frac % 10));
+        } while (frac /= 10);
+
+        while (count-- > 0) *wstr++ = '0';
+
+        *wstr++ = '.';
+    }
+
+
+
+
+    do *wstr++ = (char)(48 + (whole % 10)); while (whole /= 10);
+    if (neg) {
+        *wstr++ = '-';
+    }
+    *wstr='\0';
+    strreverse(str, wstr-1);
+    return wstr;
+}
+
+
+
+
+char* modp_dtoa2(double value, char* str, int prec)
+{
+
+
+
+
+
+    if (! (value == value)) {
+        str[0] = 'n'; str[1] = 'a'; str[2] = 'n'; str[3] = '\0';
+        return str + 3;
+    }
+
+
+    const double thres_max = (double)(0x7FFFFFFF);
+
+    int count;
+    double diff = 0.0;
+    char* wstr = str;
+
+    if (prec < 0) {
+        prec = 0;
+    } else if (prec > 9) {
+
+        prec = 9;
+    }
+
+
+
+
+    int neg = 0;
+    if (value < 0) {
+        neg = 1;
+        value = -value;
+    }
+
+
+    int whole = (int) value;
+    double tmp = (value - whole) * pow10[prec];
+    uint32_t frac = (uint32_t)(tmp);
+    diff = tmp - frac;
+
+    if (diff > 0.5) {
+        ++frac;
+
+        if (frac >= pow10[prec]) {
+            frac = 0;
+            ++whole;
+        }
+    } else if (diff == 0.5 && ((frac == 0) || (frac & 1))) {
+
+
+        ++frac;
+    }
+
+
+
+
+
+
+
+    if (value > thres_max) {
+        return str + sprintf(str, "%e", neg ? -value : value);
+    }
+
+    if (prec == 0) {
+        diff = value - whole;
+        if (diff > 0.5) {
+
+            ++whole;
+        } else if (diff == 0.5 && (whole & 1)) {
+
+
+            ++whole;
+        }
+
+
+    } else if (frac) {
+        count = prec;
+
+
+
+        while (!(frac % 10)) {
+            --count;
+            frac /= 10;
+        }
+
+
+
+        do {
+            --count;
+            *wstr++ = (char)(48 + (frac % 10));
+        } while (frac /= 10);
+
+        while (count-- > 0) *wstr++ = '0';
+
+        *wstr++ = '.';
+    }
+
+
+
+
+    do *wstr++ = (char)(48 + (whole % 10)); while (whole /= 10);
+    if (neg) {
+        *wstr++ = '-';
+    }
+    *wstr='\0';
+    strreverse(str, wstr-1);
+    return wstr;
+}

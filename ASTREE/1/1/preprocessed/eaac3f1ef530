@@ -1,4 +1,4 @@
-# 1 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.c"
+# 1 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_port.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 10 "<built-in>"
@@ -8,8 +8,8 @@
 
 # 1 "<command line>" 1
 # 1 "<built-in>" 2
-# 1 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.c" 2
-# 13 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.c"
+# 1 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_port.c" 2
+# 13 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_port.c"
 # 1 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdlib.h" 1
 # 14 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdlib.h"
 # 1 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\astree_config.h" 1
@@ -109,7 +109,7 @@ size_t wcstombs(char * restrict s, const wchar_t * restrict pwcs, size_t n);
 
 
 __ASTREE_attributes((coverage_ignore, raise_at_caller, hide_directives));
-# 14 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.c" 2
+# 14 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_port.c" 2
 # 1 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\string.h" 1
 # 21 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\string.h"
 void *memcpy(void * restrict s1, const void * restrict s2, size_t n);
@@ -137,7 +137,7 @@ char *strerror(int errnum);
 size_t strlen(const char *s);
 # 55 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\string.h"
 __ASTREE_attributes((coverage_ignore, raise_at_caller, hide_directives));
-# 15 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.c" 2
+# 15 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_port.c" 2
 # 1 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdio.h" 1
 # 15 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdio.h"
 # 1 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdarg.h" 1
@@ -226,9 +226,9 @@ int ferror(FILE* stream);
 void perror(const char* s);
 # 155 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdio.h"
 __ASTREE_attributes((coverage_ignore, raise_at_caller, hide_directives));
-# 16 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.c" 2
-# 1 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/crc32.h" 1
-# 16 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/crc32.h"
+# 16 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_port.c" 2
+# 1 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/crc32.h" 1
+# 16 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/crc32.h"
 # 1 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdint.h" 1
 # 16 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdint.h"
 typedef signed char int8_t;
@@ -288,12 +288,12 @@ typedef long long int intmax_t;
 typedef long long unsigned int uintmax_t;
 # 243 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdint.h"
 __ASTREE_attributes((coverage_ignore, raise_at_caller, hide_directives));
-# 17 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/crc32.h" 2
+# 17 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/crc32.h" 2
 
 extern uint32_t crc32( uint32_t crc, const char *buf, uint32_t len );
-# 17 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.c" 2
-# 1 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/3d_party\\modp_numtoa.h" 1
-# 45 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/3d_party\\modp_numtoa.h"
+# 17 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_port.c" 2
+# 1 "C:/ballkicker-robot/src/ev3dev-c/3d_party\\modp_numtoa.h" 1
+# 45 "C:/ballkicker-robot/src/ev3dev-c/3d_party\\modp_numtoa.h"
 char* modp_itoa10(int32_t value, char* buf);
 
 
@@ -319,19 +319,19 @@ char* modp_litoa10(int64_t value, char* buf);
 
 
 char* modp_ulitoa10(uint64_t value, char* buf);
-# 86 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/3d_party\\modp_numtoa.h"
+# 86 "C:/ballkicker-robot/src/ev3dev-c/3d_party\\modp_numtoa.h"
 char* modp_dtoa(double value, char* buf, int precision);
-# 104 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/3d_party\\modp_numtoa.h"
+# 104 "C:/ballkicker-robot/src/ev3dev-c/3d_party\\modp_numtoa.h"
 char* modp_dtoa2(double value, char* buf, int precision);
-# 18 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.c" 2
-# 1 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3.h" 1
-# 40 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3.h"
+# 18 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_port.c" 2
+# 1 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3.h" 1
+# 40 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3.h"
 # 1 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdbool.h" 1
 # 27 "C:/Program Files/AbsInt/Advanced Analyzer/c/b10672544/share/clibrary/include\\stdbool.h"
 __ASTREE_attributes((coverage_ignore, raise_at_caller, hide_directives));
-# 41 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3.h" 2
-# 1 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_both.h" 1
-# 18 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_both.h"
+# 41 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3.h" 2
+# 1 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_both.h" 1
+# 18 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_both.h"
 enum {
  EV3_KEY__NONE_ = 0,
 
@@ -342,8 +342,8 @@ enum {
  EV3_KEY_CENTER = 0x10L,
  EV3_KEY_BACK = 0x20L,
 };
-# 42 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3.h" 2
-# 62 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3.h"
+# 42 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3.h" 2
+# 62 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3.h"
 extern char *ev3_brick_addr;
 
 
@@ -362,14 +362,14 @@ typedef uint32_t dword;
 
 typedef uint8_t INX_T;
 typedef uint8_t FLAGS_T;
-# 90 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3.h"
+# 90 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3.h"
 extern int ev3_init( void );
 
 
 
 
 extern void ev3_uninit( void );
-# 104 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3.h"
+# 104 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3.h"
 extern size_t ev3_write_binary( const char *fn, char *data, size_t sz );
 
 
@@ -422,7 +422,7 @@ extern size_t ev3_write_float( const char *fn, float value );
 
 extern size_t ev3_write_char_array( const char *fn, char *value );
 extern size_t ev3_write_byte_array( const char *fn, uint8_t *value, size_t sz );
-# 166 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3.h"
+# 166 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3.h"
 extern size_t ev3_multi_write_binary( uint8_t *sn, uint16_t pos, const char *fn, char *data, size_t sz );
 
 extern size_t ev3_multi_write( uint8_t *sn, uint16_t pos, const char *fn, char *value );
@@ -433,9 +433,9 @@ extern size_t ev3_multi_write_byte( uint8_t *sn, uint16_t pos, const char *fn, u
 extern size_t ev3_multi_write_float( uint8_t *sn, uint16_t pos, const char *fn, float value );
 extern size_t ev3_multi_write_char_array( uint8_t *sn, uint16_t pos, const char *fn, char *value );
 extern size_t ev3_multi_write_byte_array( uint8_t *sn, uint16_t pos, const char *fn, uint8_t *value, size_t sz );
-# 184 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3.h"
+# 184 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3.h"
 extern size_t ev3_read_binary( const char *fn, char *buf, size_t sz );
-# 193 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3.h"
+# 193 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3.h"
 extern size_t ev3_read( const char *fn, char *buf, size_t sz );
 
 
@@ -480,7 +480,7 @@ extern size_t ev3_read_float( const char *fn, float *buf );
 
 extern size_t ev3_read_char_array( const char *fn, char *buf, size_t sz );
 extern size_t ev3_read_byte_array( const char *fn, uint8_t *buf, size_t sz );
-# 245 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3.h"
+# 245 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3.h"
 extern size_t ev3_listdir( const char *fn, char *buf, size_t sz );
 
 
@@ -495,11 +495,11 @@ extern size_t ev3_read_keys( uint8_t *buf );
 
 
 extern _Bool ev3_poweroff( void );
-# 268 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3.h"
+# 268 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3.h"
 extern int ev3_string_suffix( const char *prefix, char **s, uint32_t *buf );
-# 19 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.c" 2
-# 1 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.h" 1
-# 59 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.h"
+# 19 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_port.c" 2
+# 1 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_port.h" 1
+# 59 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_port.h"
 typedef struct {
  INX_T type_inx;
  uint8_t port;
@@ -507,7 +507,7 @@ typedef struct {
  uint8_t addr;
 
 } EV3_PORT;
-# 74 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.h"
+# 74 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_port.h"
 EV3_PORT ev3_port[ 64 ];
 
 
@@ -587,23 +587,23 @@ enum {
  PORT_MODE__COUNT_,
  PORT_MODE__UNKNOWN_ = PORT_MODE__COUNT_
 };
-# 161 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.h"
+# 161 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_port.h"
 extern size_t get_port_address( uint8_t sn, char *buf, size_t sz );
-# 170 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.h"
+# 170 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_port.h"
 extern size_t get_port_driver_name( uint8_t sn, char *buf, size_t sz );
-# 179 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.h"
+# 179 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_port.h"
 extern size_t get_port_mode( uint8_t sn, char *buf, size_t sz );
-# 188 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.h"
+# 188 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_port.h"
 extern size_t set_port_mode( uint8_t sn, char *value );
-# 197 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.h"
+# 197 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_port.h"
 extern size_t multi_set_port_mode( uint8_t *sn, char *value );
-# 206 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.h"
+# 206 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_port.h"
 extern size_t get_port_modes( uint8_t sn, char *buf, size_t sz );
-# 215 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.h"
+# 215 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_port.h"
 extern size_t set_port_set_device( uint8_t sn, char *value );
-# 224 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.h"
+# 224 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_port.h"
 extern size_t multi_set_port_set_device( uint8_t *sn, char *value );
-# 233 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.h"
+# 233 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_port.h"
 extern size_t get_port_status( uint8_t sn, char *buf, size_t sz );
 
 
@@ -670,9 +670,9 @@ extern uint8_t ev3_port_desc_addr( uint8_t sn );
 
 
 extern char *ev3_port_port_name( uint8_t sn, char *buf );
-# 307 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.h"
+# 307 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_port.h"
 extern _Bool ev3_search_port_type( INX_T type_inx, uint8_t *sn, uint8_t from );
-# 317 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.h"
+# 317 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_port.h"
 extern _Bool ev3_search_port_plugged_in( uint8_t port, uint8_t extport, uint8_t *sn, uint8_t from );
 
 
@@ -689,7 +689,7 @@ extern const char *ev3_port_mode( INX_T mode_inx );
 
 
 extern INX_T get_port_mode_inx_of_type( uint8_t sn, INX_T type_inx );
-# 341 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.h"
+# 341 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_port.h"
 extern INX_T get_port_mode_inx( uint8_t sn );
 
 
@@ -713,14 +713,14 @@ extern size_t multi_set_port_mode_inx( uint8_t *sn, INX_T mode_inx );
 
 
 extern int ev3_port_init( void );
-# 409 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.h"
+# 409 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_port.h"
 extern uint8_t ev3_search_port( uint8_t port, uint8_t extport );
-# 418 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.h"
+# 418 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_port.h"
 extern void ev3_parse_port_name( char *name, uint8_t *port, uint8_t *extport, uint8_t *addr );
-# 428 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.h"
+# 428 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_port.h"
 extern char *ev3_port_name( uint8_t port, uint8_t extport, uint8_t addr, char *buf );
-# 20 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.c" 2
-# 32 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.c"
+# 20 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_port.c" 2
+# 32 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_port.c"
 size_t get_port_address( uint8_t sn, char *buf, size_t sz )
 {
  char s[] = "/sys/class/lego-port/port" "///" "address";
@@ -1194,7 +1194,7 @@ int ev3_port_init( void )
  }
  return ( cnt );
 }
-# 514 "C:/Users/Patrick/Documents/Progammieren/C/herter/robot/ev3dev-c/source/ev3/ev3_port.c"
+# 514 "C:/ballkicker-robot/src/ev3dev-c/source/ev3/ev3_port.c"
 void ev3_parse_port_name( char *name, uint8_t *port, uint8_t *extport, uint8_t *addr )
 {
  *port = 0;

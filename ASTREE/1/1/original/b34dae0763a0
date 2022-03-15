@@ -1,0 +1,4 @@
+#ifndef BALLKICKER_ROBOT_UNISTD_H
+#define BALLKICKER_ROBOT_UNISTD_H
+int usleep(int time);
+#endif //BALLKICKER_ROBOT_UNISTD_H

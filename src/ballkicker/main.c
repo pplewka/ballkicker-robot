@@ -3,21 +3,7 @@
 #include "ev3_port.h"
 #include "ev3_sensor.h"
 #include <ev3_tacho.h>
-//#include <unistd.h>
-
-// WIN32 /////////////////////////////////////////
-#ifdef __WIN32__
-
-#include <windows.h>
-
-// UNIX //////////////////////////////////////////
-#else
-
-//#include <unistd.h>
-#define Sleep( msec ) usleep(( msec ) * 1000 )
-
-//////////////////////////////////////////////////
-#endif
+#include <unistd.h>
 
 
 #define HIT_MOTOR_PORT      OUTPUT_D
@@ -40,8 +26,8 @@ int main( void )
 {
     printf( "Hello, LEGO World!\n" );
     printf("\a ");
-    Sleep(1000);
-    if ( ev3_init() < 1 ) return ( 1 );
+    usleep(1000);
+
 
     ev3_sensor_init();
     printf( "Found sensors:\n" );
@@ -100,7 +86,7 @@ int main( void )
     set_tacho_command_inx( motor[DRIVE_MOTOR], TACHO_RUN_FOREVER);
     set_tacho_position_sp(motor[HIT_MOTOR], DEGREE_TO_COUNT(90));
     set_tacho_command_inx(motor[HIT_MOTOR], TACHO_RUN_TO_REL_POS);
-    sleep(2);
+    usleep(2);
     set_tacho_speed_sp( motor[DRIVE_MOTOR], max_speed / 8 );
 
     set_tacho_speed_sp(motor[HIT_MOTOR], max_speed / 4);
@@ -108,9 +94,9 @@ int main( void )
     set_tacho_command_inx( motor[DRIVE_MOTOR], TACHO_RUN_FOREVER);
     set_tacho_position_sp(motor[HIT_MOTOR], DEGREE_TO_COUNT(90));
     set_tacho_command_inx(motor[HIT_MOTOR], TACHO_RUN_TO_REL_POS);
-    sleep(2);
+    usleep(2);
     multi_set_tacho_command_inx( motor, TACHO_STOP );
-    ev3_uninit();
+
 
     return 0;
 }

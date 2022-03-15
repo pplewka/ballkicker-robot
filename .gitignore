@@ -54,3 +54,5 @@ dkms.conf
 /src/.nano/
 /src/ballkicker/cmake-build-debug/
 /.idea/
+/ASTREE/2/
+/ASTREE/3/
